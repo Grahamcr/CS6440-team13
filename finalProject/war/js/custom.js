@@ -17,7 +17,7 @@ var injectSomeInfo = function(info) {
 	var authorAddr = info.author.assignedAuthor.addr;
 	var html = "<h2 class='data-header voice-brand'>Assigned Author Information:</h2>";
 	html = html + "<p class='data-title single-line-title voice-brand'>Author Name:</p>";
-	html = html + "<p class='data-text single-line-data-text voice-brand'>" + info.author.assignedAuthor.assignedPerson.family + ", " + info.author.assignedAuthor.assignedPerson.given + ", " + info.author.assignedAuthor.assignedPerson.prefix + "</p>";
+	html = html + "<p class='data-text single-line-data-text voice-brand'>" + info.author.assignedAuthor.assignedPerson.name.family + ", " + info.author.assignedAuthor.assignedPerson.name.given + ", " + info.author.assignedAuthor.assignedPerson.name.prefix + "</p>";
 	
 	html = html + "<p class='data-title multi-line-title voice-brand'>Address:</p>";
 	html = html + "<p class='data-text multi-line-data-text voice-brand'>" + authorAddr.streetAddressLine + "</p>";
