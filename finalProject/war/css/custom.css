@@ -1,0 +1,42 @@
+#alert-title {
+    float:left;
+    margin-right:10px;
+    margin-left:30%;
+}
+#alert-title, #alert-content {
+    font-size:15px;
+    margin-top:7px;
+} 
+#alert-div-wrapper, #alert-div {
+    width:100% !important;
+}
+#top-left-logo {
+    width: 100px;
+}
+.logo-wrapper {
+    margin-top: -30px;
+}
+footer {
+    margin-top: 500px;
+}
+.website-title {
+    width: 500px;
+    position: relative;
+    top:70px;
+}
+.author-info-block {
+    margin-top: 90px;
+}
+.single-line-title {
+    float:left;
+    margin-right: 10px;
+    font-weight: 700;
+}
+.multi-line-title {
+    font-weight: 700;
+    margin-bottom: -5px;
+    margin-top:10px;
+}
+.multi-line-data-text {
+    margin-bottom: -3px;
+}

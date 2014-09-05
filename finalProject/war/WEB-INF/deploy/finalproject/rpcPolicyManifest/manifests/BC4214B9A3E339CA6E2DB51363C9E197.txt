@@ -1,0 +1,2 @@
+serviceClass: gatech.team13.classproject.client.GreetingService
+path: 90FF5F7EF822FD9819785869C996D89A.gwt.rpc

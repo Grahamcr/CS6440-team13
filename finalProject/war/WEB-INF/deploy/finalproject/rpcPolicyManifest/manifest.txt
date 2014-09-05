@@ -1,0 +1,3 @@
+# Module finalproject
+# RPC service class, partial path of RPC policy file
+gatech.team13.classproject.client.GreetingService, 90FF5F7EF822FD9819785869C996D89A.gwt.rpc

@@ -1,0 +1,440 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="urn:hl7-org:v3">
+  <xs:element xmlns:urn="urn:hl7-org:v3" name="ClinicalDocument" type="urn:ClinicalDocumentType"/>
+  <xs:complexType name="realmCodeType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="code"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="typeIdType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="root"/>
+        <xs:attribute type="xs:string" name="extension"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="templateIdType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="root" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="idType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="root" use="optional"/>
+        <xs:attribute type="xs:string" name="extension" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="codeType" mixed="true">
+    <xs:sequence>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:originalTextType" name="originalText" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="code" use="optional"/>
+    <xs:attribute type="xs:string" name="codeSystem" use="optional"/>
+    <xs:attribute type="xs:string" name="codeSystemName" use="optional"/>
+    <xs:attribute type="xs:string" name="displayName" use="optional"/>
+    <xs:attribute type="xs:byte" name="codeSystemVersion" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="effectiveTimeType" mixed="true">
+    <xs:sequence>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:lowType" name="low" minOccurs="0"/>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:highType" name="high" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="value" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="confidentialityCodeType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="code"/>
+        <xs:attribute type="xs:string" name="codeSystem"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="languageCodeType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="code"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="addrType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="streetAddressLine"/>
+      <xs:element type="xs:string" name="city"/>
+      <xs:element type="xs:string" name="state"/>
+      <xs:element type="xs:short" name="postalCode"/>
+      <xs:element type="xs:string" name="country" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="use" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="telecomType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="value8" use="optional"/>
+        <xs:attribute type="xs:string" name="use" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="nameType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="prefix" minOccurs="0"/>
+      <xs:element type="xs:string" name="given"/>
+      <xs:element type="xs:string" name="family"/>
+      <xs:element type="xs:string" name="suffix" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="administrativeGenderCodeType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="code"/>
+        <xs:attribute type="xs:string" name="codeSystem"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="birthTimeType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:int" name="value5"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="patientType">
+    <xs:sequence>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:nameType" name="name"/>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:administrativeGenderCodeType" name="administrativeGenderCode"/>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:birthTimeType" name="birthTime"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="patientRoleType">
+    <xs:sequence>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:idType" name="id"/>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:addrType" name="addr"/>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:telecomType" name="telecom"/>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:patientType" name="patient"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="recordTargetType">
+    <xs:sequence>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:patientRoleType" name="patientRole"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="timeType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="value6"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="assignedPersonType">
+    <xs:sequence>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:nameType" name="name"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="assignedAuthorType">
+    <xs:sequence>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:idType" name="id"/>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:addrType" name="addr"/>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:telecomType" name="telecom"/>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:assignedPersonType" name="assignedPerson"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="authorType">
+    <xs:sequence>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:timeType" name="time"/>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:assignedAuthorType" name="assignedAuthor"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="representedCustodianOrganizationType">
+    <xs:sequence>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:idType" name="id"/>
+      <xs:element type="xs:string" name="name"/>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:telecomType" name="telecom"/>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:addrType" name="addr"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="assignedCustodianType">
+    <xs:sequence>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:representedCustodianOrganizationType" name="representedCustodianOrganization"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="custodianType">
+    <xs:sequence>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:assignedCustodianType" name="assignedCustodian"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="sectionType">
+    <xs:sequence>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:templateIdType" name="templateId"/>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:codeType" name="code"/>
+      <xs:element type="xs:string" name="title"/>
+      <xs:element name="text">
+        <xs:complexType mixed="true">
+          <xs:sequence>
+            <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:tableType" name="table" minOccurs="0"/>
+            <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:referenceType" name="reference" minOccurs="0"/>
+            <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:contentType" name="content" minOccurs="0"/>
+            <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:listType" name="list" minOccurs="0"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:entryType" name="entry" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="componentType">
+    <xs:sequence>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:sectionType" name="section" minOccurs="0"/>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:observationType" name="observation" minOccurs="0"/>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:structuredBodyType" name="structuredBody" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="trType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="th" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:tdType" name="td" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="theadType">
+    <xs:sequence>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:trType" name="tr"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="contentType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="ID" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="tdType" mixed="true">
+    <xs:sequence>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:contentType" name="content" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tbodyType">
+    <xs:sequence>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:trType" name="tr" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tableType">
+    <xs:sequence>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:theadType" name="thead"/>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:tbodyType" name="tbody"/>
+    </xs:sequence>
+    <xs:attribute type="xs:byte" name="border" use="optional"/>
+    <xs:attribute type="xs:string" name="width" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="textType" mixed="true">
+    <xs:sequence>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:tableType" name="table" minOccurs="0"/>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:referenceType" name="reference" minOccurs="0"/>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:contentType" name="content" minOccurs="0"/>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:listType" name="list" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="referenceType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="value7" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="originalTextType" mixed="true">
+    <xs:sequence>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:referenceType" name="reference"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="statusCodeType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="code" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="encounterType">
+    <xs:sequence>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:templateIdType" name="templateId"/>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:idType" name="id"/>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:codeType" name="code"/>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:statusCodeType" name="statusCode"/>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:effectiveTimeType" name="effectiveTime"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="classCode" use="optional"/>
+    <xs:attribute type="xs:string" name="moodCode" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="entryType">
+    <xs:sequence>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:encounterType" name="encounter" minOccurs="0"/>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:substanceAdministrationType" name="substanceAdministration" minOccurs="0"/>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:actType" name="act" minOccurs="0"/>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:organizerType" name="organizer" minOccurs="0"/>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:observationType" name="observation" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="typeCode" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="lowType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:int" name="value1" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="highType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:int" name="value2" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="routeCodeType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="code" use="optional"/>
+        <xs:attribute type="xs:string" name="codeSystem" use="optional"/>
+        <xs:attribute type="xs:string" name="codeSystemName" use="optional"/>
+        <xs:attribute type="xs:string" name="displayName" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="doseQuantityType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:byte" name="value3" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="administrationUnitCodeType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="code" use="optional"/>
+        <xs:attribute type="xs:string" name="codeSystem" use="optional"/>
+        <xs:attribute type="xs:string" name="codeSystemName" use="optional"/>
+        <xs:attribute type="xs:string" name="displayName" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="manufacturedMaterialType">
+    <xs:sequence>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:codeType" name="code"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="manufacturedProductType">
+    <xs:sequence>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:templateIdType" name="templateId"/>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:manufacturedMaterialType" name="manufacturedMaterial"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="classCode" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="consumableType">
+    <xs:sequence>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:manufacturedProductType" name="manufacturedProduct"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="substanceAdministrationType">
+    <xs:sequence>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:templateIdType" name="templateId"/>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:idType" name="id"/>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:textType" name="text"/>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:statusCodeType" name="statusCode"/>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:effectiveTimeType" name="effectiveTime"/>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:routeCodeType" name="routeCode"/>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:doseQuantityType" name="doseQuantity"/>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:administrationUnitCodeType" name="administrationUnitCode"/>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:consumableType" name="consumable"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="classCode" use="optional"/>
+    <xs:attribute type="xs:string" name="moodCode" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="itemType">
+    <xs:sequence>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:contentType" name="content"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listType">
+    <xs:sequence>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:itemType" name="item" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="listType"/>
+  </xs:complexType>
+  <xs:complexType name="valueType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:int" name="code" use="optional"/>
+        <xs:attribute type="xs:string" name="codeSystem" use="optional"/>
+        <xs:attribute type="xs:string" name="codeSystemName" use="optional"/>
+        <xs:attribute type="xs:string" name="displayName" use="optional"/>
+        <xs:attribute type="xs:float" name="value5" use="optional"/>
+        <xs:attribute type="xs:string" name="unit" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="observationType">
+    <xs:sequence>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:templateIdType" name="templateId"/>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:idType" name="id"/>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:codeType" name="code"/>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:textType" name="text" minOccurs="0"/>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:statusCodeType" name="statusCode"/>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:effectiveTimeType" name="effectiveTime" minOccurs="0"/>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:valueType" name="value4"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="classCode" use="optional"/>
+    <xs:attribute type="xs:string" name="moodCode" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="entryRelationshipType">
+    <xs:sequence>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:observationType" name="observation"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="typeCode" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="actType">
+    <xs:sequence>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:templateIdType" name="templateId"/>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:idType" name="id"/>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:codeType" name="code"/>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:statusCodeType" name="statusCode"/>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:effectiveTimeType" name="effectiveTime"/>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:entryRelationshipType" name="entryRelationship"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="classCode" use="optional"/>
+    <xs:attribute type="xs:string" name="moodCode" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="organizerType">
+    <xs:sequence>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:templateIdType" name="templateId"/>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:idType" name="id"/>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:codeType" name="code"/>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:statusCodeType" name="statusCode"/>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:componentType" name="component"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="classCode" use="optional"/>
+    <xs:attribute type="xs:string" name="moodCode" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="structuredBodyType">
+    <xs:sequence>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:componentType" name="component" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ClinicalDocumentType">
+    <xs:sequence>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:realmCodeType" name="realmCode"/>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:typeIdType" name="typeId"/>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:templateIdType" name="templateId" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:idType" name="id"/>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:codeType" name="code"/>
+      <xs:element type="xs:string" name="title"/>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:effectiveTimeType" name="effectiveTime"/>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:confidentialityCodeType" name="confidentialityCode"/>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:languageCodeType" name="languageCode"/>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:recordTargetType" name="recordTarget"/>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:authorType" name="author"/>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:custodianType" name="custodian"/>
+      <xs:element xmlns:urn="urn:hl7-org:v3" type="urn:componentType" name="component"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

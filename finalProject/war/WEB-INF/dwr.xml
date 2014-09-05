@@ -1,0 +1,182 @@
+<!DOCTYPE dwr PUBLIC
+    "-//GetAhead Limited//DTD Direct Web Remoting 2.0//EN"
+    "http://directwebremoting.org/schema/dwr20.dtd">
+
+
+<dwr>
+  <allow>
+    <create creator="new" javascript="DBServiceController">
+      <param name="class" value="gatech.team13.classproject.controller.DBServiceController"/>
+    </create>
+
+  
+	  <convert converter="bean" match="gatech.team13.classproject.jxab.ClinicalDocumentTypeDF">
+	  	<param name="include" value="realmCode, typeId, templateId, id, code, title, effectiveTime, confidentialityCode, languageCode, recordTarget, author, custodian, component"/>
+	  </convert>
+	  <convert converter="bean" match="gatech.team13.classproject.jxab.ActType">
+	  	<param name="include" value=" templateId, id, code, statusCode, effectiveTime, entryRelationship, classCode, moodCode"/>
+	  </convert>
+	  <convert converter="bean" match="gatech.team13.classproject.jxab.AddrType">
+	  	<param name="include" value="streetAddressLine, city, state, country, use"/>
+	  </convert>
+	  <convert converter="bean" match="gatech.team13.classproject.jxab.AdministrationUnitCodeType">
+	  	<param name="include" value="value, code, codeSystem, displayName, codeSystemName"/>
+	  </convert>
+	  <convert converter="bean" match="gatech.team13.classproject.jxab.AdministrativeGenderCodeType">
+	  	<param name="include" value="value, code, codeSystem"/>
+	  </convert>
+	  <convert converter="bean" match="gatech.team13.classproject.jxab.AssignedAuthorType">
+	  	<param name="include" value="id, addr, telecom, assignedPerson"/>
+	  </convert>
+	  <convert converter="bean" match="gatech.team13.classproject.jxab.AssignedCustodianType"/>
+	  <convert converter="bean" match="gatech.team13.classproject.jxab.AssignedPersonType">
+	  	<param name="include" value="name"/>
+	  </convert>
+	  <convert converter="bean" match="gatech.team13.classproject.jxab.AuthorType">
+	  	<param name="include" value="time, assignedAuthor"/>
+	  </convert>
+	  <convert converter="bean" match="gatech.team13.classproject.jxab.BirthTimeType">
+	  	<param name="include" value="value, value5"/>
+	  </convert>
+	  <convert converter="bean" match="gatech.team13.classproject.jxab.CodeType">
+	  	<param name="include" value="content, code, codeSystem, codeSystemName, displayName, codeSystemVersion"/>
+	  </convert>
+	  <convert converter="bean" match="gatech.team13.classproject.jxab.ComponentTypeDF">
+	  	<param name="include" value="section, observation, structuredBody"/>
+	  </convert>
+	  <convert converter="bean" match="gatech.team13.classproject.jxab.ConfidentialityCodeType">
+	  	<param name="include" value="value, code, codeSystem"/>
+	  </convert>
+	  <convert converter="bean" match="gatech.team13.classproject.jxab.ConsumableType">
+	  	<param name="include" value="manufacturedProduct"/>
+	  </convert>
+	  <convert converter="bean" match="gatech.team13.classproject.jxab.ContentType">
+	  	<param name="include" value="value, id"/>
+	  </convert>
+	  <convert converter="bean" match="gatech.team13.classproject.jxab.CustodianType">
+	  	<param name="include" value="assignedCustodian"/>
+	  </convert>
+	  <convert converter="bean" match="gatech.team13.classproject.jxab.DoseQuantityType">
+	  	<param name="include" value="value, value3"/>
+	  </convert>
+	  <convert converter="bean" match="gatech.team13.classproject.jxab.EffectiveTimeTypeDF">
+	  	<param name="include" value="content, value"/>
+	  </convert>
+	  <convert converter="bean" match="gatech.team13.classproject.jxab.EncounterType">
+	  	<param name="include" value="templateId, id, code, statusCode, effectiveTime, classCode, moodCode"/>
+	  </convert>
+	  <convert converter="bean" match="gatech.team13.classproject.jxab.EntryRelationshipType">
+	  	<param name="include" value="observation, typeCode"/>
+	  </convert>
+	  <convert converter="bean" match="gatech.team13.classproject.jxab.EntryTypeDF">
+	  	<param name="include" value="encounter, substanceAdministration, act, organizer, observation, typeCode"/>
+	  </convert>
+	  <convert converter="bean" match="gatech.team13.classproject.jxab.EntryTypeDFList">
+	  </convert>
+	  <convert converter="bean" match="gatech.team13.classproject.jxab.HighType">
+	  	<param name="include" value="value, value2"/>
+	  </convert>
+	  <convert converter="bean" match="gatech.team13.classproject.jxab.IdType">
+	  	<param name="include" value="value, root, extension"/>
+	  </convert>
+	  <convert converter="bean" match="gatech.team13.classproject.jxab.ItemType">
+	  	<param name="include" value="content"/>
+	  </convert>
+	  <convert converter="bean" match="gatech.team13.classproject.jxab.LanguageCodeType">
+	  	<param name="include" value="value, code"/>
+	  </convert>
+	  <convert converter="bean" match="gatech.team13.classproject.jxab.ListType">
+	  	<param name="include" value="item, listType"/>
+	  </convert>
+	  <convert converter="bean" match="gatech.team13.classproject.jxab.LowType">
+	  	<param name="include" value="value, value1"/>
+	  </convert>
+	  <convert converter="bean" match="gatech.team13.classproject.jxab.ManufacturedMaterialType">
+	  	<param name="include" value="code"/>
+	  </convert>
+	  <convert converter="bean" match="gatech.team13.classproject.jxab.ManufacturedProductType">
+	  	<param name="include" value="templateId, manufacturedMaterial, classCode"/>
+	  </convert>
+	  <convert converter="bean" match="gatech.team13.classproject.jxab.NameType">
+	  	<param name="include" value="prefix, given, family, suffix"/>
+	  </convert>
+	  <convert converter="bean" match="gatech.team13.classproject.jxab.ObservationType">
+	  	<param name="include" value="templateId, id, code, text, statusCode, effectiveTime, value4, classCode, moodCode"/>
+	  </convert>
+	  <convert converter="bean" match="gatech.team13.classproject.jxab.OrganizerTypeDF">
+	  	<param name="include" value="templateId, id, code, statusCode, component, classCode, moodCode"/>
+	  </convert>
+	  <convert converter="bean" match="gatech.team13.classproject.jxab.OriginalTextType">
+	  	<param name="include" value="content"/>
+	  </convert>
+	  <convert converter="bean" match="gatech.team13.classproject.jxab.PatientRoleType">
+	  	<param name="include" value="id, addr, telecom, patient"/>
+	  </convert>
+	  <convert converter="bean" match="gatech.team13.classproject.jxab.PatientType">
+	  	<param name="include" value="name, birthTime, administrativeGenderCode"/>
+	  </convert>
+	  <convert converter="bean" match="gatech.team13.classproject.jxab.RealmCodeType">
+	  	<param name="include" value="value, code"/>
+	  </convert>
+	  <convert converter="bean" match="gatech.team13.classproject.jxab.RecordTargetType">
+	  	<param name="include" value="patientRole"/>
+	  </convert>
+	  <convert converter="bean" match="gatech.team13.classproject.jxab.ReferenceType">
+	  	<param name="include" value="value, value7"/>
+	  </convert>
+	  <convert converter="bean" match="gatech.team13.classproject.jxab.RepresentedCustodianOrganizationType">
+	  	<param name="include" value="id, name, telecom, addr"/>
+	  </convert>
+	  <convert converter="bean" match="gatech.team13.classproject.jxab.RouteCodeType">
+	  	<param name="include" value="value, code, codeSystem, codeSystemName, displayName"/>
+	  </convert>
+	  <convert converter="bean" match="gatech.team13.classproject.jxab.SectionTypeDF">
+	  	<param name="include" value="templateId, code, title, text, entry"/>
+	  </convert>
+	  <convert converter="bean" match="gatech.team13.classproject.jxab.StatusCodeType">
+	  	<param name="include" value="value, code"/>
+	  </convert>
+	  <convert converter="bean" match="gatech.team13.classproject.jxab.StructuredBodyTypeDF">
+	  	<param name="include" value="component"/>
+	  </convert>
+	  <convert converter="bean" match="gatech.team13.classproject.jxab.SubstanceAdministrationType">
+	  	<param name="include" value="templateId, id, text, statusCode, effectiveTime, routeCode, doseQuantity, administrationUnitCode, consumable, classCode, moodCode"/>
+	  </convert>
+	  <convert converter="bean" match="gatech.team13.classproject.jxab.TableType">
+	  	<param name="include" value="thead, tbody, borrder, width"/>
+	  </convert>
+	  <convert converter="bean" match="gatech.team13.classproject.jxab.TbodyType">
+	  	<param name="include" value="tr"/>
+	  </convert>
+	  <convert converter="bean" match="gatech.team13.classproject.jxab.TdType">
+	  	<param name="include" value="content"/>
+	  </convert>
+	  <convert converter="bean" match="gatech.team13.classproject.jxab.TelecomType">
+	  	<param name="include" value="value, value8, use"/>
+	  </convert>
+	  <convert converter="bean" match="gatech.team13.classproject.jxab.TemplateIdType">
+	  	<param name="include" value="value, root"/>
+	  </convert>
+	  <convert converter="bean" match="gatech.team13.classproject.jxab.TextType">
+	  	<param name="include" value="content"/>
+	  </convert>
+	  <convert converter="bean" match="gatech.team13.classproject.jxab.TheadType">
+	  	<param name="include" value="tr"/>
+	  </convert>
+	  <convert converter="bean" match="gatech.team13.classproject.jxab.TimeType">
+	  	<param name="include" value="value, value6"/>
+	  </convert>
+	  <convert converter="bean" match="gatech.team13.classproject.jxab.TrType">
+	  	<param name="include" value="th, td"/>
+	  </convert>
+	  <convert converter="bean" match="gatech.team13.classproject.jxab.TypeIdType">
+	  	<param name="include" value="value, root, extension"/>
+	  </convert>
+	  <convert converter="bean" match="gatech.team13.classproject.jxab.ValueType">
+	  	<param name="include" value="value, code, codeSystem, codeSystemName, displayName, value5, unit"/>
+	  </convert>
+
+
+	  
+    </allow>
+</dwr>
