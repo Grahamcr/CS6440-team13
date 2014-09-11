@@ -35,6 +35,10 @@
     background-color: rgba(73,237,55,.7);
     color: #FFF;
 }
+.login-btn:hover {
+    background-color: rgba(93,257,75,.7) !important;
+    color: gray !important;
+}
 .login-row {
     width:600px;
     position: relative;
@@ -132,8 +136,11 @@ footer {
 /* Second Screen Shift */
 @media screen and (max-width: 991px) {
 
-     #usernameInput, #passInput, .login-btn, #passInputREv {
+     #usernameInput, #passInput, .login-btn, #passInputRE {
         width: 60%;
+    }
+    #passInputRE {
+        margin-left: 30px;
     }
    .login-body {
 	    background-image: url("../img/narrowBackground.jpg");
@@ -164,6 +171,9 @@ footer {
     #login-welcome, #login-sub-instrc {
         width: 85%;
         margin-left: 18px;
+    }
+     #usernameInput, #passInput, .login-btn, #passInputRE {
+        width: 40%;
     }
 
 }
