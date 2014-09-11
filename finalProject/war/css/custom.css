@@ -135,6 +135,11 @@ footer {
      #usernameInput, #passInput, .login-btn, #passInputREv {
         width: 60%;
     }
+   .login-body {
+	    background-image: url("../img/narrowBackground.jpg");
+	    background-repeat: no-repeat;
+	    background-size: 100%;
+	}
 }
 
 /* Third Screen Shift */
@@ -146,6 +151,7 @@ footer {
         width: 95%;
         margin-left: 12px;
     }
+
 }
 
 /* Fourth Screen Shift */
