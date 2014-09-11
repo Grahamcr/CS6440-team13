@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>GATECH PHIRe</title>
+    <!-- Styles Sheets -->
+    <link href="js/bootstrap/css/bootstrap.css" rel="stylesheet">
+	<link href="css/custom.css" rel="stylesheet">
+    <link href="js/bootstrap/css/bootstrap-theme.css" rel="stylesheet">
+
+  </head>
+
+  <body class="login-body">
+   <div class="container login-container">
+	<div id="alert-div-wrapper"></div>
+   
+   <div id="header-space"></div>
+   <div class="row login-centered-row">
+	   <div class="row login-intro-row">
+	   		<div class="span11 offset1">
+	   			<h1 id="login-welcome">Create PHIRe Account: </h1>
+	   		</div>
+	   	</div>
+	   	<div class="row login-row">
+	   		<div class="span11 offset1">
+	   			<form name = "login-form">
+					<input type="text" name="username" placeholder="UserName" id="usernameInput"> 
+					<input type="password" name="pword" placeholder="Password" id="passInput"><br/>
+					<input type="password" name="repword" placeholder="Renter Password" id="passInputRE"><br/>
+					<input class="btn login-btn" type="button" value="Submit" name="Submit" onclick= "createUser()">
+				</form>
+			</div>
+		</div>
+   	</div>
+   </div>
+   
+   	<script src="js/jquery.js"></script>
+    <script src="js/bootstrap/js/bootstrap.js"></script>
+        <script type='text/javascript' src='/dwr/interface/DBServiceController.js'></script>
+    <script type='text/javascript' src='/dwr/engine.js'></script>
+    <script type='text/javascript' src='js/createAccount.js'></script>
+  </body>
+</html>
