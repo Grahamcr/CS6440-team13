@@ -142,7 +142,7 @@ footer {
 	}
 }
 
-/* Third Screen Shift */
+/* Third Screen Shift  */
 @media screen and (max-width: 767px) {
     #usernameInput, #passInput, .login-btn, #passInputRE {
         width: 40%;
