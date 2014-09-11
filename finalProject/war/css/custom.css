@@ -1,3 +1,71 @@
+#username-div {
+    float:right;
+    margin-top: 10px;
+    font-size: 20px;
+}
+#login-sub-instrc {
+    font-size: 15px;
+    font-weight: 600;
+}
+#login-welcome {
+    font-size: 20px;
+}
+#login-username, #login-password {
+    display: none;
+}
+#usernameInput, #passInput, #passInputRE {
+    margin-right: 30px;
+    clear: both !important;
+    width: 100%;
+    margin-top: 20px;
+    line-height: 35px;
+    -webkit-border-radius: 10px;
+	   -moz-border-radius: 10px;
+	   border-radius: 10px;
+    background-color:rgba(0,0,0,0.2);
+    font-weight: 900;
+    color:rgba(255,255,255,1.0);
+}
+
+.login-btn {
+    width: 100%;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-size: 20px;
+    background-color: rgba(73,237,55,.7);
+    color: #FFF;
+}
+.login-row {
+    width:600px;
+    position: relative;
+    left:50%;
+    margin-left: -300px;
+}
+.login-centered-row {
+    margin-top: 100px;
+    background-color: #E1E3E3;
+    text-align: center;
+    width: 65%;
+    position: relative;
+    left: 50%;
+    margin-left: -30%;
+    -webkit-border-radius: 20px;
+	   -moz-border-radius: 20px;
+	   border-radius: 20px;
+    color:grey;
+    background-color:rgba(225,227,227,0.5);
+    border:solid;
+    border-width: 1px;
+}
+
+.login-body {
+    background-image: url("../img/background.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+.login-container {
+    height: 100%;
+}
 #alert-title {
     float:left;
     margin-right:10px;
@@ -39,4 +107,64 @@ footer {
 }
 .multi-line-data-text {
     margin-bottom: -3px;
+}
+
+
+
+/* RESPONSIVE CSS
+    -------------------------------------------------- */
+/* First Screen Shift */
+@media screen and (max-width: 1200px) {
+    #usernameInput, #passInput, .login-btn, #passInputRE {
+        width: 80%;
+    }
+    #usernameInput, #passInput {
+        margin-left: 30px;
+    }
+}
+
+@media screen and (max-width: 1119px) {
+}
+
+@media screen and (max-width: 864px) {
+}
+
+/* Second Screen Shift */
+@media screen and (max-width: 991px) {
+
+     #usernameInput, #passInput, .login-btn, #passInputREv {
+        width: 60%;
+    }
+}
+
+/* Third Screen Shift */
+@media screen and (max-width: 767px) {
+    #usernameInput, #passInput, .login-btn, #passInputRE {
+        width: 40%;
+    }
+    #login-welcome, #login-sub-instrc {
+        width: 95%;
+        margin-left: 12px;
+    }
+}
+
+/* Fourth Screen Shift */
+@media screen and (max-width: 600px) {
+
+}
+
+/* Fith Screen Shift */
+@media screen and (max-width: 437px) {
+    #login-welcome, #login-sub-instrc {
+        width: 85%;
+        margin-left: 18px;
+    }
+
+}
+@media screen and (max-width:350px) {
+    .login-row {
+        width: 190%;
+       position: relative;
+        left:225px;
+    }
 }

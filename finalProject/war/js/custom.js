@@ -1,6 +1,10 @@
-
+/*********************************************************************
+ * On page load, pass a fake user id and then pull the XML data 
+ ********************************************************************/
 $(document).ready(function() {
-	var userId = 1234;
+	var userId = localStorage.getItem("userId");
+	injectUsername();
+	//Make a DWR call to the Controller to ask for the XML data
 	DBServiceController.getData(userId, {
 		  callback:function(returnVal) {
 			  var value = returnVal;
@@ -9,9 +13,17 @@ $(document).ready(function() {
 		  }
 		});
 });
+/*********************************************************************
+ * Pull the username from local storage and welcome them to this page
+ ********************************************************************/
+var injectUsername = function() {
+	var username =  localStorage.getItem("username");
+	$('#username-div')[0].innerHTML = "<p class='voice-brand username-text'> Welcome " + username  + "</p>";
+};
 
 /*********************************************************************
- * Display an alert message
+ * If the call to get XML data is successful, inject the data
+ * into the page by buliding HTML from the content
  ********************************************************************/
 var injectSomeInfo = function(info) {
 	var authorAddr = info.author.assignedAuthor.addr;
@@ -30,7 +42,7 @@ var injectSomeInfo = function(info) {
 	$('.author-info-block-wrapper')[0].innerHTML = html;
 };
 /*********************************************************************
- * Display an alert message
+ * Display an alert message to the user
  ********************************************************************/
 var displayAlert = function(text, classType, title) {
 	
