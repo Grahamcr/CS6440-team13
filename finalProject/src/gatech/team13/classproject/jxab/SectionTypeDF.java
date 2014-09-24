@@ -1,7 +1,5 @@
 package gatech.team13.classproject.jxab;
 
-import java.util.List;
-
 
 public class SectionTypeDF {
 

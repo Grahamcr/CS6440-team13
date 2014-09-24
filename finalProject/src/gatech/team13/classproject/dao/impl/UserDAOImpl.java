@@ -50,7 +50,8 @@ public class UserDAOImpl {
 	    datastore.put(task); 
 	    
 		//Make sure the store was successful....
-	    Query q = new Query("User")
+	    @SuppressWarnings("deprecation")
+		Query q = new Query("User")
         .addFilter(USER_NAME,
                    Query.FilterOperator.EQUAL,
                    username);
@@ -79,6 +80,7 @@ public class UserDAOImpl {
 		DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
 		
 		//Query the DataStore "User" table for any username matching the one entered
+		@SuppressWarnings("deprecation")
 		Query q = new Query("User")
         .addFilter(USER_NAME,
                    Query.FilterOperator.EQUAL,
@@ -117,6 +119,7 @@ public class UserDAOImpl {
 		//Use the userId as the key to remove the user account
 		Key userKey = KeyFactory.createKey("User", userId.longValue());
 		
+		@SuppressWarnings("deprecation")
 		Query q = new Query("User")
         .addFilter(USER_UID,
                    Query.FilterOperator.EQUAL,
