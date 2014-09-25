@@ -8,7 +8,7 @@ $(document).ready(function() {
 	DBServiceController.getData(userId, {
 		  callback:function(returnVal) {
 			  var value = returnVal;
-			  injectSomeInfo(value);
+			 // injectSomeInfo(value);
 			  displayAlert("Successful Data Pull!! Here is some of the information pull, parsed and returned :)", "alert-success", "Victory!")
 		  }
 		});

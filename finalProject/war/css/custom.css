@@ -1,3 +1,8 @@
+.widget-wrapper, #patient-info-wrapper {
+    min-height: 200px;
+    border:solid;
+    border-width:1px; 
+}
 #username-div {
     float:right;
     margin-top: 10px;
