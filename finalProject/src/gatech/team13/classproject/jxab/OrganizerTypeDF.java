@@ -5,9 +5,9 @@ public class OrganizerTypeDF {
 
     protected TemplateIdType templateId;
     protected IdType id;
-    protected CodeType code;
+    protected CodeTypeDF code;
     protected StatusCodeType statusCode;
-    protected ComponentType component;
+    protected ComponentTypeDF component;
     protected String classCode;
     protected String moodCode;
 
@@ -15,9 +15,13 @@ public class OrganizerTypeDF {
 	public OrganizerTypeDF(OrganizerType organizer) {
 		this.templateId = organizer.getTemplateId();
 		this.id = organizer.getId();
-		this.code = organizer.getCode();
+		if(organizer.getCode() != null) {
+			this.code = new CodeTypeDF(organizer.getCode());
+		}
 		this.statusCode = organizer.getStatusCode();
-		this.component = organizer.getComponent();
+		if(organizer.getComponent() != null) {
+			this.component = new ComponentTypeDF(organizer.getComponent());
+		}
 		this.classCode = organizer.getClassCode();
 		this.moodCode = organizer.getMoodCode();
 	}
@@ -43,12 +47,12 @@ public class OrganizerTypeDF {
 	}
 
 
-	public CodeType getCode() {
+	public CodeTypeDF getCode() {
 		return code;
 	}
 
 
-	public void setCode(CodeType code) {
+	public void setCode(CodeTypeDF code) {
 		this.code = code;
 	}
 
@@ -63,12 +67,12 @@ public class OrganizerTypeDF {
 	}
 
 
-	public ComponentType getComponent() {
+	public ComponentTypeDF getComponent() {
 		return component;
 	}
 
 
-	public void setComponent(ComponentType component) {
+	public void setComponent(ComponentTypeDF component) {
 		this.component = component;
 	}
 

@@ -9,7 +9,7 @@ public class ClinicalDocumentTypeDF {
     protected TypeIdType typeId;
     protected List<TemplateIdType> templateId;
     protected IdType id;
-    protected CodeType code;
+    protected CodeTypeDF code;
     protected String title;
     protected EffectiveTimeTypeDF effectiveTime;
     protected ConfidentialityCodeType confidentialityCode;
@@ -24,7 +24,9 @@ public class ClinicalDocumentTypeDF {
 		this.typeId = result.getTypeId();
 		this.templateId = result.getTemplateId();
 		this.id = result.getId();
-		this.code = result.getCode();
+		if(this.code != null) {
+			this.code = new CodeTypeDF(result.getCode());
+		}
 		this.title = result.title;
 		this.effectiveTime = new EffectiveTimeTypeDF(result.getEffectiveTime());
 		this.confidentialityCode = result.getConfidentialityCode();
@@ -67,11 +69,11 @@ public class ClinicalDocumentTypeDF {
 		this.id = id;
 	}
 
-	public CodeType getCode() {
+	public CodeTypeDF getCode() {
 		return code;
 	}
 
-	public void setCode(CodeType code) {
+	public void setCode(CodeTypeDF code) {
 		this.code = code;
 	}
 

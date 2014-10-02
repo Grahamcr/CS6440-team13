@@ -42,9 +42,13 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "originalTextType", propOrder = {
     "content"
 })
-public class OriginalTextType {
+public class OriginalTextType implements Serializable {
 
-    @XmlElementRef(name = "reference", namespace = "urn:hl7-org:v3", type = JAXBElement.class)
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 5841328590200627401L;
+	@XmlElementRef(name = "reference", namespace = "urn:hl7-org:v3", type = JAXBElement.class)
     @XmlMixed
     protected List<Serializable> content;
 

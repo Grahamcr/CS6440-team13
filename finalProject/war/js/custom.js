@@ -1,3 +1,11 @@
+this.ALLERGIES = "ALLERGIES, ADVERSE REACTIONS, ALERTS";
+this.ENCOUNTERS = "Encounters";
+this.MEDICATION ="Medications";
+this.PROBLEMS = "PROBLEMS";
+this.PROCEDURES = "PROCEDURES";
+this.RESULTS = "RESULTS";
+this.SOCIAL = "Soical History";
+
 /*********************************************************************
  * On page load, pass a fake user id and then pull the XML data 
  ********************************************************************/
@@ -8,11 +16,60 @@ $(document).ready(function() {
 	DBServiceController.getData(userId, {
 		  callback:function(returnVal) {
 			  var value = returnVal;
-			 // injectSomeInfo(value);
+			  parseResults(value);
 			  displayAlert("Successful Data Pull!! Here is some of the information pull, parsed and returned :)", "alert-success", "Victory!")
 		  }
 		});
 });
+/*********************************************************************
+ * Parse the results that we care about and inject the content into
+ * the DOM structure.
+ ********************************************************************/
+var parseResults = function(results) {
+	var components = results.component.structuredBody.component;
+	for(var i = 0; i < components.length; i++) {
+		var section = components[i].section;
+		switch(section.title) {
+			case this.ALLERGIES:
+				
+			break;
+			case this.ENCOUNTERS:
+				parseEncounters(section.text.content);
+			break;
+			case this.MEDICATION:
+				parseMedication(section.text.content);
+			break;
+			case this.PROBLEMS:
+				
+			break;
+			case this.PROCEDURES:
+				
+			break;
+			case this.RESULTS:
+				
+			break;
+			case this.SOCIAL:
+				
+			break;
+		}
+	}
+};
+/*********************************************************************
+ * Parse patient encounter information and inject it into the widget
+ ********************************************************************/
+var parseEncounters = function(results) {
+	var encounterTable = $('#encounter-tb')[0];
+	var toInject = new Array();
+	
+};
+/*********************************************************************
+ * Parse patient m information and inject it into the widget
+ ********************************************************************/
+var parseMedication = function(results) {
+	var medicationTable = $('#medication-tb')[0];
+	var toInject = new Array();
+};
+
 /*********************************************************************
  * Pull the username from local storage and welcome them to this page
  ********************************************************************/
@@ -25,21 +82,8 @@ var injectUsername = function() {
  * If the call to get XML data is successful, inject the data
  * into the page by buliding HTML from the content
  ********************************************************************/
-var injectSomeInfo = function(info) {
-	var authorAddr = info.author.assignedAuthor.addr;
-	var html = "<h2 class='data-header voice-brand'>Assigned Author Information:</h2>";
-	html = html + "<p class='data-title single-line-title voice-brand'>Author Name:</p>";
-	html = html + "<p class='data-text single-line-data-text voice-brand'>" + info.author.assignedAuthor.assignedPerson.name.family + ", " + info.author.assignedAuthor.assignedPerson.name.given + ", " + info.author.assignedAuthor.assignedPerson.name.prefix + "</p>";
+var injectTableRows = function(table, rows) {
 	
-	html = html + "<p class='data-title multi-line-title voice-brand'>Address:</p>";
-	html = html + "<p class='data-text multi-line-data-text voice-brand'>" + authorAddr.streetAddressLine + "</p>";
-	html = html + "<p class='data-text multi-line-data-text voice-brand'>" + authorAddr.city + ", " + authorAddr.state + ", " + authorAddr.country + "</p>";
-	
-	html = html + "<p class='data-title multi-line-title voice-brand'>Id:</p>";
-	html = html + "<p class='data-text multi-line-data-text voice-brand'>Extension: " + info.author.assignedAuthor.id.extension + "</p>";
-	html = html + "<p class='data-text multi-line-data-text voice-brand'>Root: " + info.author.assignedAuthor.id.root + "</p>";
-	html = html + "<p class='data-text multi-line-data-text voice-brand'>Value: " + info.author.assignedAuthor.id.value + "</p>";
-	$('.author-info-block-wrapper')[0].innerHTML = html;
 };
 /*********************************************************************
  * Display an alert message to the user

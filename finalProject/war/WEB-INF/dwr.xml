@@ -12,7 +12,7 @@
   
 	  <convert converter="bean" match="gatech.team13.classproject.jxab.ClinicalDocumentTypeDF">
 	  </convert>
-	  <convert converter="bean" match="gatech.team13.classproject.jxab.ActType">
+	  <convert converter="bean" match="gatech.team13.classproject.jxab.ActTypeDF">
 	  </convert>
 	  <convert converter="bean" match="gatech.team13.classproject.jxab.AddrType">
 	  </convert>
@@ -29,7 +29,7 @@
 	  </convert>
 	  <convert converter="bean" match="gatech.team13.classproject.jxab.BirthTimeType">
 	  </convert>
-	  <convert converter="bean" match="gatech.team13.classproject.jxab.CodeType">
+	  <convert converter="bean" match="gatech.team13.classproject.jxab.CodeTypeDF">
 	  </convert>
 	  <convert converter="bean" match="gatech.team13.classproject.jxab.ComponentTypeDF">
 	  </convert>
@@ -45,9 +45,9 @@
 	  </convert>
 	  <convert converter="bean" match="gatech.team13.classproject.jxab.EffectiveTimeTypeDF">
 	  </convert>
-	  <convert converter="bean" match="gatech.team13.classproject.jxab.EncounterType">
+	  <convert converter="bean" match="gatech.team13.classproject.jxab.EncounterTypeDF">
 	  </convert>
-	  <convert converter="bean" match="gatech.team13.classproject.jxab.EntryRelationshipType">
+	  <convert converter="bean" match="gatech.team13.classproject.jxab.EntryRelationshipTypeDF">
 	  </convert>
 	  <convert converter="bean" match="gatech.team13.classproject.jxab.EntryTypeDF">
 	  </convert>
@@ -59,7 +59,7 @@
 	  </convert>
 	  <convert converter="bean" match="gatech.team13.classproject.jxab.ItemType">
 	  </convert>
-	  <convert converter="bean" match="gatech.team13.classproject.jxab.LanguageCodeType">
+	  <convert converter="bean" match="gatech.team13.classproject.jxab.LanguageCodeTypeDF">
 	  </convert>
 	  <convert converter="bean" match="gatech.team13.classproject.jxab.ListType">
 	  </convert>
@@ -71,11 +71,11 @@
 	  </convert>
 	  <convert converter="bean" match="gatech.team13.classproject.jxab.NameType">
 	  </convert>
-	  <convert converter="bean" match="gatech.team13.classproject.jxab.ObservationType">
+	  <convert converter="bean" match="gatech.team13.classproject.jxab.ObservationTypeDF">
 	  </convert>
 	  <convert converter="bean" match="gatech.team13.classproject.jxab.OrganizerTypeDF">
 	  </convert>
-	  <convert converter="bean" match="gatech.team13.classproject.jxab.OriginalTextType">
+	  <convert converter="bean" match="gatech.team13.classproject.jxab.OriginalTextTypeDF">
 	  </convert>
 	  <convert converter="bean" match="gatech.team13.classproject.jxab.PatientRoleType">
 	  </convert>
@@ -97,31 +97,33 @@
 	  </convert>
 	  <convert converter="bean" match="gatech.team13.classproject.jxab.StructuredBodyTypeDF">
 	  </convert>
-	  <convert converter="bean" match="gatech.team13.classproject.jxab.SubstanceAdministrationType">
+	  <convert converter="bean" match="gatech.team13.classproject.jxab.SubstanceAdministrationTypeDF">
 	  </convert>
-	  <convert converter="bean" match="gatech.team13.classproject.jxab.TableType">
+	  <convert converter="bean" match="gatech.team13.classproject.jxab.TableTypeDF">
 	  </convert>
-	  <convert converter="bean" match="gatech.team13.classproject.jxab.TbodyType">
+	  <convert converter="bean" match="gatech.team13.classproject.jxab.TbodyTypeDF">
 	  </convert>
-	  <convert converter="bean" match="gatech.team13.classproject.jxab.TdType">
+	  <convert converter="bean" match="gatech.team13.classproject.jxab.TdTypeDF">
 	  </convert>
 	  <convert converter="bean" match="gatech.team13.classproject.jxab.TelecomType">
 	  </convert>
 	  <convert converter="bean" match="gatech.team13.classproject.jxab.TemplateIdType">
 	  </convert>
-	  <convert converter="bean" match="gatech.team13.classproject.jxab.TextType">
+	  <convert converter="bean" match="gatech.team13.classproject.jxab.TextTypeDF">
 	  </convert>
-	  <convert converter="bean" match="gatech.team13.classproject.jxab.TheadType">
+	  <convert converter="bean" match="gatech.team13.classproject.jxab.TheadTypeDF">
 	  </convert>
 	  <convert converter="bean" match="gatech.team13.classproject.jxab.TimeType">
 	  </convert>
-	  <convert converter="bean" match="gatech.team13.classproject.jxab.TrType">
+	  <convert converter="bean" match="gatech.team13.classproject.jxab.TrTypeDF">
 	  </convert>
 	  <convert converter="bean" match="gatech.team13.classproject.jxab.TypeIdType">
 	  </convert>
 	  <convert converter="bean" match="gatech.team13.classproject.jxab.ValueType">
 	  </convert>
-
+	  <convert converter="bean" match="gatech.team13.classproject.jxab.SectionTypeDF$TextDF">
+	  </convert>
+	
 
 	  
     </allow>

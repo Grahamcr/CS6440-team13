@@ -3,14 +3,16 @@ package gatech.team13.classproject.jxab;
 public class ComponentTypeDF {
 
 	protected SectionTypeDF section;
-    protected ObservationType observation;
+    protected ObservationTypeDF observation;
     protected StructuredBodyTypeDF structuredBody;
     
 	public ComponentTypeDF(ComponentType component) {
-		if(section != null) {
+		if(component.getSection() != null) {
 			this.section = new SectionTypeDF(component.getSection());
 		}
-		this.observation = component.getObservation();
+		if(component.getObservation() != null) {
+			this.observation = new ObservationTypeDF(component.getObservation());
+		}
 		if(component.getStructuredBody() != null) {
 			this.structuredBody = new StructuredBodyTypeDF(component.getStructuredBody());
 		}
@@ -24,11 +26,11 @@ public class ComponentTypeDF {
 		this.section = section;
 	}
 
-	public ObservationType getObservation() {
+	public ObservationTypeDF getObservation() {
 		return observation;
 	}
 
-	public void setObservation(ObservationType observation) {
+	public void setObservation(ObservationTypeDF observation) {
 		this.observation = observation;
 	}
 

@@ -8,6 +8,8 @@
 
 package gatech.team13.classproject.jxab;
 
+import java.io.Serializable;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -36,9 +38,10 @@ import javax.xml.bind.annotation.XmlValue;
 @XmlType(name = "referenceType", propOrder = {
     "value"
 })
-public class ReferenceType {
+public class ReferenceType implements Serializable {
 
-    @XmlValue
+	private static final long serialVersionUID = 7287168586812536965L;
+	@XmlValue
     protected String value;
     @XmlAttribute(name = "value7")
     protected String value7;

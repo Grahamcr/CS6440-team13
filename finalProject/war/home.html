@@ -93,45 +93,111 @@
 			</div>
 		</div>
 		<div class="row widget-row" id="first-widget-row">
-			<div class="col-md-4 widget-wrapper" id="left-widget">
+			<div class="col-md-6 widget-wrapper" id="left-widget">
 				<div class="widget-header">
-					<p class="widget-header-text"> Last Visit:</p>
+					<p class="widget-header-text"> Encounters:</p>
 				</div>
 				<div class="widget-content">
+				
+					<div class="widget-table-wrapper">
+						<table class="table">
+							<thead>
+								  <tr>
+									 <th>Visit Date</th>
+									 <th>Chief Complaint</th>
+									 <th>Diagnosis</th>
+									 <th>ICD-9</th>
+									 <th>Height</th>
+									 <th>Weight</th>
+									 <th>Pulse</th>
+									 <th>Respiration</th>
+									 <th>Blood Pressure</th>
+									 <th>Notes</th>
+								  </tr>
+							 </thead>
+							  <tbody id="encounter-tb">
+								  <tr>
+									 <td></td>
+									 <td></td>
+									 <td></td>
+									 <td></td>
+									 <td></td>
+									 <td></td>
+									 <td></td>
+									 <td></td>
+									 <td></td>
+									 <td></td>
+								  </tr>
+							  </tbody>
+						</table>
+					</div>
+				
 					<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
 					  Launch a demo modal
 					</button>
 				</div>
 			</div>
-			<div class="col-md-4 widget-wrapper" id="middle-widget">
+			<div class="col-md-6 widget-wrapper" id="middle-widget">
 				<div class="widget-header">
-					<p class="widget-header-text"> Recent Vitals:</p>
+					<p class="widget-header-text"> Medication:</p>
 				</div>
 				<div class="widget-content">
+				
+					<div class="widget-table-wrapper">
+						<table class="table">
+							<thead>
+								  <tr>
+									 <th>Visit Date</th>
+									 <th>Drug</th>
+									 <th>NDC</th>
+									 <th>Type</th>
+									 <th>Quantity</th>
+									 <th>Refills</th>
+									 <th>Sig</th>
+								  </tr>
+							 </thead>
+							  <tbody id="medication-tb">
+								  <tr>
+									 <td></td>
+									 <td></td>
+									 <td></td>
+									 <td></td>
+									 <td></td>
+									 <td></td>
+									 <td></td>
+								  </tr>
+							  </tbody>
+						</table>
+					</div>
+					
 					<button type="button" class="btn btn-danger" data-toggle="collapse" data-target="#demo">
 					  Show/Hide Collapsible
 					</button>
 					<div id="demo" class="collapse">Drill Down Information Would Be Here</div>
 				</div>
 			</div>
-			<div class="col-md-4 widget-wrapper" id="right-widget">
+		</div>
+		<div class="row widget-row" id="second-widget-row">
+		
+			<div class="col-md-6 widget-wrapper" id="right-widget">
 				<div class="widget-header">
-					<p class="widget-header-text"> Medication Summary:</p>
+					<p class="widget-header-text"> Procedures:</p>
+				</div>
+			</div>
+			
+			<div class="col-md-6 widget-wrapper" id="left-widget">
+				<div class="widget-header">
+					<p class="widget-header-text"> Problems:</p>
 				</div>
 			</div>
 		</div>
 		<div class="row widget-row" id="second-widget-row">
-			<div class="col-md-4 widget-wrapper" id="left-widget">
+			<div class="col-md-6 widget-wrapper" id="middle-widget">
 				<div class="widget-header">
-					<p class="widget-header-text"> Allergies & Alerts:</p>
+					<p class="widget-header-text"> Social History:</p>
 				</div>
 			</div>
-			<div class="col-md-4 widget-wrapper" id="middle-widget">
-				<div class="widget-header">
-					<p class="widget-header-text"> Procedure/Lab Summary:</p>
-				</div>
-			</div>
-			<div class="col-md-4 widget-wrapper" id="right-widget">
+			<div class="col-md-6 widget-wrapper" id="right-widget">
 				<div class="widget-header">
 					<p class="widget-header-text"> Other:</p>
 				</div>
