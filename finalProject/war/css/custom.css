@@ -1,3 +1,9 @@
+.widget-header-txt {
+    font-weight: bold;
+    float: left;
+    margin-right: 5px;
+    margin-bottom: 0px;
+}
 .widget-wrapper, #patient-info-wrapper {
     min-height: 200px;
     border:solid;

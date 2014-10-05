@@ -76,6 +76,7 @@ var parseEncounters = function(results) {
 			}
 		}
 	}
+	injectWidgetInfo('.enounter-text', toReturn[0]);
 	injectTableRows('#encounter-tb', toReturn, "#encounter-table");
 };
 /*********************************************************************
@@ -94,6 +95,24 @@ var injectUsername = function() {
 	$('#username-div')[0].innerHTML = "<p class='voice-brand username-text'> Welcome " + username  + "</p>";
 };
 
+/*********************************************************************
+ * Inject the most recent/relvent infromation directly into the
+ * widget itself for the user to see.
+ ********************************************************************/
+var injectWidgetInfo = function(widget, info) {
+	var cells = $(widget);
+	if(cells.length == info.length) {
+		for(var i = 0; i < cells.length; i++) {
+			var value = info[i].content;
+			if(value && value.length > 1) {
+				var date = value[1];
+				cells[i].innerHTML = date;
+			}else {
+				cells[i].innerHTML = value[0];
+			}
+		}
+	}
+}
 /*********************************************************************
  * If the call to get XML data is successful, inject the data
  * into the page by buliding HTML from the content
