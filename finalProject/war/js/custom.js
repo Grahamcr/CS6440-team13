@@ -58,9 +58,25 @@ var parseResults = function(results) {
  * Parse patient encounter information and inject it into the widget
  ********************************************************************/
 var parseEncounters = function(results) {
+	var toReturn = new Array();
 	var encounterTable = $('#encounter-tb')[0];
 	var toInject = new Array();
-	
+	for(var i = 0; i < results.length; i++) {
+		var next = results[i];
+		if(next.tbody && next.tbody.tr) {
+			var data = next.tbody.tr;
+			for(var n = 0; n < data.length; n++) {
+				var td = data[n].td;
+				var row = new Array();
+				for(var d = 0; d < td.length; d++) {
+					var value = td[d];
+					row.push(value);
+				}
+				toReturn.push(row);
+			}
+		}
+	}
+	injectTableRows('#encounter-tb', toReturn, "#encounter-table");
 };
 /*********************************************************************
  * Parse patient m information and inject it into the widget
@@ -82,8 +98,26 @@ var injectUsername = function() {
  * If the call to get XML data is successful, inject the data
  * into the page by buliding HTML from the content
  ********************************************************************/
-var injectTableRows = function(table, rows) {
-	
+var injectTableRows = function(table_body, rows, table) {
+	var html = "";
+	for(var i = 0; i < rows.length; i++) {
+		var row = rows[i];
+		html = html + "<tr>";
+		for(var q = 0; q < row.length; q++) {
+			var value = row[q].content;
+			html = html + "<td>";
+			if(value && value.length > 1) {
+				var date = value[1];
+				html = html + date;
+			}else {
+				html = html + value[0];
+			}
+			html = html + "</td>";
+		}
+		html = html + "</tr>";
+	}
+	$(table_body)[0].innerHTML = html;
+	$(table).dataTable();
 };
 /*********************************************************************
  * Display an alert message to the user

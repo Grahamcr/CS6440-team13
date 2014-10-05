@@ -11,6 +11,9 @@
     <link href="js/bootstrap/css/bootstrap.css" rel="stylesheet">
 	<link href="css/custom.css" rel="stylesheet">
     <link href="js/bootstrap/css/bootstrap-theme.css" rel="stylesheet">
+	<!-- DataTables CSS -->
+	<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.2/css/jquery.dataTables.css">
+  
     <script type='text/javascript' src='/dwr/interface/DBServiceController.js'></script>
     <script type='text/javascript' src='/dwr/engine.js'></script>
 
@@ -93,14 +96,14 @@
 			</div>
 		</div>
 		<div class="row widget-row" id="first-widget-row">
-			<div class="col-md-6 widget-wrapper" id="left-widget">
+			<div class="col-md-12 widget-wrapper" id="left-widget">
 				<div class="widget-header">
 					<p class="widget-header-text"> Encounters:</p>
 				</div>
 				<div class="widget-content">
 				
 					<div class="widget-table-wrapper">
-						<table class="table">
+						<table id="encounter-table" width="100%" cellspacing="0" class="display">
 							<thead>
 								  <tr>
 									 <th>Visit Date</th>
@@ -137,7 +140,9 @@
 					</button>
 				</div>
 			</div>
-			<div class="col-md-6 widget-wrapper" id="middle-widget">
+		</div>
+		<div class="row widget-row" id="second-widget-row">
+			<div class="col-md-12 widget-wrapper" id="middle-widget">
 				<div class="widget-header">
 					<p class="widget-header-text"> Medication:</p>
 				</div>
@@ -177,7 +182,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="row widget-row" id="second-widget-row">
+		<div class="row widget-row" id="third-widget-row">
 		
 			<div class="col-md-6 widget-wrapper" id="right-widget">
 				<div class="widget-header">
@@ -191,7 +196,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="row widget-row" id="second-widget-row">
+		<div class="row widget-row" id="fourth-widget-row">
 			<div class="col-md-6 widget-wrapper" id="middle-widget">
 				<div class="widget-header">
 					<p class="widget-header-text"> Social History:</p>
@@ -235,8 +240,14 @@
 
    <!-- The javascript
     ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-	<script src="js/jquery.js"></script>
+    <!-- Placed at the end of the document so the pages load faster 
+	<script src="js/jquery.js"></script> -->
+	
+<!-- jQuery --> 
+<script type="text/javascript" charset="utf8" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+  
+	<!-- DataTables -->
+	<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.2/js/jquery.dataTables.js"></script>
     <script src="js/bootstrap/js/bootstrap.js"></script>
 	<script src="js/custom.js"></script>
   </body>
