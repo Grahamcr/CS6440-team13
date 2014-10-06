@@ -154,49 +154,43 @@
 		<div class="row widget-row" id="second-widget-row">
 			<div class="col-md-12 widget-wrapper" id="middle-widget">
 				<div class="widget-header">
-					<p class="widget-header-text"> Medication:</p>
-				</div>
-				<div class="widget-content">
-				
-					<div class="widget-table-wrapper">
-						<table class="table">
-							<thead>
-								  <tr>
-									 <th>Visit Date</th>
-									 <th>Drug</th>
-									 <th>NDC</th>
-									 <th>Type</th>
-									 <th>Quantity</th>
-									 <th>Refills</th>
-									 <th>Sig</th>
-								  </tr>
-							 </thead>
-							  <tbody id="medication-tb">
-								  <tr>
-									 <td></td>
-									 <td></td>
-									 <td></td>
-									 <td></td>
-									 <td></td>
-									 <td></td>
-									 <td></td>
-								  </tr>
-							  </tbody>
-						</table>
-					</div>
-					<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-					  More Information
-					</button>
-					
+					<p class="widget-header-text"> Procedures:</p>
 				</div>
 			</div>
 		</div>
 		<div class="row widget-row" id="third-widget-row">
 		
 			<div class="col-md-6 widget-wrapper" id="right-widget">
+					
 				<div class="widget-header">
-					<p class="widget-header-text"> Procedures:</p>
+					<p class="widget-header-text"> Medication:</p>
 				</div>
+				<div class="widget-content">
+				
+					<div class="col-md-6 widget-col">
+						 <p class="widget-header-txt">Visit Date</p>
+						 <p class="medication-text inject-txt"></p>
+						 <p class="widget-header-txt">Drug</th>
+						 <p class="medication-text inject-txt"></p>
+						 <p class="widget-header-txt">NDC</th>
+						 <p class="medication-text inject-txt"></p>
+						 <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#medModal">
+						  More Information
+						</button>
+					</div>
+					<div class="col-md-6 widget-col">	
+						 <p class="widget-header-txt">Type</th>
+						 <p class="medication-text inject-txt"></p>
+						 <p class="widget-header-txt">Quantity</th>
+						 <p class="medication-text inject-txt"></p>
+						 <p class="widget-header-txt">Refills</th>
+						 <p class="medication-text inject-txt"></p>
+					 	 <p class="widget-header-txt">Instructions</th>
+						 <p class="medication-text inject-txt"></p>	
+					</div>
+										
+				</div>
+				
 			</div>
 			
 			<div class="col-md-6 widget-wrapper" id="left-widget">
@@ -226,16 +220,30 @@
 		
 		
 		<!-- Modal -->
-		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal fade" id="medModal" tabindex="-1" role="dialog" aria-labelledby="medModalLabel" aria-hidden="true">
 		  <div class="modal-dialog">
 			<div class="modal-content">
 			  <div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-				<h4 class="modal-title" id="myModalLabel">Some Title Here</h4>
+				<h4 class="modal-title" id="medModalLabel">Some Title Here</h4>
 			  </div>
 			  <div class="modal-body">
 				<div class="widget-table-wrapper">
-						<p>This is where drill down information might be.</p>
+					<table id="medication-table" width="100%" cellspacing="0" class="display">
+						<thead>
+							  <tr>
+								 <th>Visit Date</th>
+								 <th>Drug</th>
+								 <th>NDC</th>
+								 <th>Type</th>
+								 <th>Quantity</th>
+								 <th>Refills</th>
+								 <th>Instructions</th>
+							  </tr>
+						 </thead>
+						  <tbody id="medication-tb">
+						  </tbody>
+					</table>
 			  </div>
 			  <div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

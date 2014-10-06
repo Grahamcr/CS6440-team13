@@ -1,3 +1,29 @@
+#medModal .modal-dialog {
+    width:95%;
+}
+.widget-header {
+    margin-left:-15px;
+    font-size: 20px;
+    background-color: #FC4812;
+    line-height: 40px;
+    padding-left: 20px;
+    border-bottom: solid 4px #AD2A02;
+    color:#FFF;
+    font-weight: 900;
+    width:102.6%;
+}
+.widget-content {
+    margin-top: 20px;
+}
+.widget-content .collapse {
+    margin-top: 40px;
+    margin-bottom: 60px;
+    border-top:solid 4px green;
+    padding-top: 10px;
+}
+.widget-header-text {
+    margin-bottom: 0px;
+}
 .widget-header-txt {
     font-weight: bold;
     float: left;

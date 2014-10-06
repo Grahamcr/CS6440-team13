@@ -58,9 +58,7 @@ var parseResults = function(results) {
  * Parse patient encounter information and inject it into the widget
  ********************************************************************/
 var parseEncounters = function(results) {
-	var toReturn = new Array();
-	var encounterTable = $('#encounter-tb')[0];
-	var toInject = new Array();
+	var toReturn = new Array()
 	for(var i = 0; i < results.length; i++) {
 		var next = results[i];
 		if(next.tbody && next.tbody.tr) {
@@ -83,8 +81,24 @@ var parseEncounters = function(results) {
  * Parse patient m information and inject it into the widget
  ********************************************************************/
 var parseMedication = function(results) {
-	var medicationTable = $('#medication-tb')[0];
-	var toInject = new Array();
+	var toReturn = new Array()
+	for(var i = 0; i < results.length; i++) {
+		var next = results[i];
+		if(next.tbody && next.tbody.tr) {
+			var data = next.tbody.tr;
+			for(var n = 0; n < data.length; n++) {
+				var td = data[n].td;
+				var row = new Array();
+				for(var d = 0; d < td.length; d++) {
+					var value = td[d];
+					row.push(value);
+				}
+				toReturn.push(row);
+			}
+		}
+	}
+	injectWidgetInfo('.medication-text', toReturn[0]);
+	injectTableRows('#medication-tb', toReturn, "#medication-table");
 };
 
 /*********************************************************************
