@@ -136,7 +136,7 @@
 					</div>
 				</div>
 				<div class="row more-info-row">
-					<div class="col-md-10 offset2 more-info-wrapper">
+					<div class="col-md-12 more-info-wrapper">
 						<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#encounterModal">
 						  More Information
 						</button>
@@ -158,6 +158,13 @@
 						 <p class="procedure-text inject-txt"></p>
 					</div>
 										
+				</div>
+				<div class="row more-info-row">
+					<div class="col-md-12 more-info-wrapper">
+						 <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#medModal">
+						  More Information
+						</button>
+					</div>
 				</div>
 			</div>
 		
@@ -189,7 +196,7 @@
 										
 				</div>
 				<div class="row more-info-row">
-					<div class="col-md-10 offset2 more-info-wrapper">
+					<div class="col-md-12 more-info-wrapper">
 						 <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#medModal">
 						  More Information
 						</button>
@@ -197,94 +204,108 @@
 				</div>
 			</div>
 		</div>
-		
-		<button type="button" class="btn btn-danger" data-toggle="collapse" data-target="#encounter-collapse">
-		  Show/Hide More Details
-		</button>
-		<div id="encounter-collapse" class="collapse">
-			
-			<div class="row widget-row" id="third-widget-row">
-				<div class="col-md-4 widget-wrapper" id="middle-widget">
-					<div class="widget-header">
-						<p class="widget-header-text"> Social History:</p>
-					</div>
-					<div class="widget-content row">
-						<div id="results-div">
-							<table id="social-history-table" width="100%" cellspacing="0" class="table">
-								<thead>
-									<tr>
-										<th>History</th>
-										<th>From</th>
-										<th>To</th>
-									</tr>
-								</thead>
-									<tbody id="social-history-tb">	
-								</tbody>
-							</table>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 widget-wrapper" id="right-widget">
-					<div class="widget-header">
-						<p class="widget-header-text"> Other:</p>
-					</div>
-					<div class="widget-content">
-					
-						<div class="col-md-6 widget-col">
-							 <p class="widget-header-txt">Coming Soon!</p>
-							 <p class="other-text inject-txt"></p>
-						</div>
-						<div class="col-md-6 widget-col">	
-							 <p class="widget-header-txt">Coming Soon!</th>
-							 <p class="other-text inject-txt"></p>
-						</div>
-											
-					</div>
-				</div>
-				<div class="col-md-4 widget-wrapper" id="middle-widget">
-					<div class="widget-header">
-						<p class="widget-header-text">Lab Results:</p>
-					</div>
-					<div class="widget-content row">
-						<div id="results-div">
-							<table id="results-table" width="100%" cellspacing="0"
-								class="table">
-								<thead>
-									<tr>
-										<th>Visit Date</th>
-										<th>Test</th>
-										<th>LOINC</th>
-										<th>Value</th>
-										<th>Unit</th>
-										<th>Short Name</th>
-									</tr>
-								</thead>
-								<tbody id="results-tb">
-								</tbody>
-							</table>
+		<div class='row hidden-info-row'>
+			<button type="button" class="btn btn-danger" data-toggle="collapse" data-target="#sh-collapse">
+			  Social History:
+			</button>
+			<div id="sh-collapse" class="collapse">
+				
+				<div class="row widget-row" id="third-widget-row">
+					<div class="col-md-12 widget-wrapper" id="middle-widget">
+						<div class="widget-content row">
+							<div id="results-div">
+								<table id="social-history-table" width="100%" cellspacing="0" class="table">
+									<thead>
+										<tr>
+											<th>History</th>
+											<th>From</th>
+											<th>To</th>
+										</tr>
+									</thead>
+										<tbody id="social-history-tb">	
+									</tbody>
+								</table>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="row widget-row" id="second-widget-row">
-				<div class="col-md-4 widget-wrapper" id="left-widget">
-					<div class="widget-header">
-						<p class="widget-header-text"> Problems:</p>
-					</div>
-					<div class="widget-content">
-					
-						<div id="results-div">
-							<table id="problems-table" width="100%" cellspacing="0" class="table">
-								<thead>
-									<tr>
-										<th>Problem</th>
-									</tr>
-								</thead>
-									<tbody id="problems-tb">
-								</tbody>
-							</table>
+		</div>
+		<div class='row hidden-info-row'>
+			<button type="button" class="btn btn-danger" data-toggle="collapse" data-target="#other-collapse">
+			  Other:
+			</button>
+			<div id="encounter-collapse" class="collapse">
+				<div class="row widget-row" id="fourth-widget-row">
+					<div class="col-md-12 widget-wrapper" id="right-widget">
+						<div class="widget-content">
+						
+							<div class="col-md-6 widget-col">
+								 <p class="widget-header-txt">Coming Soon!</p>
+								 <p class="other-text inject-txt"></p>
+							</div>
+							<div class="col-md-6 widget-col">	
+								 <p class="widget-header-txt">Coming Soon!</th>
+								 <p class="other-text inject-txt"></p>
+							</div>
+												
 						</div>
-											
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class='row hidden-info-row'>
+			<button type="button" class="btn btn-danger" data-toggle="collapse" data-target="#lab-collapse">
+				Lab Results:
+			</button>
+			<div id="lab-collapse" class="collapse">
+				<div class="row widget-row" id="fifth-widget-row">
+					<div class="col-md-12 widget-wrapper" id="middle-widget">
+						<div class="widget-content row">
+							<div id="results-div">
+								<table id="results-table" width="100%" cellspacing="0"
+									class="table">
+									<thead>
+										<tr>
+											<th>Visit Date</th>
+											<th>Test</th>
+											<th>LOINC</th>
+											<th>Value</th>
+											<th>Unit</th>
+											<th>Short Name</th>
+										</tr>
+									</thead>
+									<tbody id="results-tb">
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class='row hidden-info-row'>
+			<button type="button" class="btn btn-danger" data-toggle="collapse" data-target="#problems-collapse">
+			  Problems:
+			</button>
+			<div id="problems-collapse" class="collapse">
+				<div class="row widget-row" id="sixth-widget-row">
+					<div class="col-md-12 widget-wrapper" id="left-widget">
+						<div class="widget-content">
+						
+							<div id="results-div">
+								<table id="problems-table" width="100%" cellspacing="0" class="table">
+									<thead>
+										<tr>
+											<th>Problem</th>
+										</tr>
+									</thead>
+										<tbody id="problems-tb">
+									</tbody>
+								</table>
+							</div>
+												
+						</div>
 					</div>
 				</div>
 			</div>

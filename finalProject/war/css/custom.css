@@ -2,12 +2,20 @@
     position: relative;
     width:200px;
     background:none !important;
-    background-color: green !important;
     border-color: white !important;
-    left:50%;
-    margin-left: -100px;
     margin-top: 30px;
     font-weight: 900;
+    color: #1E5799;
+    text-align: left !important;
+    font-size: 20px;
+    line-height: 10px;
+    -webkit-box-shadow: none !important;
+    -moz-box-shadow: none !important;
+    -o-box-shadow: none !important;
+    box-shadow: none !important;
+}
+.btn-danger:hover, .btn-ddanger:active {
+    color: #2989d8 !important;
 }
 .header-wrapper {
     color:#FFF;
@@ -24,8 +32,10 @@
 #medModal .modal-dialog, #encounterModal .modal-dialog {
     width:95%;
 }
+#results-div {
+    width:95% !important;
+}
 .widget-header {
-    margin-left:-15px;
     font-size: 20px;
     background-color: #1E5799;
     line-height: 40px;
@@ -33,30 +43,24 @@
     border-bottom: solid 4px #7db9e8;
     color:#FFF;
     font-weight: 900;
-    min-width:109%;
+    -webkit-border-radius: 13px;
+    -moz-border-radius: 13px;
+    border-radius: 13px;
 }
 .widget-content {
     margin-top: 20px;
-    min-height: 220px;
-    max-height: 220px !important;
-    width:110% !important;
-}
-.more-info-wrapper {
-    
+    margin-left: 0px;
+    min-height: 240px;
+    width:105% !important;
 }
 .btn-lg {
     line-height: 13px;
     background: none !important;
     background-color:grey !important;
     border-color:white !important;
-    width:100%;
+    width:95%;
     margin-bottom: 5px;
-}
-.widget-content .collapse {
-    margin-top: 40px;
-    margin-bottom: 60px;
-    border-top:solid 4px green;
-    padding-top: 10px;
+    margin-left: 2.5%;
 }
 .widget-header-text {
     margin-bottom: 0px;
@@ -81,7 +85,13 @@
 }
 .widget-wrapper {
     border:solid;
-    border-width:1px; 
+    border-width:3px; 
+    border-color:#7db9e8;
+    padding:0px;
+    -webkit-border-radius: 13px;
+    -moz-border-radius: 13px;
+    border-radius: 16px;
+    min-height: 350px !important;
 }
 #username-div {
     float:right;
