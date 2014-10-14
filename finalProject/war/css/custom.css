@@ -1,19 +1,56 @@
-#medModal .modal-dialog {
+.btn-danger {
+    position: relative;
+    width:200px;
+    background:none !important;
+    background-color: green !important;
+    border-color: white !important;
+    left:50%;
+    margin-left: -100px;
+    margin-top: 30px;
+    font-weight: 900;
+}
+.header-wrapper {
+    color:#FFF;
+    min-height:70px;
+    background: #1e5799; /* Old browsers */
+    background: -moz-linear-gradient(top, #1e5799 0%, #2989d8 50%, #207cca 51%, #7db9e8 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#1e5799), color-stop(50%,#2989d8), color-stop(51%,#207cca), color-stop(100%,#7db9e8)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%); /* IE10+ */
+    background: linear-gradient(to bottom, #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=0 ); /* IE6-9 */
+}
+#medModal .modal-dialog, #encounterModal .modal-dialog {
     width:95%;
 }
 .widget-header {
     margin-left:-15px;
     font-size: 20px;
-    background-color: #FC4812;
+    background-color: #1E5799;
     line-height: 40px;
     padding-left: 20px;
-    border-bottom: solid 4px #AD2A02;
+    border-bottom: solid 4px #7db9e8;
     color:#FFF;
     font-weight: 900;
-    width:102.6%;
+    min-width:109%;
 }
 .widget-content {
     margin-top: 20px;
+    min-height: 220px;
+    max-height: 220px !important;
+    width:110% !important;
+}
+.more-info-wrapper {
+    
+}
+.btn-lg {
+    line-height: 13px;
+    background: none !important;
+    background-color:grey !important;
+    border-color:white !important;
+    width:100%;
+    margin-bottom: 5px;
 }
 .widget-content .collapse {
     margin-top: 40px;
@@ -30,8 +67,19 @@
     margin-right: 5px;
     margin-bottom: 0px;
 }
-.widget-wrapper, #patient-info-wrapper {
-    min-height: 200px;
+#patient-info-wrapper {
+    margin-top: -90px;
+    margin-bottom:-120px;
+}
+#patient-address-2 {
+    margin-left: 65px;
+    margin-top: -10px;
+}
+.patient-header {
+    text-align: center;
+    font-size: 40px;
+}
+.widget-wrapper {
     border:solid;
     border-width:1px; 
 }
@@ -120,7 +168,7 @@
     width:100% !important;
 }
 #top-left-logo {
-    width: 100px;
+    width: 60px;
 }
 .logo-wrapper {
     margin-top: -30px;
@@ -131,7 +179,7 @@ footer {
 .website-title {
     width: 500px;
     position: relative;
-    top:70px;
+    top:30px;
 }
 .author-info-block {
     margin-top: 90px;

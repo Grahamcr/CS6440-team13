@@ -58,7 +58,7 @@
 				<span class="icon-bar"></span>
 			  </button>
 			  <div class="logo-wrapper">
-				<a href="../" class="navbar-brand"><img id="top-left-logo" src="img/buzz.jpg"></img></a>
+				<a href="../" class="navbar-brand"><img id="top-left-logo" src="img/heart258.png"></img></a>
 				<h2 class="website-title voice-brand">PHIRe</h2>
 			  </div>
 			</div>
@@ -91,12 +91,21 @@
 		<div class="row" id="patient-info-row">
 			<div class="col-md-12" id="patient-info-wrapper">
 				<div class="patient-header">
-					<p class="patient-header-text"> Patient Information:</p>
+					<p id="patient-name" class="patient-text"></p>
 				</div>
+					<div class="widget-content row">
+						<div class="col-md-6 widget-col">
+							 <p class="widget-header-txt">Address:</th>
+							 <p id="patient-address-1" class="patient-text p-inject-txt"></p>
+							 <p id="patient-address-2" class="patient-text p-inject-txt"></p>
+							 <p class="widget-header-txt">Gender:</th>
+							 <p id="patient-gender" class="patient-text p-inject-txt"></p>
+						 </div>
+					</div>
 			</div>
 		</div>
 		<div class="row widget-row" id="first-widget-row">
-			<div class="col-md-12 widget-wrapper" id="left-widget">
+			<div class="col-md-4 widget-wrapper" id="left-widget">
 				<div class="widget-header">
 					<p class="widget-header-text"> Encounters:</p>
 				</div>
@@ -125,42 +134,34 @@
 						 <p class="widget-header-txt">Notes</th>
 						 <p class="enounter-text inject-txt"></p>
 					</div>
-					<button type="button" class="btn btn-danger" data-toggle="collapse" data-target="#encounter-collapse">
-					  Show/Hide Collapsible
-					</button>
-					<div id="encounter-collapse" class="collapse">
-						<table id="encounter-table" width="100%" cellspacing="0" class="display">
-							<thead>
-								  <tr>
-									 <th>Visit Date</th>
-									 <th>Chief Complaint</th>
-									 <th>Diagnosis</th>
-									 <th>ICD-9</th>
-									 <th>Height</th>
-									 <th>Weight</th>
-									 <th>Pulse</th>
-									 <th>Respiration</th>
-									 <th>Blood Pressure</th>
-									 <th>Notes</th>
-								  </tr>
-							 </thead>
-							  <tbody id="encounter-tb">
-							  </tbody>
-						</table>
-					</div>
+				</div>
+				<div class="row more-info-row">
+					<div class="col-md-10 offset2 more-info-wrapper">
+						<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#encounterModal">
+						  More Information
+						</button>
 					</div>
 				</div>
-		</div>
-		<div class="row widget-row" id="second-widget-row">
-			<div class="col-md-12 widget-wrapper" id="middle-widget">
+			</div>
+			<div class="col-md-4 widget-wrapper" id="middle-widget">
 				<div class="widget-header">
 					<p class="widget-header-text"> Procedures:</p>
 				</div>
+				<div class="widget-content">
+				
+					<div class="col-md-6 widget-col">
+						 <p class="widget-header-txt">Coming Soon!</p>
+						 <p class="procedure-text inject-txt"></p>
+					</div>
+					<div class="col-md-6 widget-col">	
+						 <p class="widget-header-txt">Coming Soon!</th>
+						 <p class="procedure-text inject-txt"></p>
+					</div>
+										
+				</div>
 			</div>
-		</div>
-		<div class="row widget-row" id="third-widget-row">
 		
-			<div class="col-md-6 widget-wrapper" id="right-widget">
+			<div class="col-md-4 widget-wrapper" id="right-widget">
 					
 				<div class="widget-header">
 					<p class="widget-header-text"> Medication:</p>
@@ -174,9 +175,6 @@
 						 <p class="medication-text inject-txt"></p>
 						 <p class="widget-header-txt">NDC</th>
 						 <p class="medication-text inject-txt"></p>
-						 <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#medModal">
-						  More Information
-						</button>
 					</div>
 					<div class="col-md-6 widget-col">	
 						 <p class="widget-header-txt">Type</th>
@@ -190,53 +188,102 @@
 					</div>
 										
 				</div>
-				
-			</div>
-			
-			<div class="col-md-6 widget-wrapper" id="left-widget">
-				<div class="widget-header">
-					<p class="widget-header-text"> Problems:</p>
-				</div>
-			</div>
-		</div>
-		<div class="row widget-row" id="fourth-widget-row">
-			<div class="col-md-6 widget-wrapper" id="middle-widget">
-				<div class="widget-header">
-					<p class="widget-header-text"> Social History:</p>
-				</div>
-			</div>
-			<div class="col-md-6 widget-wrapper" id="right-widget">
-				<div class="widget-header">
-					<p class="widget-header-text"> Other:</p>
-				</div>
-			</div>
-		</div>
-		<div class="row widget-row" id="fourth-widget-row">
-			<div class="col-md-6 widget-wrapper" id="middle-widget">
-				<div class="widget-header">
-					<p class="widget-header-text">Lab Results:</p>
-				</div>
-				<div class="widget-content row">
-					<div id="results-div">
-						<table id="results-table" width="100%" cellspacing="0"
-							class="table">
-							<thead>
-								<tr>
-									<th>Visit Date</th>
-									<th>Test</th>
-									<th>LOINC</th>
-									<th>Value</th>
-									<th>Unit</th>
-									<th>Short Name</th>
-								</tr>
-							</thead>
-							<tbody id="results-tb">
-							</tbody>
-						</table>
+				<div class="row more-info-row">
+					<div class="col-md-10 offset2 more-info-wrapper">
+						 <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#medModal">
+						  More Information
+						</button>
 					</div>
 				</div>
 			</div>
 		</div>
+		
+		<button type="button" class="btn btn-danger" data-toggle="collapse" data-target="#encounter-collapse">
+		  Show/Hide More Details
+		</button>
+		<div id="encounter-collapse" class="collapse">
+			
+			<div class="row widget-row" id="third-widget-row">
+				<div class="col-md-4 widget-wrapper" id="middle-widget">
+					<div class="widget-header">
+						<p class="widget-header-text"> Social History:</p>
+					</div>
+					<div class="widget-content">
+					
+						<div class="col-md-6 widget-col">
+							 <p class="widget-header-txt">Coming Soon!</p>
+							 <p class="social-text inject-txt"></p>
+						</div>
+						<div class="col-md-6 widget-col">	
+							 <p class="widget-header-txt">Coming Soon!</th>
+							 <p class="social-text inject-txt"></p>
+						</div>
+											
+					</div>
+				</div>
+				<div class="col-md-4 widget-wrapper" id="right-widget">
+					<div class="widget-header">
+						<p class="widget-header-text"> Other:</p>
+					</div>
+					<div class="widget-content">
+					
+						<div class="col-md-6 widget-col">
+							 <p class="widget-header-txt">Coming Soon!</p>
+							 <p class="other-text inject-txt"></p>
+						</div>
+						<div class="col-md-6 widget-col">	
+							 <p class="widget-header-txt">Coming Soon!</th>
+							 <p class="other-text inject-txt"></p>
+						</div>
+											
+					</div>
+				</div>
+				<div class="col-md-4 widget-wrapper" id="middle-widget">
+					<div class="widget-header">
+						<p class="widget-header-text">Lab Results:</p>
+					</div>
+					<div class="widget-content row">
+						<div id="results-div">
+							<table id="results-table" width="100%" cellspacing="0"
+								class="table">
+								<thead>
+									<tr>
+										<th>Visit Date</th>
+										<th>Test</th>
+										<th>LOINC</th>
+										<th>Value</th>
+										<th>Unit</th>
+										<th>Short Name</th>
+									</tr>
+								</thead>
+								<tbody id="results-tb">
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row widget-row" id="second-widget-row">
+				<div class="col-md-4 widget-wrapper" id="left-widget">
+					<div class="widget-header">
+						<p class="widget-header-text"> Problems:</p>
+					</div>
+					<div class="widget-content">
+					
+						<div class="col-md-6 widget-col">
+							 <p class="widget-header-txt">Coming Soon!</p>
+							 <p class="problems-text inject-txt"></p>
+						</div>
+						<div class="col-md-6 widget-col">	
+							 <p class="widget-header-txt">Coming Soon!</th>
+							 <p class="problems-text inject-txt"></p>
+						</div>
+											
+					</div>
+				</div>
+			</div>
+		</div>
+		
 		<footer>
 			<p class="pull-right"><a href="#">Back to top</a></p>
 			<p>Team 13 &middot; </p>
@@ -268,6 +315,46 @@
 							  </tr>
 						 </thead>
 						  <tbody id="medication-tb">
+						  </tbody>
+					</table>
+			  </div>
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		
+		
+	</div>
+	
+	
+	<!-- Modal -->
+		<div class="modal fade" id="encounterModal" tabindex="-1" role="dialog" aria-labelledby="encounterModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+				<h4 class="modal-title" id="encounterModalLabel">Some Title Here</h4>
+			  </div>
+			  <div class="modal-body">
+				<div class="widget-table-wrapper">
+					<table id="encounter-table" width="100%" cellspacing="0" class="display">
+						<thead>
+							  <tr>
+								 <th>Visit Date</th>
+								 <th>Chief Complaint</th>
+								 <th>Diagnosis</th>
+								 <th>ICD-9</th>
+								 <th>Height</th>
+								 <th>Weight</th>
+								 <th>Pulse</th>
+								 <th>Respiration</th>
+								 <th>Blood Pressure</th>
+								 <th>Notes</th>
+							  </tr>
+						 </thead>
+						  <tbody id="encounter-tb">
 						  </tbody>
 					</table>
 			  </div>

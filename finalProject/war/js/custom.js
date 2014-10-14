@@ -53,6 +53,23 @@ var parseResults = function(results) {
 			break;
 		}
 	}
+	
+	//parse and add the patient information
+	parsePatientInfo(results);
+};
+
+/*********************************************************************
+ * Parse patient information and inject it into the widget
+ ********************************************************************/
+var parsePatientInfo = function(results) {
+	var parentLvl = results.recordTarget.patientRole;
+	var name = parentLvl.patient.name;
+	var gender = parentLvl.patient.administrativeGenderCode.code;
+	var addressParentLvl = parentLvl.addr;
+	$('#patient-name')[0].innerHTML = name.family + ", " + name.given + ", " + name.suffix;
+	$('#patient-address-1')[0].innerHTML = addressParentLvl.streetAddressLine;
+	$('#patient-address-2')[0].innerHTML = addressParentLvl.city + ", " + addressParentLvl.state + ", " + addressParentLvl.postalCode;
+	$('#patient-gender')[0].innerHTML = gender;
 };
 /*********************************************************************
  * Parse patient encounter information and inject it into the widget
