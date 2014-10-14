@@ -10,6 +10,9 @@ this.SOCIAL = "Soical History";//TODO let's fix this. The XML shouldn't be mispe
  * On page load, pass a fake user id and then pull the XML data 
  ********************************************************************/
 $(document).ready(function() {
+	//Show the loading bar
+	showHideLoadingWheel(true, "Loading The Awesomeness...");
+	
 	var userId = localStorage.getItem("userId");
 	injectUsername();
 	//Make a DWR call to the Controller to ask for the XML data
@@ -17,10 +20,25 @@ $(document).ready(function() {
 		  callback:function(returnVal) {
 			  var value = returnVal;
 			  parseResults(value);
-			  displayAlert("Successful Data Pull!! Here is some of the information pull, parsed and returned :)", "alert-success", "Victory!")
+//			  displayAlert("Successful Data Pull!! Here is some of the information pull, parsed and returned :)", "alert-success", "Victory!")
+			  showHideLoadingWheel(false);
 		  }
 		});
 });
+/*********************************************************************
+ * Display or hide the application level loading wheel
+ *********************************************************************/
+var showHideLoadingWheel = function(show, headerText) {
+	var pleaseWaitDiv = $('#pleaseWaitDialog');
+	var loadingHeader = $('.loading-modal-header')[0];
+	
+	//Set the message
+	loadingHeader.innerHTML = headerText;
+	
+	//Show or hide the loading modal
+	show ? pleaseWaitDiv.show() :  pleaseWaitDiv.hide();
+
+};
 /*********************************************************************
  * Parse the results that we care about and inject the content into
  * the DOM structure.
