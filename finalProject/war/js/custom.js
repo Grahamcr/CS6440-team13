@@ -4,7 +4,7 @@ this.MEDICATION ="Medications";
 this.PROBLEMS = "PROBLEMS";
 this.PROCEDURES = "PROCEDURES";
 this.RESULTS = "RESULTS";
-this.SOCIAL = "Soical History";
+this.SOCIAL = "Soical History";//TODO let's fix this. The XML shouldn't be mispelled
 
 /*********************************************************************
  * On page load, pass a fake user id and then pull the XML data 
@@ -40,7 +40,7 @@ var parseResults = function(results) {
 				parseMedication(section.text.content);
 			break;
 			case this.PROBLEMS:
-				
+				parseProblems(section.text.content);
 			break;
 			case this.PROCEDURES:
 				
@@ -49,7 +49,7 @@ var parseResults = function(results) {
 				parseLabResults(section.text.content);
 			break;
 			case this.SOCIAL:
-				
+				parseSocialHistory(section.text.content);
 			break;
 		}
 	}
@@ -102,7 +102,7 @@ var parseMedication = function(results) {
 };
 
 /*********************************************************************
- * Parse patient m information and inject it into the widget
+ * Parse patient lab results information and inject it into the widget
  ********************************************************************/
 var parseLabResults = function(results) {
 	var toReturn = new Array();
@@ -124,6 +124,53 @@ var parseLabResults = function(results) {
 	//injectWidgetInfo('.medication-text', toReturn[0]);
 	injectTableRows('#results-tb', toReturn, "#results-table");
 };
+
+/*********************************************************************
+ * Parse patient social history information and inject it into the widget
+ ********************************************************************/
+var parseSocialHistory = function(results) {
+	var toReturn = new Array();
+	for(var i = 0; i < results.length; i++) {
+		var next = results[i];
+		if(next.tbody && next.tbody.tr) {
+			var data = next.tbody.tr;
+			for(var n = 0; n < data.length; n++) {
+				var td = data[n].td;
+				var row = new Array();
+				for(var d = 0; d < td.length; d++) {
+					var value = td[d];
+					row.push(value);
+				}
+				toReturn.push(row);
+			}
+		}
+	}
+	//injectWidgetInfo('.medication-text', toReturn[0]);
+	injectTableRows('#social-history-tb', toReturn, "#social-history-table");
+};
+
+/*********************************************************************
+ * Parse patient problems information and inject it into the widget
+ ********************************************************************/
+var parseProblems = function(results) {
+	var toReturn = new Array();
+	for(var i = 0; i < results.length; i++) {
+		var next = results[i];
+		if(next.item) {
+			var data = next.item;
+			for(var n = 0; n < data.length; n++) {
+				var problemTd = {content : new Array()};
+				problemTd.content.push(data[n].content.value);
+				var row = new Array();
+				row.push(problemTd);
+				toReturn.push(row);
+			}
+		}
+	}
+	injectTableRows('#problems-tb', toReturn, "#problems-table");
+};
+
+
 
 /*********************************************************************
  * Pull the username from local storage and welcome them to this page
@@ -163,10 +210,13 @@ var injectTableRows = function(table_body, rows, table) {
 		for(var q = 0; q < row.length; q++) {
 			var value = row[q].content;
 			html = html + "<td>";
+			//special case for dates
 			if(value && value.length > 1) {
 				var date = value[1];
 				html = html + date;
-			}else {
+			}
+			//everything else
+			else {
 				html = html + value[0];
 			}
 			html = html + "</td>";
