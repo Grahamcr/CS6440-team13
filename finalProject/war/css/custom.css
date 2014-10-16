@@ -233,7 +233,12 @@ footer {
 .multi-line-data-text {
     margin-bottom: -3px;
 }
-
+.tt-input, .twitter-typeahead, .tt-hint {
+    border-radius: 6px !important;
+      -moz-border-radius: 6px;
+	   border-radius: 6px;
+    width:180px;
+}
 
 
 /* RESPONSIVE CSS

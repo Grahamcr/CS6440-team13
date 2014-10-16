@@ -34,7 +34,7 @@ var substringMatcher = function(strs) {
 	  };
 };
 	 
-var patients = ['Marla', 'Patient2'];
+var patients = ['Marla Dixon', 'Patient2 Lastname'];
 	 
 	$('#the-basics .typeahead').typeahead({
 	  hint: true,
@@ -54,12 +54,36 @@ var patients = ['Marla', 'Patient2'];
 $(document).ready(function() {
 	
 	//Show the loading bar
+//	showHideLoadingWheel(true, "Loading The Awesomeness...");
+	
+	var userId = localStorage.getItem("userId");
+	injectUsername();
+	//Make a DWR call to the Controller to ask for the XML data
+//	DBServiceController.getData(userId, {
+//		  callback:function(returnVal) {
+//			  var value = returnVal;
+//			  parseResults(value);
+////			  displayAlert("Successful Data Pull!! Here is some of the information pull, parsed and returned :)", "alert-success", "Victory!")
+//			  showHideLoadingWheel(false);
+//		  }
+//		});
+});
+/********************************************************************
+ * Get the CCD for a given paitent and inject their information
+ *******************************************************************/
+var openCCD = function() {
+	var typeahead = $('.tt-input')[0];
+	var paitent = typeahead.value;
+	
+	//TODO:just use userID for now....
+	var role = localStorage.getItem("userId");
+	
 	showHideLoadingWheel(true, "Loading The Awesomeness...");
 	
 	var userId = localStorage.getItem("userId");
 	injectUsername();
 	//Make a DWR call to the Controller to ask for the XML data
-	DBServiceController.getData(userId, {
+	DBServiceController.getData(role, paitent, {
 		  callback:function(returnVal) {
 			  var value = returnVal;
 			  parseResults(value);
@@ -67,7 +91,7 @@ $(document).ready(function() {
 			  showHideLoadingWheel(false);
 		  }
 		});
-});
+}
 /*********************************************************************
  * Display or hide the application level loading wheel
  *********************************************************************/
