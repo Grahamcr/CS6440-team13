@@ -59,14 +59,14 @@ $(document).ready(function() {
 	var userId = localStorage.getItem("userId");
 	injectUsername();
 	//Make a DWR call to the Controller to ask for the XML data
-//	DBServiceController.getData(userId, {
-//		  callback:function(returnVal) {
-//			  var value = returnVal;
-//			  parseResults(value);
-////			  displayAlert("Successful Data Pull!! Here is some of the information pull, parsed and returned :)", "alert-success", "Victory!")
-//			  showHideLoadingWheel(false);
-//		  }
-//		});
+	DBServiceController.getData(userId, 'Marla Dixon', {
+		  callback:function(returnVal) {
+			  var value = returnVal;
+			  parseResults(value);
+//			  displayAlert("Successful Data Pull!! Here is some of the information pull, parsed and returned :)", "alert-success", "Victory!")
+			  showHideLoadingWheel(false);
+		  }
+		});
 });
 /********************************************************************
  * Get the CCD for a given paitent and inject their information
