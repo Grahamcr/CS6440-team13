@@ -1,3 +1,29 @@
+#typeahead-header {
+    float:left !important;
+    margin-right:10px;
+    margin-left:-100px;
+    font-weight:bold;
+    font-size:15px;
+}
+#the-basics {
+    float:left;
+    margin-right:10px;
+    color:#000 !important;
+}
+.tt-dropdown-menu {
+    background-color:#FFF !important;
+    width:100%;
+    border:solid 1px #000;
+}
+.open-btn {
+    margin-top: 0px;
+    line-height: 12px;
+    background-color:#fff;
+    color:#1E5799;
+}
+#typeahead-div {
+    margin-left:300px;
+}
 .btn-danger {
     position: relative;
     width:200px;

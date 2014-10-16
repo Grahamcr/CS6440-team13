@@ -6,10 +6,53 @@ this.PROCEDURES = "PROCEDURES";
 this.RESULTS = "RESULTS";
 this.SOCIAL = "Soical History";//TODO let's fix this. The XML shouldn't be mispelled
 
+
+/**************************************************************************
+ * Typeahead Stuff
+ *************************************************************************/
+var substringMatcher = function(strs) {
+	  return function findMatches(q, cb) {
+	    var matches, substrRegex;
+	 
+	    // an array that will be populated with substring matches
+	    matches = [];
+	 
+	    // regex used to determine if a string contains the substring `q`
+	    substrRegex = new RegExp(q, 'i');
+	 
+	    // iterate through the pool of strings and for any string that
+	    // contains the substring `q`, add it to the `matches` array
+	    $.each(strs, function(i, str) {
+	      if (substrRegex.test(str)) {
+	        // the typeahead jQuery plugin expects suggestions to a
+	        // JavaScript object, refer to typeahead docs for more info
+	        matches.push({ value: str });
+	      }
+	    });
+	 
+	    cb(matches);
+	  };
+};
+	 
+var patients = ['Marla', 'Patient2'];
+	 
+	$('#the-basics .typeahead').typeahead({
+	  hint: true,
+	  highlight: true,
+	  minLength: 1
+	},
+	{
+	  name: 'patient',
+	  displayKey: 'value',
+	  source: substringMatcher(patients)
+	});
+
+
 /*********************************************************************
  * On page load, pass a fake user id and then pull the XML data 
  ********************************************************************/
 $(document).ready(function() {
+	
 	//Show the loading bar
 	showHideLoadingWheel(true, "Loading The Awesomeness...");
 	
