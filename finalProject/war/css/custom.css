@@ -5,6 +5,11 @@
     font-weight:bold;
     font-size:15px;
 }
+.tt-suggestions div:hover {
+    background-color: #1E5799;
+    color:#FFF !important;
+}
+
 #the-basics {
     float:left;
     margin-right:10px;
