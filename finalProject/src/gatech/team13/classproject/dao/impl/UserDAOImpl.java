@@ -14,6 +14,7 @@ public class UserDAOImpl {
 	private static final String USER_UID = "uid";
 	private static final String USER_NAME = "uname";
 	private static final String USER_PASS = "upass";
+	private static final String USER_ROLE = "urole";
 
 	
 	/*******************************************************************************
@@ -33,8 +34,9 @@ public class UserDAOImpl {
 									screen of MTM
 	 * @param userId - long: The unique Id assgined to the user by MTM when they
 								created their account
+	 * @param role - String: role for the user (Such as PCP) 
 	 *******************************************************************************/
-	public boolean addUser(String username, String password, Long userId) {
+	public boolean addUser(String username, String password, Long userId, String role) {
 		
 		//Use the userId as the key for the "User" table in the DataStore
 		Key taskKey = KeyFactory.createKey("User", userId.longValue());
@@ -44,6 +46,7 @@ public class UserDAOImpl {
 	    task.setProperty(USER_UID, userId.longValue());
 	    task.setProperty(USER_NAME, username);
 	    task.setProperty(USER_PASS, password);
+	    task.setProperty(USER_ROLE, role);
 
 		//Get connection to the DataStore and store the new user entry
 	    DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
@@ -63,6 +66,38 @@ public class UserDAOImpl {
 	    
 		//return success
 	    return true;
+	}
+	/*****************************************************************************
+	 * Verify the user has entered a valid username and password
+	 * 
+	 * @param long: The userId which corresponds to the username/password
+	 * @return String: role for the user (Such as PCP)
+	 *****************************************************************************/
+	public String getRoleForID(Long userID) {
+		String toReturn = "Not Found";
+		
+		//Establish connection to the DataStore
+		DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+		
+		//Query the DataStore "User" table for any username matching the one entered
+		@SuppressWarnings("deprecation")
+		Query q = new Query("User")
+        .addFilter(USER_UID,
+                   Query.FilterOperator.EQUAL,
+                   userID);
+		PreparedQuery pq = datastore.prepare(q);
+		
+		//Check to see if the user has a role in the system
+		for(Entity entityTask : pq.asIterable()) {
+			String role = (String) entityTask.getProperty(USER_ROLE);
+			if(role != null && role.length() > 0) {
+				toReturn = role;
+				break;
+			}
+		}
+		
+		//Return the role as a String
+		return toReturn;
 	}
 	/*****************************************************************************
 	 * Verify the user has entered a valid username and password

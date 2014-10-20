@@ -63,9 +63,12 @@ public class DBServiceController {
 	public boolean removeUser(long userId)  {
 		return dataStoreDAOImpl.removeUser(userId);
 	}
-	public long createUser(String username, String password)  {
+	public long createUser(String username, String password, String role)  {
 		Random random = new Random();
 		Long userId = Long.valueOf(random.nextInt(1000));
-		return dataStoreDAOImpl.addUser(username, password, userId) ? userId.longValue() : -1;
+		return dataStoreDAOImpl.addUser(username, password, userId, role) ? userId.longValue() : -1;
+	}
+	public String getUserRoleById(Long id) {
+		return dataStoreDAOImpl.getRoleForID(id);
 	}
 } 
