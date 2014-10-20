@@ -1,25 +1,97 @@
-#medModal .modal-dialog {
+#typeahead-header {
+    float:left !important;
+    margin-right:10px;
+    margin-left:-100px;
+    font-weight:bold;
+    font-size:15px;
+}
+.tt-suggestions div:hover {
+    background-color: #1E5799;
+    color:#FFF !important;
+}
+
+#the-basics {
+    float:left;
+    margin-right:10px;
+    color:#000 !important;
+}
+.tt-dropdown-menu {
+    background-color:#FFF !important;
+    width:100%;
+    border:solid 1px #000;
+}
+.open-btn {
+    margin-top: 0px;
+    line-height: 12px;
+    background-color:#fff;
+    color:#1E5799;
+}
+#typeahead-div {
+    margin-left:300px;
+}
+.btn-danger {
+    position: relative;
+    width:200px;
+    background:none !important;
+    border-color: white !important;
+    margin-top: 30px;
+    font-weight: 900;
+    color: #1E5799;
+    text-align: left !important;
+    font-size: 20px;
+    line-height: 10px;
+    -webkit-box-shadow: none !important;
+    -moz-box-shadow: none !important;
+    -o-box-shadow: none !important;
+    box-shadow: none !important;
+}
+.btn-danger:hover, .btn-ddanger:active {
+    color: #2989d8 !important;
+}
+.header-wrapper {
+    color:#FFF;
+    min-height:70px;
+    background: #1e5799; /* Old browsers */
+    background: -moz-linear-gradient(top, #1e5799 0%, #2989d8 50%, #207cca 51%, #7db9e8 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#1e5799), color-stop(50%,#2989d8), color-stop(51%,#207cca), color-stop(100%,#7db9e8)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%); /* IE10+ */
+    background: linear-gradient(to bottom, #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=0 ); /* IE6-9 */
+}
+#medModal .modal-dialog, #encounterModal .modal-dialog {
     width:95%;
 }
+#results-div {
+    width:95% !important;
+}
 .widget-header {
-    margin-left:-15px;
     font-size: 20px;
-    background-color: #FC4812;
+    background-color: #1E5799;
     line-height: 40px;
     padding-left: 20px;
-    border-bottom: solid 4px #AD2A02;
+    border-bottom: solid 4px #7db9e8;
     color:#FFF;
     font-weight: 900;
-    width:102.6%;
+    -webkit-border-radius: 13px;
+    -moz-border-radius: 13px;
+    border-radius: 13px;
 }
 .widget-content {
     margin-top: 20px;
+    margin-left: 0px;
+    min-height: 240px;
+    width:105% !important;
 }
-.widget-content .collapse {
-    margin-top: 40px;
-    margin-bottom: 60px;
-    border-top:solid 4px green;
-    padding-top: 10px;
+.btn-lg {
+    line-height: 13px;
+    background: none !important;
+    background-color:grey !important;
+    border-color:white !important;
+    width:95%;
+    margin-bottom: 5px;
+    margin-left: 2.5%;
 }
 .widget-header-text {
     margin-bottom: 0px;
@@ -30,10 +102,27 @@
     margin-right: 5px;
     margin-bottom: 0px;
 }
-.widget-wrapper, #patient-info-wrapper {
-    min-height: 200px;
+#patient-info-wrapper {
+    margin-top: -90px;
+    margin-bottom:-120px;
+}
+#patient-address-2 {
+    margin-left: 65px;
+    margin-top: -10px;
+}
+.patient-header {
+    text-align: center;
+    font-size: 40px;
+}
+.widget-wrapper {
     border:solid;
-    border-width:1px; 
+    border-width:3px; 
+    border-color:#7db9e8;
+    padding:0px;
+    -webkit-border-radius: 13px;
+    -moz-border-radius: 13px;
+    border-radius: 16px;
+    min-height: 350px !important;
 }
 #username-div {
     float:right;
@@ -120,7 +209,7 @@
     width:100% !important;
 }
 #top-left-logo {
-    width: 100px;
+    width: 60px;
 }
 .logo-wrapper {
     margin-top: -30px;
@@ -131,7 +220,7 @@ footer {
 .website-title {
     width: 500px;
     position: relative;
-    top:70px;
+    top:30px;
 }
 .author-info-block {
     margin-top: 90px;
@@ -149,7 +238,12 @@ footer {
 .multi-line-data-text {
     margin-bottom: -3px;
 }
-
+.tt-input, .twitter-typeahead, .tt-hint {
+    border-radius: 6px !important;
+      -moz-border-radius: 6px;
+	   border-radius: 6px;
+    width:180px;
+}
 
 
 /* RESPONSIVE CSS

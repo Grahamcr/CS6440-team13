@@ -111,19 +111,12 @@ public class SectionTypeDF {
 	        				javax.xml.bind.JAXBElement tmp = (javax.xml.bind.JAXBElement) s;
 	        				if(tmp.getDeclaredType().equals(TableType.class)) {
 	        					content.add(new TableTypeDF((TableType)tmp.getValue()));
-	        				}else if(tmp.getDeclaredType().equals(ContentType.class)) {
-	        					content.add((ContentType)tmp.getValue());
 	        				}else if(tmp.getDeclaredType().equals(ListType.class)) {
 	        					content.add((ListType)tmp.getValue());
-	        				}else {
-	        					//(ReferenceType)
-	        					content.add(tmp.getValue());
 	        				}
 	        			}catch(ClassCastException e) {
 	        				System.out.println("Class Cast Expection SectionTypeDF.TextDF");
 	        			}
-	        		}else {
-	        			content.add(s);
 	        		}
 	        	}
 	        }

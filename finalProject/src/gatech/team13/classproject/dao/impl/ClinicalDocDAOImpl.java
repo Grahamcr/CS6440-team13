@@ -30,19 +30,27 @@ public class ClinicalDocDAOImpl {
 	
 	/********************************************************************************************
 	 * Method to read the XML file and parse the data into a Java class hierarchy using JAXB.
+	 * @param patient 
 	 * 
 	 * @param - String name: XML file name
 	 * @return ClinicalDocumentType Object containing the information from the XML file
 	 ********************************************************************************************/
-	public ClinicalDocumentType getDocumentData() {
+	public ClinicalDocumentType getDocumentData(String patient) {
 		
 		//Object to eventually return
 		ClinicalDocumentType toReturn = null;
 		try {
+			Source source = null;
 			
-			//Pull in the requested file
-			Source source = new StreamSource(new File("MarlasCCD.xml"));
-
+			if(patient.equals("Marla Dixon")) {
+				//	Pull in the requested file
+				source = new StreamSource(new File("MarlasCCD.xml"));
+			}
+			
+			//TODO:Change this to pull in the second CCD
+			else if(patient.equals("Patient2 Lastname")) {
+				source = new StreamSource(new File("MarlasCCD.xml"));
+			}
 			//Create the JaxB Parser Instance
 			JAXBContext jc = JAXBContext.newInstance(ClinicalDocumentType.class);
 			Unmarshaller u = jc.createUnmarshaller();
