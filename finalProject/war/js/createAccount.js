@@ -2,10 +2,12 @@ var createUser = function() {
 	var username = $('#usernameInput')[0];
 	var password = $('#passInput')[0];
 	var passwordRE = $('#passInputRE')[0];
+	var role = $('#sselect')[0].value;
 	
 	if(passwordRE.value == password.value) {
-		DBServiceController.createUser(username.value, password.value, {
+		DBServiceController.createUser(username.value, password.value, role, {
 			  callback:function(returnVal) {
+				  
 				  if(returnVal > 0) {
 					  localStorage.setItem("userId", returnVal);
 					  localStorage.setItem("username", username.value);

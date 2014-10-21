@@ -54,10 +54,19 @@ var patients = ['Marla Dixon', 'Patient2 Lastname'];
 $(document).ready(function() {
 	
 	//Show the loading bar
-//	showHideLoadingWheel(true, "Loading The Awesomeness...");
+	showHideLoadingWheel(true, "Loading The Awesomeness...");
 	
 	var userId = localStorage.getItem("userId");
 	injectUsername();
+	
+	//Make a DWR call to the Controller to ask for the user's role
+	DBServiceController.getUserRoleById(userId, {
+		  callback:function(returnVal) {
+			  var value = returnVal;
+			  displayAlert("You Are Registered as a: " + value, "alert-success", "Test Show Role Results:")
+		  }
+		});
+	
 	//Make a DWR call to the Controller to ask for the XML data
 	DBServiceController.getData(userId, 'Marla Dixon', {
 		  callback:function(returnVal) {
