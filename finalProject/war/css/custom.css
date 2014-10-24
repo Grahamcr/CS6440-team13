@@ -1,3 +1,16 @@
+#userpic {
+    max-height: 100px;
+    margin-top: -10px;
+}
+#user-pic-wrapper {
+    text-align: center;
+}
+.user-allergies-wrapper {
+    margin-top: -20px;
+}
+.allergies-header {
+    text-align: center;
+}
 #sselect {
     width: 80%;
     margin-left: 0px;

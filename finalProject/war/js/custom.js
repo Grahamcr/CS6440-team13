@@ -72,10 +72,15 @@ $(document).ready(function() {
 		  callback:function(returnVal) {
 			  var value = returnVal;
 			  parseResults(value);
+			  
+			  
+				
 //			  displayAlert("Successful Data Pull!! Here is some of the information pull, parsed and returned :)", "alert-success", "Victory!")
 			  showHideLoadingWheel(false);
 		  }
 		});
+	  var picDiv = $('#user-pic-wrapper')[0];
+	  picDiv.innerHTML = "<img id='userpic' src='/img/Marla.PNG'></img>";
 });
 /********************************************************************
  * Get the CCD for a given paitent and inject their information
@@ -91,6 +96,13 @@ var openCCD = function() {
 	
 	var userId = localStorage.getItem("userId");
 	injectUsername();
+	
+	//Inject the picture
+	var picDiv = $('#user-pic-wrapper')[0];
+	if(paitent == 'Marla Dixon') {
+		picDiv.innerHTML = "<img id='userpic' src='/img/Marla.PNG'></img>";
+	}
+	
 	//Make a DWR call to the Controller to ask for the XML data
 	DBServiceController.getData(role, paitent, {
 		  callback:function(returnVal) {
