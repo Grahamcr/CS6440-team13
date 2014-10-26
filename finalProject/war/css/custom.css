@@ -75,7 +75,7 @@
     -o-box-shadow: none !important;
     box-shadow: none !important;
 }
-.btn-danger:hover, .btn-ddanger:active {
+.btn-danger:hover, .btn-ddanger:active, .btn-danger:focus {
     color: #2989d8 !important;
 }
 .header-wrapper {
