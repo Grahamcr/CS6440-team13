@@ -63,7 +63,8 @@ $(document).ready(function() {
 	DBServiceController.getUserRoleById(userId, {
 		  callback:function(returnVal) {
 			  var value = returnVal;
-			  displayAlert("You Are Registered as a: " + value, "alert-success", "Test Show Role Results:")
+			  displayAlert("You Are Registered as a: " + value, "alert-success", "Test Show Role Results:");
+			  highlightAreas(value);
 		  }
 		});
 	
@@ -82,6 +83,18 @@ $(document).ready(function() {
 	  var picDiv = $('#user-pic-wrapper')[0];
 	  picDiv.innerHTML = "<img id='userpic' src='/img/Marla.PNG'></img>";
 });
+/********************************************************************
+ * Highlight the most relevent areas of the website for the 
+ * type of role the user is.
+ ********************************************************************/
+var highlightAreas = function(role) {
+	if(role == 'pcp') {
+		var allergiesHeader = $('.allergies-header')[0];
+		var allergiesHeader = $('#allergies-container')[0];
+	}else if(role == 's1') {
+		
+	}
+};
 /********************************************************************
  * Get the CCD for a given paitent and inject their information
  *******************************************************************/
