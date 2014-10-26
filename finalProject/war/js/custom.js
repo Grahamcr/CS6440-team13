@@ -63,8 +63,9 @@ $(document).ready(function() {
 	DBServiceController.getUserRoleById(userId, {
 		  callback:function(returnVal) {
 			  var value = returnVal;
-			  displayAlert("You Are Registered as a: " + value, "alert-success", "Test Show Role Results:");
 			  highlightAreas(value);
+			  displayAlert("You Are Registered as a: " + value, "alert-success", "Test Show Role Results:");
+			  
 		  }
 		});
 	
@@ -90,9 +91,14 @@ $(document).ready(function() {
 var highlightAreas = function(role) {
 	if(role == 'pcp') {
 		var allergiesHeader = $('.allergies-header')[0];
-		var allergiesHeader = $('#allergies-container')[0];
+		var allergiesContainer = $('#allergies-container')[0];
+		$(allergiesHeader).css("color", "green");
+		$(allergiesContainer).css("background-color", "green");
+		$(allergiesContainer).css("color", "white");
 	}else if(role == 's1') {
-		
+		var medicationWidget = $("#right-widget");
+		medicationWidget.css("border", "3px solid green");
+		medicationWidget.css("color", "green");
 	}
 };
 /********************************************************************
@@ -162,7 +168,7 @@ var parseResults = function(results) {
 				parseProblems(section.text.content);
 			break;
 			case this.PROCEDURES:
-				
+				parseProcedures(section.text.content);
 			break;
 			case this.RESULTS:
 				parseLabResults(section.text.content);
@@ -190,6 +196,31 @@ var parsePatientInfo = function(results) {
 	$('#patient-address-2')[0].innerHTML = addressParentLvl.city + ", " + addressParentLvl.state + ", " + addressParentLvl.postalCode;
 	$('#patient-gender')[0].innerHTML = gender;
 };
+
+/*********************************************************************
+ * Parse patient encounter information and inject it into the widget
+ ********************************************************************/
+var parseProcedures = function(results) {
+	var toReturn = new Array();
+	for(var i = 0; i < results.length; i++) {
+		var next = results[i];
+		if(next.tbody && next.tbody.tr) {
+			var data = next.tbody.tr;
+			for(var n = 0; n < data.length; n++) {
+				var td = data[n].td;
+				var row = new Array();
+				for(var d = 0; d < td.length; d++) {
+					var value = td[d];
+					row.push(value);
+				}
+				toReturn.push(row);
+			}
+		}
+	}
+	injectWidgetInfo('.procedure-text', toReturn[0]);
+	injectTableRows('#procedure-tb', toReturn, "#procedure-table");
+};
+
 /*********************************************************************
  * Parse patient encounter information and inject it into the widget
  ********************************************************************/
@@ -326,7 +357,7 @@ var injectUsername = function() {
  ********************************************************************/
 var injectWidgetInfo = function(widget, info) {
 	var cells = $(widget);
-	if(cells.length == info.length) {
+	if(info && cells.length == info.length) {
 		for(var i = 0; i < cells.length; i++) {
 			var value = info[i].content;
 			if(value && value.length > 1) {
@@ -347,7 +378,7 @@ var injectWidgetInfoCollective = function(widget, info) {
 	var html = "";
 	for(var i = 0; i < info.length; i++) {
 		var value = info[i].content;
-		html = html + '<p class="medication-text inject-txt">' + value[0] + '</p>';
+		html = html + '<p class="inject-txt">' + value[0] + '</p>';
 	}
 	cells.innerHTML = html;
 }

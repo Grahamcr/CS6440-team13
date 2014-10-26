@@ -117,7 +117,7 @@
 						 </div>
 						 <div class="col-md-3 widget-col user-allergies-wrapper">
 							<h2 class="voice-brand allergies-header">Allergies</h2>
-							<p id="allergies-container"></p>
+							<p id="allergies-container">None</p>
 						 </div>
 					</div>
 					
@@ -169,18 +169,18 @@
 				<div class="widget-content">
 				
 					<div class="col-md-6 widget-col">
-						 <p class="widget-header-txt">Coming Soon!</p>
+						 <p class="widget-header-txt">No Known Procedures</p>
 						 <p class="procedure-text inject-txt"></p>
 					</div>
 					<div class="col-md-6 widget-col">	
-						 <p class="widget-header-txt">Coming Soon!</th>
-						 <p class="procedure-text inject-txt"></p>
+						 <!--<p class="widget-header-txt">Coming Soon!</th>
+						 <p class="procedure-text inject-txt"></p> -->
 					</div>
 										
 				</div>
 				<div class="row more-info-row">
 					<div class="col-md-12 more-info-wrapper">
-						 <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#medModal">
+						 <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#procedureModal">
 						  More Information
 						</button>
 					</div>
@@ -401,6 +401,45 @@
 							  </tr>
 						 </thead>
 						  <tbody id="encounter-tb">
+						  </tbody>
+					</table>
+			  </div>
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		
+		
+	</div>
+	
+	<!-- Modal -->
+		<div class="modal fade" id="procedureModal" tabindex="-1" role="dialog" aria-labelledby="procedureModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+				<h4 class="modal-title" id="procedureModalLabel">Some Title Here</h4>
+			  </div>
+			  <div class="modal-body">
+				<div class="widget-table-wrapper">
+					<table id="procedure-table" width="100%" cellspacing="0" class="display">
+						<thead>
+							  <tr>
+								 <th>Visit Date</th>
+								 <th>Chief Complaint</th>
+								 <th>Diagnosis</th>
+								 <th>ICD-9</th>
+								 <th>Height</th>
+								 <th>Weight</th>
+								 <th>Pulse</th>
+								 <th>Respiration</th>
+								 <th>Blood Pressure</th>
+								 <th>Notes</th>
+							  </tr>
+						 </thead>
+						  <tbody id="procedure-tb">
 						  </tbody>
 					</table>
 			  </div>

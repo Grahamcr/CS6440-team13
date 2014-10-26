@@ -6,12 +6,15 @@
     text-align: center;
 }
 .user-allergies-wrapper {
-    margin-top: -20px;
+    margin-top: -50px;
+    margin-left: -40px;
 }
 .allergies-header {
     text-align: center;
 }
 #allergies-container {
+    padding: 5px;
+    font-weight: 700;
     min-height: 80px;
     margin-top: -10px;
     border-radius: 10px;
@@ -97,7 +100,7 @@
     background: linear-gradient(to bottom, #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%); /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=0 ); /* IE6-9 */
 }
-#medModal .modal-dialog, #encounterModal .modal-dialog {
+#medModal .modal-dialog, #encounterModal .modal-dialog, #procedureModal .modal-dialog {
     width:95%;
 }
 #results-div {
