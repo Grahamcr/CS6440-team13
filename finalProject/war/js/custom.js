@@ -228,7 +228,7 @@ var parseMedication = function(results) {
 				var row = new Array();
 				for(var d = 0; d < td.length; d++) {
 					var value = td[d];
-					if(d % 8 == 0) {
+					if(d == 1) {
 						drugs.push(value);
 					}
 					row.push(value);
@@ -237,7 +237,7 @@ var parseMedication = function(results) {
 			}
 		}
 	}
-	injectWidgetInfo('.medication-text', toReturn[0]);
+	injectWidgetInfoCollective('.medication-text', drugs);
 	injectTableRows('#medication-tb', toReturn, "#medication-table");
 };
 
@@ -338,6 +338,20 @@ var injectWidgetInfo = function(widget, info) {
 		}
 	}
 }
+/*********************************************************************
+ * Inject the most recent/relvent infromation directly into the
+ * widget itself for the user to see.
+ ********************************************************************/
+var injectWidgetInfoCollective = function(widget, info) {
+	var cells = $(widget)[0];
+	var html = "";
+	for(var i = 0; i < info.length; i++) {
+		var value = info[i].content;
+		html = html + '<p class="medication-text inject-txt">' + value[0] + '</p>';
+	}
+	cells.innerHTML = html;
+}
+
 /*********************************************************************
  * If the call to get XML data is successful, inject the data
  * into the page by buliding HTML from the content
