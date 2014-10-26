@@ -217,6 +217,7 @@ var parseEncounters = function(results) {
  * Parse patient m information and inject it into the widget
  ********************************************************************/
 var parseMedication = function(results) {
+	var drugs = new Array();
 	var toReturn = new Array();
 	for(var i = 0; i < results.length; i++) {
 		var next = results[i];
@@ -227,6 +228,9 @@ var parseMedication = function(results) {
 				var row = new Array();
 				for(var d = 0; d < td.length; d++) {
 					var value = td[d];
+					if(d % 8 == 0) {
+						drugs.push(value);
+					}
 					row.push(value);
 				}
 				toReturn.push(row);
