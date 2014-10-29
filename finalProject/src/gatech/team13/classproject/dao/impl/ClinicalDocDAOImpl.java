@@ -48,8 +48,8 @@ public class ClinicalDocDAOImpl {
 			}
 			
 			//TODO:Change this to pull in the second CCD
-			else if(patient.equals("Patient2 Lastname")) {
-				source = new StreamSource(new File("MarlasCCD.xml"));
+			else if(patient.equals("Bob Dixon")) {
+				source = new StreamSource(new File("BobsCCD.xml"));
 			}
 			//Create the JaxB Parser Instance
 			JAXBContext jc = JAXBContext.newInstance(ClinicalDocumentType.class);

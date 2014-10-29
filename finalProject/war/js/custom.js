@@ -34,7 +34,7 @@ var substringMatcher = function(strs) {
 	  };
 };
 	 
-var patients = ['Marla Dixon', 'Patient2 Lastname'];
+var patients = ['Marla Dixon', 'Bob Dixon'];
 	 
 	$('#the-basics .typeahead').typeahead({
 	  hint: true,
@@ -64,7 +64,7 @@ $(document).ready(function() {
 		  callback:function(returnVal) {
 			  var value = returnVal;
 			  highlightAreas(value);
-			  displayAlert("You Are Registered as a: " + value, "alert-success", "Test Show Role Results:");
+			 // displayAlert("You Are Registered as a: " + value, "alert-success", "Test Show Role Results:");
 			  
 		  }
 		});
@@ -85,7 +85,7 @@ $(document).ready(function() {
 	  picDiv.innerHTML = "<img id='userpic' src='/img/Marla.PNG'></img>";
 });
 /********************************************************************
- * Highlight the most relevent areas of the website for the 
+ * Highlight the most relavent areas of the website for the 
  * type of role the user is.
  ********************************************************************/
 var highlightAreas = function(role) {
@@ -99,6 +99,9 @@ var highlightAreas = function(role) {
 		var medicationWidget = $("#right-widget");
 		medicationWidget.css("border", "3px solid green");
 		medicationWidget.css("color", "green");
+		var medicationHeader = $('.right-widget-header')[0];
+		$(medicationHeader).css('background-color', "green");
+		$(medicationHeader).css('border-color', "lime");
 	}
 };
 /********************************************************************
@@ -120,6 +123,8 @@ var openCCD = function() {
 	var picDiv = $('#user-pic-wrapper')[0];
 	if(paitent == 'Marla Dixon') {
 		picDiv.innerHTML = "<img id='userpic' src='/img/Marla.PNG'></img>";
+	}else if(paitent == 'Bob Dixon') {
+		picDiv.innerHTML = "<img id='userpic' src='/img/Bob.PNG'></img>";
 	}
 	
 	//Make a DWR call to the Controller to ask for the XML data
@@ -156,7 +161,7 @@ var parseResults = function(results) {
 		var section = components[i].section;
 		switch(section.title) {
 			case this.ALLERGIES:
-				
+				parseAllergies(section.text.content);
 			break;
 			case this.ENCOUNTERS:
 				parseEncounters(section.text.content);
@@ -221,6 +226,30 @@ var parseProcedures = function(results) {
 	injectTableRows('#procedure-tb', toReturn, "#procedure-table");
 };
 
+/*********************************************************************
+ * Parse patient encounter information and inject it into the widget
+ ********************************************************************/
+var parseAllergies = function(results) {
+	var toReturn = new Array();
+	for(var i = 0; i < results.length; i++) {
+		var next = results[i];
+		if(next.tbody && next.tbody.tr) {
+			var data = next.tbody.tr;
+			for(var n = 0; n < data.length; n++) {
+				var td = data[n].td;
+				var row = new Array();
+				for(var d = 0; d < td.length; d++) {
+					var value = td[d];
+					if(value.content && value.content.length == 1 && value.content[0]) {
+						row.push(value.content[0]);
+					}
+				}
+				toReturn.push(row);
+			}
+		}
+	}
+	injectWidgetInfoAllergies('#allergies-container', toReturn);
+};
 /*********************************************************************
  * Parse patient encounter information and inject it into the widget
  ********************************************************************/
@@ -362,6 +391,10 @@ var injectWidgetInfo = function(widget, info) {
 			var value = info[i].content;
 			if(value && value.length > 1) {
 				var date = value[1];
+				var year = date.substring(0,4);
+				var day = date.substring(4,6);
+				var month = date.substring(6,8);
+				date = day + "/" + month + "/" + year;
 				cells[i].innerHTML = date;
 			}else {
 				cells[i].innerHTML = value[0];
@@ -376,13 +409,34 @@ var injectWidgetInfo = function(widget, info) {
 var injectWidgetInfoCollective = function(widget, info) {
 	var cells = $(widget)[0];
 	var html = "";
-	for(var i = 0; i < info.length; i++) {
-		var value = info[i].content;
-		html = html + '<p class="inject-txt">' + value[0] + '</p>';
+	if(info && info.length) {
+		for(var i = 0; i < info.length; i++) {
+			var value = info[i].content;
+			html = html + '<p class="inject-txt">' + value[0] + '</p>';
+		}
+		cells.innerHTML = html;
+	}else {
+		cells.innerHTML = "No Known Allergies";
 	}
-	cells.innerHTML = html;
 }
-
+/*********************************************************************
+ * Inject the most recent/relvent infromation directly into the
+ * widget itself for the user to see.
+ ********************************************************************/
+var injectWidgetInfoAllergies = function(widget, info) {
+	var cells = $(widget)[0];
+	var html = "";
+	if(info && info.length) {
+		for(var i = 0; i < info.length; i++) {
+			var value = info[i];
+			html = html + '<p class="allergy-text-left">' + value[0] + '</p>';
+			html = html + '<p class="allergy-text-right">' + value[1] + '</p>';
+		}
+		cells.innerHTML = html;
+	}else {
+		cells.innerHTML = "none";
+	}
+}
 /*********************************************************************
  * If the call to get XML data is successful, inject the data
  * into the page by buliding HTML from the content
@@ -398,6 +452,10 @@ var injectTableRows = function(table_body, rows, table) {
 			//special case for dates
 			if(value && value.length > 1) {
 				var date = value[1];
+				var year = date.substring(0,4);
+				var day = date.substring(4,6);
+				var month = date.substring(6,8);
+				date = day + "/" + month + "/" + year;
 				html = html + date;
 			}
 			//everything else
