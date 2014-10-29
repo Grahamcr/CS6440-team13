@@ -92,8 +92,8 @@ var highlightAreas = function(role) {
 	if(role == 'pcp') {
 		var allergiesHeader = $('.allergies-header')[0];
 		var allergiesContainer = $('#allergies-container')[0];
-		$(allergiesHeader).css("color", "green");
-		$(allergiesContainer).css("background-color", "green");
+		$(allergiesHeader).css("color", "lime");
+		$(allergiesContainer).css("background-color", "lime");
 		$(allergiesContainer).css("color", "white !important");
 	}else if(role == 's1') {
 		var medicationWidget = $("#right-widget");
