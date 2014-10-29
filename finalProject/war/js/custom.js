@@ -125,6 +125,12 @@ var openCCD = function() {
 		picDiv.innerHTML = "<img id='userpic' src='/img/Marla.PNG'></img>";
 	}else if(paitent == 'Bob Dixon') {
 		picDiv.innerHTML = "<img id='userpic' src='/img/Bob.PNG'></img>";
+		DBServiceController.getBobsAllergies( {
+			  callback:function(returnVal) {
+				  var value = returnVal;
+				  parseAllergyResults(value);
+			  }
+			});
 	}
 	
 	//Make a DWR call to the Controller to ask for the XML data
@@ -229,26 +235,16 @@ var parseProcedures = function(results) {
 /*********************************************************************
  * Parse patient encounter information and inject it into the widget
  ********************************************************************/
-var parseAllergies = function(results) {
+var parseAllergyResults = function(results) {
 	var toReturn = new Array();
 	for(var i = 0; i < results.length; i++) {
 		var next = results[i];
-		if(next.tbody && next.tbody.tr) {
-			var data = next.tbody.tr;
-			for(var n = 0; n < data.length; n++) {
-				var td = data[n].td;
-				var row = new Array();
-				for(var d = 0; d < td.length; d++) {
-					var value = td[d];
-					if(value.content && value.content.length == 1 && value.content[0]) {
-						row.push(value.content[0]);
-					}
-				}
-				toReturn.push(row);
-			}
-		}
+		var temp = new Array();
+		temp[0] = next[0];
+		temp[1] = next[3];
 	}
 	injectWidgetInfoAllergies('#allergies-container', toReturn);
+	injectTableRows('#allergy-tb', results, "#allgery-table");
 };
 /*********************************************************************
  * Parse patient encounter information and inject it into the widget
@@ -429,8 +425,9 @@ var injectWidgetInfoAllergies = function(widget, info) {
 	if(info && info.length) {
 		for(var i = 0; i < info.length; i++) {
 			var value = info[i];
-			html = html + '<p class="allergy-text-left">' + value[0] + '</p>';
-			html = html + '<p class="allergy-text-right">' + value[1] + '</p>';
+			var isActive = value[1] == "Active" ? "active-allergy-text" : "inactive-allergy-text";
+			html = html + '<p class="allergy-text-left ' + isActive + '">' + value[0] + '</p>';
+			html = html + '<p class="allergy-text-right ' + isActive + '">' + value[1] + '</p>';
 		}
 		cells.innerHTML = html;
 	}else {

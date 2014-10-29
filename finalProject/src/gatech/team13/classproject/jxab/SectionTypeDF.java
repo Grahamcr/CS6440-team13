@@ -113,6 +113,11 @@ public class SectionTypeDF {
 	        					content.add(new TableTypeDF((TableType)tmp.getValue()));
 	        				}else if(tmp.getDeclaredType().equals(ListType.class)) {
 	        					content.add((ListType)tmp.getValue());
+	        				}else if(tmp.getDeclaredType().equals(ContentType.class)) {
+	        					content.add((ContentType)tmp.getValue());
+	        				}else {
+	        					content.add(tmp.getValue());
+	        					System.out.println("FOUND A CLASS THAT COULD NOT BE PARSED " + tmp.getDeclaredType().toString());
 	        				}
 	        			}catch(ClassCastException e) {
 	        				System.out.println("Class Cast Expection SectionTypeDF.TextDF");

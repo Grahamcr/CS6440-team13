@@ -474,45 +474,50 @@
                 <table border="1" width="100%">
                      <thead>
                           <tr>
-                               <th>Start Date</th>
-                               <th>Stop Date</th>
+                                <th>Visit Date</th>
                                <th>Drug</th>
-                               <th>Route</th>
+                               <th>NDC</th>
                                <th>Type</th>
-                               <th>sig</th>
+                               <th>Quantity</th>
+                               <th>Refills</th>
+                               <th>Sig</th>
                           </tr>
                      </thead>
                      <tbody>
                           <tr>
-                               <td>20110423</td>
-                               <td>20120423</td>
-                               <td><content ID="Medication1">Furosemide 40 MG Oral Tablet [Lasix]</content></td>
-                               <td>Oral</td>
-                               <td>Tablet</td>
+                          	   <td><content ID="Medication1"/>20110423</td>
+                               <td>Furosemide 40 MG [Lasix]</td>
+                               <td>0039-0060-13 </td>
+                               <td>Oral Tablet</td>
+                               <td>90</td>
+                               <td>4</td>
                                <td>1 tablet at bedtime</td>
                           </tr>
                           <tr>
-                               <td>20110423</td>
-                               <td>20120423</td>
-                               <td><content ID="Medication2">24 HR Propranolol Hydrochloride 60 MG Extended Release Oral Capsule [Inderal]</content></td>
-                               <td>Oral</td>
-                               <td>Tablet</td>
+                          	   <td><content ID="Medication2"/>20110423</td>
+                               <td>24 HR Propranolol Hydrochloride [Inderal]</td>
+                               <td>0005-0210-3 </td>
+                               <td>Oral Tablet</td>
+                               <td>60</td>
+                               <td>4</td>
                                <td>1 tablet each morning</td>
                           </tr>
                           <tr>
-                               <td>20120425</td>
-                               <td>20130425</td>
-                               <td><content ID="Medication3">Furosemide 40 MG Oral Tablet [Lasix]</content></td>
-                               <td>Oral</td>
-                               <td>Tablet</td>
+                          	<td><content ID="Medication3"/>20120425</td>
+                               <td>Furosemide 40 MG Oral Tablet [Lasix]</td>
+                               <td>0022-0000-103 </td>
+                               <td>Oral Tablet</td>
+                               <td>90</td>
+                               <td>4</td>
                                <td>1 tablet each morning and at bedtime</td>
                           </tr>
                           <tr>
-                               <td>20120425</td>
-                               <td>20130425</td>
-                               <td><content ID="Medication4">24 HR Propranolol Hydrochloride 60 MG Extended Release Oral Capsule [Inderal]</content></td>
-                               <td>Oral</td>
-                               <td>Tablet</td>
+                         	   <td><content ID="Medication4"/>20120425</td>
+                               <td>24 HR Propranolol Hydrochloride 60 MG Extended Release Oral Capsule [Inderal]</td>
+                               <td>0089-0095-35 </td>
+                               <td>Oral Tablet</td>
+                               <td>90</td>
+                               <td>4</td>
                                <td>1 tablet each morning</td>
                           </tr>
                      </tbody>

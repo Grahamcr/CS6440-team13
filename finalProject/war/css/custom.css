@@ -1,3 +1,9 @@
+.active-allergy-text {
+    color:#00BFB6;
+}
+.inactive-allergy-text {
+    color:#017A74;
+}
 .allergy-text-left {
     float: left;
     margin-right: 10px;

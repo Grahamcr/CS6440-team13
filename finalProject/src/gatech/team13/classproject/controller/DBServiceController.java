@@ -1,5 +1,7 @@
 package gatech.team13.classproject.controller;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 import gatech.team13.classproject.dao.impl.ClinicalDocDAOImpl;
@@ -70,5 +72,15 @@ public class DBServiceController {
 	}
 	public String getUserRoleById(Long id) {
 		return dataStoreDAOImpl.getRoleForID(id);
+	}
+	public List<String[]> getBobsAllergies() {
+		List<String[]> toReturn = new ArrayList<String[]>();
+    	String[] one = {"Amoxicillin", "Hay fever with asthma", "Moderate to sevre", "Active"};
+    	String[] two = {"Penicillin G benzathine", "Hives", "Moderate to sevre", "Inactive"};
+    	String[] three = {"Nuts", "Hives", "Moderate to sevre", "Active"};
+		toReturn.add(one);
+		toReturn.add(two);
+		toReturn.add(three);
+		return toReturn;
 	}
 } 

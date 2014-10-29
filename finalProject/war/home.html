@@ -117,7 +117,14 @@
 						 </div>
 						 <div class="col-md-3 widget-col user-allergies-wrapper">
 							<h2 class="voice-brand allergies-header">Allergies</h2>
-							<p id="allergies-container">None</p>
+							<p id="allergies-container">No Known Allergies</p>
+							<div class="row more-info-row">
+								<div class="col-md-12 more-info-wrapper">
+									<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#allergyModal">
+									  More Information
+									</button>
+								</div>
+							</div>
 						 </div>
 					</div>
 					
@@ -417,7 +424,7 @@
 	</div>
 	
 	<!-- Modal -->
-		<div class="modal fade" id="procedureModal" tabindex="-1" role="dialog" aria-labelledby="procedureModalLabel" aria-hidden="true">
+	<div class="modal fade" id="procedureModal" tabindex="-1" role="dialog" aria-labelledby="procedureModalLabel" aria-hidden="true">
 		  <div class="modal-dialog">
 			<div class="modal-content">
 			  <div class="modal-header">
@@ -453,6 +460,37 @@
 		</div>
 		
 		
+	</div>
+	
+	<!-- Modal -->
+	<div class="modal fade" id="allergyModal" tabindex="-1" role="dialog" aria-labelledby="allergyModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+				<h4 class="modal-title" id="AllergyModalLabel">Detailed Allergy Info.</h4>
+			  </div>
+			  <div class="modal-body">
+				<div class="widget-table-wrapper">
+					<table id="allergy-table" width="100%" cellspacing="0" class="display">
+						<thead>
+							  <tr>
+							   <th>Substance</th>
+                               <th>Reaction</th>
+                               <th>Severity</th>
+                               <th>Status</th>
+							  </tr>
+						 </thead>
+						  <tbody id="allergy-tb">
+						  </tbody>
+					</table>
+			  </div>
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			  </div>
+			</div>
+		  </div>
+		</div>
 	</div>
 	
 	<div class="modal" id="pleaseWaitDialog" data-backdrop="static" data-keyboard="false">
