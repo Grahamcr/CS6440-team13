@@ -94,7 +94,7 @@ var highlightAreas = function(role) {
 		var allergiesContainer = $('#allergies-container')[0];
 		$(allergiesHeader).css("color", "green");
 		$(allergiesContainer).css("background-color", "green");
-		$(allergiesContainer).css("color", "white");
+		$(allergiesContainer).css("color", "white !important");
 	}else if(role == 's1') {
 		var medicationWidget = $("#right-widget");
 		medicationWidget.css("border", "3px solid green");
@@ -167,7 +167,7 @@ var parseResults = function(results) {
 		var section = components[i].section;
 		switch(section.title) {
 			case this.ALLERGIES:
-				parseAllergies(section.text.content);
+				//parseAllergies(section.text.content);
 			break;
 			case this.ENCOUNTERS:
 				parseEncounters(section.text.content);
@@ -242,9 +242,10 @@ var parseAllergyResults = function(results) {
 		var temp = new Array();
 		temp[0] = next[0];
 		temp[1] = next[3];
+		toReturn.push(temp);
 	}
 	injectWidgetInfoAllergies('#allergies-container', toReturn);
-	injectTableRows('#allergy-tb', results, "#allgery-table");
+	injectAllergyTable('#allergy-tb', results, "#allgery-table");
 };
 /*********************************************************************
  * Parse patient encounter information and inject it into the widget
@@ -439,15 +440,56 @@ var injectWidgetInfoAllergies = function(widget, info) {
  * into the page by buliding HTML from the content
  ********************************************************************/
 var injectTableRows = function(table_body, rows, table) {
+	var table = $(table).dataTable();
+	var cleanRows = new Array();
+	
+	for(var i = 0; i < rows.length; i++) {
+		var row = rows[i];
+		var nextRow = new Array();
+		for(var q = 0; q < row.length; q++) {
+			var value = row[q].content || row[q];
+			//special case for dates
+			if(value && value.length == 2) {
+				var date = value[1];
+				var year = date.substring(0,4);
+				var day = date.substring(4,6);
+				var month = date.substring(6,8);
+				date = day + "/" + month + "/" + year;
+				nextRow.push(date);
+			}
+			//everything else
+			else {
+				if(value.length > 1) {
+					nextRow.push(value);
+				}else {
+					nextRow.push(value[0]);
+				}
+			}
+		}
+		cleanRows.push(nextRow);
+	}
+	
+	table.fnClearTable();
+	for(var i = 0; i < cleanRows.length; i++) {
+		var cleanRow = cleanRows[i];
+		table.fnAddData( cleanRow );
+		table.fnDraw();
+	}
+};
+/*************************************************************
+ * Old school way of injecting data into a DataTable
+ * used only for the allergy information
+ *************************************************************/
+var injectAllergyTable = function(table_body, rows, table) {
 	var html = "";
 	for(var i = 0; i < rows.length; i++) {
 		var row = rows[i];
 		html = html + "<tr>";
 		for(var q = 0; q < row.length; q++) {
-			var value = row[q].content;
+			var value = row[q].content || row[q];
 			html = html + "<td>";
 			//special case for dates
-			if(value && value.length > 1) {
+			if(value && value.length == 2) {
 				var date = value[1];
 				var year = date.substring(0,4);
 				var day = date.substring(4,6);
@@ -457,14 +499,18 @@ var injectTableRows = function(table_body, rows, table) {
 			}
 			//everything else
 			else {
-				html = html + value[0];
+				if(value.length > 1) {
+					html = html + value;
+				}else {
+					html = html + value[0];
+				}
 			}
 			html = html + "</td>";
 		}
 		html = html + "</tr>";
 	}
 	$(table_body)[0].innerHTML = html;
-	$(table).dataTable();
+	var table = $(table).dataTable();
 };
 /*********************************************************************
  * Display an alert message to the user

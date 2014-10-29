@@ -3,6 +3,7 @@
 }
 .inactive-allergy-text {
     color:#017A74;
+    font-weight:300;
 }
 .allergy-text-left {
     float: left;
@@ -31,12 +32,19 @@
 #allergies-container {
     padding: 5px;
     font-weight: 700;
-    min-height: 80px;
+    min-height: 140px;
     margin-top: -10px;
     border-radius: 10px;
     border: solid 1px black;
     -webkit-border-radius: 10px;
 	  -moz-border-radius: 10px;
+}
+.allergy-more-info-row {
+    margin-top:-40px;
+}
+.allergy-mi-wrapper .btn{
+    font-size: 14px !important;
+    line-height: 5px !important;
 }
 #sselect {
     width: 80%;
@@ -138,7 +146,7 @@
 .widget-content {
     margin-top: 20px;
     margin-left: 0px;
-    min-height: 240px;
+    min-height: 270px;
     width:105% !important;
 }
 .btn-lg {
