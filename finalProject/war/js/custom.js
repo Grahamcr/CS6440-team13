@@ -44,7 +44,11 @@ var patients = ['Marla Dixon', 'Bob Dixon'];
 	{
 	  name: 'patient',
 	  displayKey: 'value',
-	  source: substringMatcher(patients)
+	  source: substringMatcher(patients),
+	  updater: function(item) {
+	    	openCCD();
+	        return item;
+	    }
 	});
 
 
@@ -83,6 +87,15 @@ $(document).ready(function() {
 		});
 	  var picDiv = $('#user-pic-wrapper')[0];
 	  picDiv.innerHTML = "<img id='userpic' src='/img/Marla.PNG'></img>";
+});
+/***************************************************************************
+ * In The Auto-Complete search box if the user hits enter then open the
+ * application that they have selected
+ **************************************************************************/
+$('#the-basics').bind('keypress', function(e) {
+	if (e.keyCode == 13) {
+		openCCD();
+	}
 });
 /********************************************************************
  * Highlight the most relavent areas of the website for the 
