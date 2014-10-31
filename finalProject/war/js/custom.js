@@ -132,7 +132,7 @@ var openCCD = function() {
 	
 	var userId = localStorage.getItem("userId");
 	injectUsername();
-	
+	var open = true;
 	//Inject the picture
 	var picDiv = $('#user-pic-wrapper')[0];
 	if(paitent == 'Marla Dixon') {
@@ -145,17 +145,22 @@ var openCCD = function() {
 				  parseAllergyResults(value);
 			  }
 			});
+	}else {
+		open = false;
+		showHideLoadingWheel(false);
+		displayAlert("We could not find a paitent by the name: " + paitent + ".  Did you mean \"Marla Dixon\" or \"Bob Dixon\"?", "alert-danger", "Paitent Not Found")
 	}
 	
-	//Make a DWR call to the Controller to ask for the XML data
-	DBServiceController.getData(role, paitent, {
+	if(open) {
+		//Make a DWR call to the Controller to ask for the XML data
+		DBServiceController.getData(role, paitent, {
 		  callback:function(returnVal) {
 			  var value = returnVal;
 			  parseResults(value);
-//			  displayAlert("Successful Data Pull!! Here is some of the information pull, parsed and returned :)", "alert-success", "Victory!")
 			  showHideLoadingWheel(false);
 		  }
 		});
+	}
 }
 /*********************************************************************
  * Display or hide the application level loading wheel

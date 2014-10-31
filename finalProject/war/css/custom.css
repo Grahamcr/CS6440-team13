@@ -276,7 +276,6 @@
 #alert-title {
     float:left;
     margin-right:10px;
-    margin-left:30%;
 }
 #alert-title, #alert-content {
     font-size:15px;
@@ -292,7 +291,7 @@
     margin-top: -30px;
 }
 footer {
-    margin-top: 500px;
+    margin-top: 50px;
 }
 .website-title {
     width: 500px;
