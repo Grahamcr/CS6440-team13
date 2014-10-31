@@ -27,7 +27,7 @@
     text-align: center;
 }
 .user-allergies-wrapper {
-    margin-top: -50px;
+    margin-top: -90px;
     margin-left: -40px;
 }
 .allergies-header {
@@ -156,6 +156,7 @@
     margin-left: 0px;
     min-height: 270px;
     width:105% !important;
+    margin-bottom: -30px;
 }
 .btn-lg {
     line-height: 13px;
