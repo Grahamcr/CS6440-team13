@@ -61,13 +61,14 @@ $(document).ready(function() {
 	showHideLoadingWheel(true, "Loading The Awesomeness...");
 	
 	var userId = localStorage.getItem("userId");
-	injectUsername();
 	
 	//Make a DWR call to the Controller to ask for the user's role
 	DBServiceController.getUserRoleById(userId, {
 		  callback:function(returnVal) {
 			  var value = returnVal;
 			  highlightAreas(value);
+			  localStorage.setItem("userrole", value);
+			  injectUsername();
 			 // displayAlert("You Are Registered as a: " + value, "alert-success", "Test Show Role Results:");
 			  
 		  }
@@ -106,15 +107,15 @@ var highlightAreas = function(role) {
 		var allergiesHeader = $('.allergies-header')[0];
 		var allergiesContainer = $('#allergies-container')[0];
 		$(allergiesHeader).css("color", "lime");
-		$(allergiesContainer).css("background-color", "lime");
+		$(allergiesContainer).css("border", "3px solid lime");
 		$(allergiesContainer).css("color", "white !important");
 	}else if(role == 's1') {
 		var medicationWidget = $("#right-widget");
-		medicationWidget.css("border", "3px solid green");
-		medicationWidget.css("color", "green");
+		medicationWidget.css("border", "3px solid lime");
+		medicationWidget.css("color", "lime");
 		var medicationHeader = $('.right-widget-header')[0];
-		$(medicationHeader).css('background-color', "green");
-		$(medicationHeader).css('border-color', "lime");
+		$(medicationHeader).css('background-color', "lime");
+		$(medicationHeader).css('border-color', "green");
 	}
 };
 /********************************************************************
@@ -387,7 +388,11 @@ var parseProblems = function(results) {
  ********************************************************************/
 var injectUsername = function() {
 	var username =  localStorage.getItem("username");
-	$('#username-div')[0].innerHTML = "<p class='voice-brand username-text'> Welcome " + username  + "</p>";
+	var text = localStorage.getItem("userrole") == "pcp" ? "Primary Care Physician" : "Cardiologist";
+	var html = "<p class='voice-brand username-text'> Welcome " + username  + "</p>";
+	html = html + "<p class='voice-brand role-text'>" + text  + "</p>";
+	 $('#username-div')[0].innerHTML = html;
+	
 };
 
 /*********************************************************************

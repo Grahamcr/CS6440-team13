@@ -1,6 +1,10 @@
 .active-allergy-text {
     color:#000000;
 }
+.role-text {
+    font-size: 11px;
+    margin-top: -14px;
+}
 .inactive-allergy-text {
     color:#797A7A;
     font-weight:300;
@@ -92,7 +96,11 @@
     color:#1E5799;
 }
 #typeahead-div {
-    margin-left:300px;
+    margin-top: -30px;
+    width:400px;
+    position: absolute;
+    left: 60%;
+    margin-left: -200px;
 }
 .btn-danger {
     position: relative;
@@ -193,6 +201,7 @@
     float:right;
     margin-top: 10px;
     font-size: 20px;
+    text-align: center;
 }
 #login-sub-instrc {
     font-size: 15px;
