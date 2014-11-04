@@ -174,18 +174,14 @@
 			</div>
 			<div class="col-md-4 widget-wrapper" id="middle-widget">
 				<div class="widget-header">
-					<p class="widget-header-text"> Procedures:</p>
+					<p class="widget-header-text"> Problems:</p>
 				</div>
 				<div class="widget-content">
 				
-					<div class="col-md-6 widget-col">
-						 <p class="widget-header-txt">No Known Procedures</p>
-						 <p class="procedure-text inject-txt"></p>
+					<div class="col-md-11 widget-col problem-text">
+						
 					</div>
-					<div class="col-md-6 widget-col">	
-						 <!--<p class="widget-header-txt">Coming Soon!</th>
-						 <p class="procedure-text inject-txt"></p> -->
-					</div>
+					
 										
 				</div>
 				<div class="row more-info-row">
@@ -293,7 +289,7 @@
 		</div>
 		<div class='row hidden-info-row'>
 			<button type="button" class="btn btn-danger" data-toggle="collapse" data-target="#problems-collapse">
-			  Problems >
+			  Procedures >
 			</button>
 			<div id="problems-collapse" class="collapse">
 				<div class="row widget-row" id="sixth-widget-row">
@@ -301,38 +297,11 @@
 						<div class="widget-content">
 						
 							<div id="results-div">
-								<table id="problems-table" width="100%" cellspacing="0" class="table">
-									<thead>
-										<tr>
-											<th>Problem</th>
-										</tr>
-									</thead>
-										<tbody id="problems-tb">
-									</tbody>
-								</table>
-							</div>
-												
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class='row hidden-info-row'>
-			<button type="button" class="btn btn-danger" data-toggle="collapse" data-target="#other-collapse">
-			  Other >
-			</button>
-			<div id="other-collapse" class="collapse">
-				<div class="row widget-row" id="fourth-widget-row">
-					<div class="col-md-12 widget-wrapper" id="right-widget">
-						<div class="widget-content">
-						
-							<div class="col-md-6 widget-col">
-								 <p class="widget-header-txt">Coming Soon!</p>
-								 <p class="other-text inject-txt"></p>
-							</div>
-							<div class="col-md-6 widget-col">	
-								 <p class="widget-header-txt">Coming Soon!</th>
-								 <p class="other-text inject-txt"></p>
+				
+								
+								<p>No Procedures Found</p>
+								
+								
 							</div>
 												
 						</div>
@@ -434,7 +403,7 @@
 			  </div>
 			  <div class="modal-body">
 				<div class="widget-table-wrapper">
-					<table id="procedure-table" width="100%" cellspacing="0" class="display">
+					<!-- <table id="procedure-table" width="100%" cellspacing="0" class="display">
 						<thead>
 							  <tr>
 								 <th>Visit Date</th>
@@ -451,7 +420,19 @@
 						 </thead>
 						  <tbody id="procedure-tb">
 						  </tbody>
+					</table> -->
+					
+					<table id="problems-table" width="100%" cellspacing="0" class="table">
+						<thead>
+							<tr>
+								<th>Problem</th>
+							</tr>
+						</thead>
+							<tbody id="problems-tb">
+						</tbody>
 					</table>
+						
+						
 			  </div>
 			  <div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

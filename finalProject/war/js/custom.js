@@ -383,6 +383,7 @@ var parseProblems = function(results) {
 			}
 		}
 	}
+	injectWidgetInfoProblem('.problem-text', toReturn);
 	injectTableRows('#problems-tb', toReturn, "#problems-table");
 };
 
@@ -438,7 +439,24 @@ var injectWidgetInfoCollective = function(widget, info) {
 	}else {
 		cells.innerHTML = "No Known Allergies";
 	}
-}
+};
+/*********************************************************************
+ * Inject the most recent/relvent infromation directly into the
+ * widget itself for the user to see.
+ ********************************************************************/
+var injectWidgetInfoProblem = function(widget, info) {
+	var cells = $(widget)[0];
+	var html = "";
+	if(info && info.length) {
+		for(var i = 0; i < info.length; i++) {
+			var value = info[i][0].content[0];
+			html = html + '<p class="inject-txt">' + value + '</p>';
+		}
+		cells.innerHTML = html;
+	}else {
+		cells.innerHTML = "No Known Problems";
+	}
+};
 /*********************************************************************
  * Inject the most recent/relvent infromation directly into the
  * widget itself for the user to see.
