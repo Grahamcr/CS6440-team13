@@ -137,6 +137,12 @@ var openCCD = function() {
 	var picDiv = $('#user-pic-wrapper')[0];
 	if(paitent == 'Marla Dixon') {
 		picDiv.innerHTML = "<img id='userpic' src='/img/Marla.PNG'></img>";
+		DBServiceController.getMarlasAllergies( {
+			  callback:function(returnVal) {
+				  var value = returnVal;
+				  parseAllergyResults(value);
+			  }
+			});
 	}else if(paitent == 'Bob Dixon') {
 		picDiv.innerHTML = "<img id='userpic' src='/img/Bob.PNG'></img>";
 		DBServiceController.getBobsAllergies( {

@@ -83,4 +83,11 @@ public class DBServiceController {
 		toReturn.add(three);
 		return toReturn;
 	}
+	
+	//TODO lets actually parse the allergies section
+	public List<String[]> getMarlasAllergies() {
+        List<String[]> toReturn = new ArrayList<String[]>();
+       
+        return toReturn;
+    }
 } 
