@@ -109,7 +109,7 @@ var highlightAreas = function(role) {
 		$(allergiesHeader).css("color", "lime");
 		$(allergiesContainer).css("border", "3px solid lime");
 		$(allergiesContainer).css("color", "white !important");
-	}else if(role == 's1') {
+	}else {
 		var medicationWidget = $("#right-widget");
 		medicationWidget.css("border", "3px solid lime");
 		medicationWidget.css("color", "lime");
