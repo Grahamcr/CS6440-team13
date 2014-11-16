@@ -223,13 +223,11 @@
     -webkit-border-radius: 10px;
 	   -moz-border-radius: 10px;
 	   border-radius: 10px;
-    background-color:rgba(0,0,0,0.2);
+    background-color:white;
     font-weight: 900;
-    color:rgba(255,255,255,1.0);
+    color:black;
 }
-#passInputRE {
-    margin-left: 25px;
-}
+
 .login-btn {
     width: 100%;
     margin-top: 40px;
