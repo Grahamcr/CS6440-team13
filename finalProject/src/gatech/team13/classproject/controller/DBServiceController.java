@@ -47,9 +47,7 @@ public class DBServiceController {
 	 * 			   requested
 	 *********************************************************************/
 	public ClinicalDocumentTypeDF getData(int id, String patient) {
-		
-		
-		//Retrieve the XML data from the JaxB parser
+	    //Retrieve the XML data from the JaxB parser
 		ClinicalDocumentType result = daoImpl.getDocumentData(patient);
 		
 		//Some conversion is required to remove dependencies which cannot be
@@ -73,6 +71,8 @@ public class DBServiceController {
 	public String getUserRoleById(Long id) {
 		return dataStoreDAOImpl.getRoleForID(id);
 	}
+	
+	
 	public List<String[]> getBobsAllergies() {
 		List<String[]> toReturn = new ArrayList<String[]>();
     	String[] one = {"Amoxicillin", "Hay fever with asthma", "Moderate to sevre", "Active"};

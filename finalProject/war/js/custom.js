@@ -112,9 +112,9 @@ var highlightAreas = function(role) {
 	}else {
 		var medicationWidget = $("#right-widget");
 		medicationWidget.css("border", "3px solid lime");
-		medicationWidget.css("color", "lime");
+		medicationWidget.css("color", "black");
 		var medicationHeader = $('.right-widget-header')[0];
-		$(medicationHeader).css('background-color', "lime");
+		$(medicationHeader).css('background-color', "#00CC00");
 		$(medicationHeader).css('border-color', "green");
 	}
 };
