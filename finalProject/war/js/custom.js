@@ -89,6 +89,11 @@ $(document).ready(function() {
 	  var picDiv = $('#user-pic-wrapper')[0];
 	  picDiv.innerHTML = "<img id='userpic' src='/img/Marla.PNG'></img>";
 });
+
+var logout = function(){
+	localStorage.clear();
+	window.location = '/index.html';
+}
 /***************************************************************************
  * In The Auto-Complete search box if the user hits enter then open the
  * application that they have selected
@@ -403,6 +408,7 @@ var injectUsername = function() {
 	var text = localStorage.getItem("userrole") == "pcp" ? "Primary Care Physician" : "Cardiologist";
 	var html = "<p class='voice-brand username-text'> Welcome " + username  + "</p>";
 	html = html + "<p class='voice-brand role-text'>" + text  + "</p>";
+	html = html + "<button type='button' class='logout-btn' onClick='logout()'>Logout</button>" + "</p>";
 	 $('#username-div')[0].innerHTML = html;
 	
 };

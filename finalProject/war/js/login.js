@@ -7,7 +7,7 @@ var validateCredentials = function() {
 			  if(returnVal > 0) {
 				  localStorage.setItem("userId", returnVal);
 				  localStorage.setItem("username", username.value);
-				  window.location = '/home.html'
+				  window.location = '/home.html';
 
 			  }else {
 				  displayAlert("Incorrect Username or Password", "alert-danger", "Login Failed");

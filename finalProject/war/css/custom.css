@@ -236,6 +236,16 @@
     background-color: rgba(73,237,55,.7);
     color: #FFF;
 }
+
+.logout-btn {
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 10px;
+    background-color: gray;
+    color: #FFF;
+}
+
 .login-btn:hover {
     background-color: rgba(93,257,75,.7) !important;
     color: gray !important;
