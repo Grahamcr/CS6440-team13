@@ -51,7 +51,7 @@
     line-height: 5px !important;
 }
 #sselect {
-    width: 80%;
+    width: 100%;
     margin-left: 0px;
     margin-top: 20px;
     margin-bottom: -20px;
@@ -337,8 +337,11 @@ footer {
     #usernameInput, #passInput, .login-btn, #passInputRE {
         width: 80%;
     }
-    #usernameInput, #passInput {
+    #usernameInput, #passInput, #passInputRE {
         margin-left: 30px;
+    }
+    #sselect {
+        width:80%;
     }
 }
 
@@ -362,6 +365,9 @@ footer {
 	    background-repeat: no-repeat;
 	    background-size: 100%;
 	}
+     #sselect {
+        width:60%;
+    }
 }
 
 /* Third Screen Shift  */
@@ -372,6 +378,9 @@ footer {
     #login-welcome, #login-sub-instrc {
         width: 95%;
         margin-left: 12px;
+    }
+     #sselect {
+        width:40%;
     }
 
 }
