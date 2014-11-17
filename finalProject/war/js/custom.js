@@ -282,6 +282,7 @@ var parseAllergyResults = function(results) {
  ********************************************************************/
 var parseEncounters = function(results) {
 	var toReturn = new Array();
+	var chartData = new Array();
 	for(var i = 0; i < results.length; i++) {
 		var next = results[i];
 		if(next.tbody && next.tbody.tr) {
@@ -293,16 +294,42 @@ var parseEncounters = function(results) {
 					var value = td[d];
 					row.push(value);
 				}
+				var bpString = row[8].content[0];
+				var systolicBP = bpString.substring(0, bpString.indexOf("/"));
+				var diastolicBP = bpString.substring(bpString.indexOf("/")+1, bpString.length);
+				var date = row[0].content[1];
+				var year = date.substring(0,4);
+				var month = date.substring(4,6);
+				var day = date.substring(6,8);
+				date = year + "-" + month + "-" + day;
+				chartData.push({ date: date, systolic: systolicBP, diastolic: diastolicBP});
 				toReturn.push(row);
 			}
 		}
 	}
+	
 	injectWidgetInfo('.enounter-text', toReturn[0]);
 	injectTableRows('#encounter-tb', toReturn, "#encounter-table");
+	
+	var monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+	new Morris.Area({
+		element : 'bpchart',
+		lineColors: ['red', 'blue'],  
+		data : chartData,
+		xkey : 'date',
+        pointSize: 3,
+		ykeys : [ 'systolic', 'diastolic' ],
+		labels : [ 'Systolic', 'Diastolic' ],
+		xLabelFormat: function (x){
+            var date = new Date(x);
+            return (date.getDate() + '-' + monthNames[date.getMonth()]);
+        }
+	});
 };
-/*********************************************************************
+/*******************************************************************************
  * Parse patient m information and inject it into the widget
- ********************************************************************/
+ ******************************************************************************/
 var parseMedication = function(results) {
 	var drugs = new Array();
 	var toReturn = new Array();
@@ -425,8 +452,8 @@ var injectWidgetInfo = function(widget, info) {
 			if(value && value.length > 1) {
 				var date = value[1];
 				var year = date.substring(0,4);
-				var day = date.substring(4,6);
-				var month = date.substring(6,8);
+				var month = date.substring(4,6);
+				var day = date.substring(6,8);
 				date = day + "/" + month + "/" + year;
 				cells[i].innerHTML = date;
 			}else {
@@ -505,8 +532,8 @@ var injectTableRows = function(table_body, rows, table) {
 			if(value && value.length == 2) {
 				var date = value[1];
 				var year = date.substring(0,4);
-				var day = date.substring(4,6);
-				var month = date.substring(6,8);
+				var month = date.substring(4,6);
+				var day = date.substring(6,8);
 				date = day + "/" + month + "/" + year;
 				nextRow.push(date);
 			}
@@ -545,8 +572,8 @@ var injectAllergyTable = function(table_body, rows, table) {
 			if(value && value.length == 2) {
 				var date = value[1];
 				var year = date.substring(0,4);
-				var day = date.substring(4,6);
-				var month = date.substring(6,8);
+				var month = date.substring(4,6);
+				var day = date.substring(6,8);
 				date = day + "/" + month + "/" + year;
 				html = html + date;
 			}
