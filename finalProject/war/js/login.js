@@ -1,9 +1,12 @@
 var validateCredentials = function() {
 	var username = $('#usernameInput')[0];
 	var password = $('#passInput')[0];
-	
+	showHideLoadingWheel(true, "Authenticating...");
+
 	DBServiceController.checkLogin(username.value, password.value, {
 		  callback:function(returnVal) {
+			showHideLoadingWheel(false);
+
 			  if(returnVal > 0) {
 				  localStorage.setItem("userId", returnVal);
 				  localStorage.setItem("username", username.value);
@@ -16,6 +19,22 @@ var validateCredentials = function() {
 		  }
 		});
 }
+
+/*********************************************************************
+ * Display or hide the application level loading wheel
+ *********************************************************************/
+var showHideLoadingWheel = function(show, headerText) {
+	var pleaseWaitDiv = $('#pleaseWaitDialog');
+	var loadingHeader = $('.loading-modal-header')[0];
+	
+	//Set the message
+	loadingHeader.innerHTML = headerText;
+	
+	//Show or hide the loading modal
+	show ? pleaseWaitDiv.show() :  pleaseWaitDiv.hide();
+
+};
+
 /*********************************************************************
  * Display an alert message to the user
  ********************************************************************/

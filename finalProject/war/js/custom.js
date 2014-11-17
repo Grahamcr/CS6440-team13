@@ -58,7 +58,7 @@ var patients = ['Marla Dixon', 'Bob Dixon'];
 $(document).ready(function() {
 	
 	//Show the loading bar
-	showHideLoadingWheel(true, "Loading The Awesomeness...");
+	showHideLoadingWheel(true, "Loading Patient CCD...");
 	
 	var userId = localStorage.getItem("userId");
 	
@@ -133,7 +133,7 @@ var openCCD = function() {
 	//TODO:just use userID for now....
 	var role = localStorage.getItem("userId");
 	
-	showHideLoadingWheel(true, "Loading The Awesomeness...");
+	showHideLoadingWheel(true, "Loading Patient CCD...");
 	
 	var userId = localStorage.getItem("userId");
 	injectUsername();
