@@ -434,7 +434,12 @@ var parseProblems = function(results) {
  ********************************************************************/
 var injectUsername = function() {
 	var username =  localStorage.getItem("username");
-	var text = localStorage.getItem("userrole") == "pcp" ? "Primary Care Physician" : "Cardiologist";
+	var text = "Patient";
+	if(localStorage.getItem("userrole") == "pcp") {
+		text = "Primary Care Physician";
+	}else if(localStorage.getItem("userrole") == "s1") {
+		text = "Cardiologist";
+	}
 	var html = "<p class='voice-brand username-text'> Welcome " + username  + "</p>";
 	html = html + "<p class='voice-brand role-text'>" + text  + "</p>";
 	html = html + "<button type='button' class='logout-btn' onClick='logout()'>Logout</button>" + "</p>";
