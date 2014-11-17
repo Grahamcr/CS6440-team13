@@ -203,7 +203,7 @@ var parseResults = function(results) {
 				parseEncounters(section.text.content);
 			break;
 			case this.MEDICATION:
-				parseMedication(section.text.content);
+				parseMedication(section.text.content, section.entry.entries);
 			break;
 			case this.PROBLEMS:
 				parseProblems(section.text.content);
@@ -314,7 +314,7 @@ var parseEncounters = function(results) {
 	var monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 	
 	var chart = $("#bpchart");
-		chart.empty();
+	chart.empty();
 	chart = new Morris.Area({
 		element : 'bpchart',
 		lineColors: ['red', 'blue'],  
@@ -332,9 +332,10 @@ var parseEncounters = function(results) {
 /*******************************************************************************
  * Parse patient m information and inject it into the widget
  ******************************************************************************/
-var parseMedication = function(results) {
+var parseMedication = function(results, entries) {
 	var drugs = new Array();
 	var toReturn = new Array();
+	var activeMedications = new Array();
 	for(var i = 0; i < results.length; i++) {
 		var next = results[i];
 		if(next.tbody && next.tbody.tr) {
@@ -349,11 +350,15 @@ var parseMedication = function(results) {
 					}
 					row.push(value);
 				}
+				var statusType = entries[toReturn.length].substanceAdministration.statusCode.code;
+				if (statusType == 'active'){
+					activeMedications.push(row[1]);
+				}
 				toReturn.push(row);
 			}
 		}
 	}
-	injectWidgetInfoCollective('.medication-text', drugs);
+	injectWidgetInfoCollective('.medication-text', activeMedications);
 	injectTableRows('#medication-tb', toReturn, "#medication-table");
 };
 
