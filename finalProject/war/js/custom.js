@@ -312,8 +312,10 @@ var parseEncounters = function(results) {
 	injectTableRows('#encounter-tb', toReturn, "#encounter-table");
 	
 	var monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-
-	new Morris.Area({
+	
+	var chart = $("#bpchart");
+		chart.empty();
+	chart = new Morris.Area({
 		element : 'bpchart',
 		lineColors: ['red', 'blue'],  
 		data : chartData,
