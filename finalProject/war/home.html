@@ -1,103 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>eHIP</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
+<head>
+<meta charset="utf-8">
+<title>eHIP</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
 
-    <!-- Styles Sheets -->
-    <link href="js/bootstrap/css/bootstrap.css" rel="stylesheet">
-	<link href="css/custom.css" rel="stylesheet">
-    <link href="js/bootstrap/css/bootstrap-theme.css" rel="stylesheet">
-	<!-- DataTables CSS -->
-	<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.2/css/jquery.dataTables.css">
-  	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
- 	<script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
- 	<script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
-    <script type='text/javascript' src='/dwr/interface/DBServiceController.js'></script>
-    <script type='text/javascript' src='/dwr/engine.js'></script>
+<!-- Styles Sheets -->
+<link href="js/bootstrap/css/bootstrap.css" rel="stylesheet">
+<link href="css/custom.css" rel="stylesheet">
+<link href="js/bootstrap/css/bootstrap-theme.css" rel="stylesheet">
+<!-- DataTables CSS -->
+<link rel="stylesheet" type="text/css"
+	href="//cdn.datatables.net/1.10.2/css/jquery.dataTables.css">
+<link rel="stylesheet"
+	href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<script
+	src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+<script
+	src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+<script type='text/javascript'
+	src='/dwr/interface/DBServiceController.js'></script>
+<script type='text/javascript' src='/dwr/engine.js'></script>
 
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
       <script src="../assets/js/html5shiv.js"></script>
 	  <script src="respond.js"></script>
     <![endif]-->
 
-    <!-- Fav and touch icons -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="logo.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="logo.png">
-      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="logo.png">
-                    <link rel="apple-touch-icon-precomposed" href="logo.png">
-                                   <link rel="shortcut icon" href="logo.png">
-								   
-		<script src="js/browserRedirect.js"></script>				
-  </head>
+<!-- Fav and touch icons -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="logo.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="logo.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="logo.png">
+<link rel="apple-touch-icon-precomposed" href="logo.png">
+<link rel="shortcut icon" href="logo.png">
 
-  <body>
-  
+<script src="js/browserRedirect.js"></script>
+</head>
+
+<body>
+
 	<!-- Wrapper around the header area -->
 	<div class="row banner-row">
-		<div class="col-md-12 banner-wrapper">
-			
-		</div>
+		<div class="col-md-12 banner-wrapper"></div>
 	</div>
 	<div class="row header-wrapper">
-		
+
 		<div class="col-md-12 header-center">
 
-		 <div class="container">
-		 	<div id="alert-div-wrapper"></div>
-		 	<div id="username-div"></div>
-			<div id="role-div"></div>
-			<div class="navbar-header">
-			  <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
-				<span class="sr-only">Toggle navigation</span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			  </button>
-			  <div class="logo-wrapper">
-				<a href="../" class="navbar-brand"><img id="top-left-logo" src="img/heart258.png"></img></a>
-				<h2 class="website-title voice-brand">eHIP</h2>
-			  </div>
-			  <div id="typeahead-div">
-				<p id="typeahead-header">Open CCD</p>
-				<div id="the-basics">
-				  <input class="typeahead" type="text" placeholder="Start Typing Patient Name">
+			<div class="container">
+				<div id="alert-div-wrapper"></div>
+				<div id="username-div"></div>
+				<div id="role-div"></div>
+				<div class="navbar-header">
+					<button class="navbar-toggle" type="button" data-toggle="collapse"
+						data-target=".bs-navbar-collapse">
+						<span class="sr-only">Toggle navigation</span> <span
+							class="icon-bar"></span> <span class="icon-bar"></span> <span
+							class="icon-bar"></span>
+					</button>
+					<div class="logo-wrapper">
+						<a href="../" class="navbar-brand"><img id="top-left-logo"
+							src="img/heart258.png"></img></a>
+						<h2 class="website-title voice-brand">eHIP</h2>
+					</div>
+					<div id="typeahead-div">
+						<p id="typeahead-header">Open CCD</p>
+						<div id="the-basics">
+							<input class="typeahead" type="text"
+								placeholder="Start Typing Patient Name">
+						</div>
+						<button class="btn open-btn" onclick="openCCD()">Open</button>
+					</div>
 				</div>
-				<button class="btn open-btn" onclick="openCCD()">Open</button>
-			  </div>
-			</div>
-			<nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
-			  <ul class="nav navbar-nav"><!-- 
+				<nav class="collapse navbar-collapse bs-navbar-collapse"
+					role="navigation">
+					<ul class="nav navbar-nav">
+						<!-- 
 				<li class="nav-bar-li">
 				   <button type="button" class="btn btn-default">
 						<img src="img/aboutIn.png" class="about-btn-img inactive-nav-btn"></img> 
 					  </button>
 				</li>  -->
-				</ul>
-				
+					</ul>
 
-			  
-			</nav>
-		  </div>
-			
+
+
+				</nav>
+			</div>
+
 		</div>
-				
+	</div>
+	<!-- End of Header Wrapper -->
 
-			
-		
-	</div>  <!-- End of Header Wrapper -->
-  
 	<!-- The Main Container -->
 	<div class="container">
-		
+
 		<div class="row author-info-block data-block">
 			<div class="col-md-12 author-info-block-wrapper data-block-wrapper">
-			
+
 			</div>
 		</div>
 		<div class="row" id="patient-info-row">
@@ -105,104 +109,119 @@
 				<div class="patient-header">
 					<p id="patient-name" class="patient-text"></p>
 				</div>
-					
-					<div class="widget-content row">
-						<div id="user-pic-wrapper" class="col-md-3 widget-col">
-								
-						 </div>
-						<div class="col-md-6 widget-col">
-							 <p class="widget-header-txt">Address:</th>
-							 <p id="patient-address-1" class="patient-text p-inject-txt"></p>
-							 <p id="patient-address-2" class="patient-text p-inject-txt"></p>
-							 <p class="widget-header-txt">Gender:</th>
-							 <p id="patient-gender" class="patient-text p-inject-txt"></p>
-						 </div>
-						 <div class="col-md-3 widget-col user-allergies-wrapper">
-							<h2 class="voice-brand allergies-header">Allergies</h2>
-							<p id="allergies-container">No Known Allergies</p>
-							<div class="row more-info-row allergy-more-info-row">
-								<div class="col-md-12 more-info-wrapper allergy-mi-wrapper">
-									<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#allergyModal">
-									  More Information
-									</button>
-								</div>
-							</div>
-						 </div>
+
+				<div class="widget-content row">
+					<div id="user-pic-wrapper" class="col-md-3 widget-col"></div>
+					<div class="col-md-6 widget-col">
+						<p class="widget-header-txt">
+							Address:
+							</th>
+						<p id="patient-address-1" class="patient-text p-inject-txt"></p>
+						<p id="patient-address-2" class="patient-text p-inject-txt"></p>
+						<p class="widget-header-txt">
+							Gender:
+							</th>
+						<p id="patient-gender" class="patient-text p-inject-txt"></p>
 					</div>
-					
+					<div class="col-md-3 widget-col user-allergies-wrapper">
+						<h2 class="voice-brand allergies-header">Allergies</h2>
+						<p id="allergies-container">No Known Allergies</p>
+						<div class="row more-info-row allergy-more-info-row">
+							<div class="col-md-12 more-info-wrapper allergy-mi-wrapper">
+								<button class="btn btn-primary btn-lg" data-toggle="modal"
+									data-target="#allergyModal">More Information</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
 			</div>
 		</div>
 		<div id="bpchart" style="height: 250px;"></div>
-		
+
 		<div class="row widget-row" id="first-widget-row">
 			<div class="col-md-4 widget-wrapper" id="left-widget">
 				<div class="widget-header">
-					<p class="widget-header-text"> Most Recent Encounter:</p>
+					<p class="widget-header-text">Most Recent Encounter:</p>
 				</div>
 				<div class="widget-content row">
 					<div class="col-md-6 widget-col">
-						 <p class="widget-header-txt">Visit Date</p>
-						 <p class="enounter-text inject-txt"></p>
-						 <p class="widget-header-txt">Chief Complaint</th>
-						 <p class="enounter-text inject-txt"></p>
-						 <p class="widget-header-txt">Diagnosis</th>
-						 <p class="enounter-text inject-txt"></p>
-						 <p class="widget-header-txt">ICD-9</th>
-						 <p class="enounter-text inject-txt"></p>
-					 </div>
-					 <div class="col-md-6 widget-col">	
-						 <p class="widget-header-txt">Height</th>
-						 <p class="enounter-text inject-txt"></p>
-						 <p class="widget-header-txt">Weight</th>
-						 <p class="enounter-text inject-txt"></p>
-						 <p class="widget-header-txt">Pulse</th>
-						 <p class="enounter-text inject-txt"></p>
-						 <p class="widget-header-txt">Respiration</th>
-						 <p class="enounter-text inject-txt"></p>
-						 <p class="widget-header-txt">Blood Pressure</th>
-						 <p class="enounter-text inject-txt"></p>
+						<p class="widget-header-txt">Visit Date</p>
+						<p class="enounter-text inject-txt"></p>
+						<p class="widget-header-txt">
+							Chief Complaint
+							</th>
+						<p class="enounter-text inject-txt"></p>
+						<p class="widget-header-txt">
+							Diagnosis
+							</th>
+						<p class="enounter-text inject-txt"></p>
+						<p class="widget-header-txt">
+							ICD-9
+							</th>
+						<p class="enounter-text inject-txt"></p>
+					</div>
+					<div class="col-md-6 widget-col">
+						<p class="widget-header-txt">
+							Height
+							</th>
+						<p class="enounter-text inject-txt"></p>
+						<p class="widget-header-txt">
+							Weight
+							</th>
+						<p class="enounter-text inject-txt"></p>
+						<p class="widget-header-txt">
+							Pulse
+							</th>
+						<p class="enounter-text inject-txt"></p>
+						<p class="widget-header-txt">
+							Respiration
+							</th>
+						<p class="enounter-text inject-txt"></p>
+						<p class="widget-header-txt">
+							Blood Pressure
+							</th>
+						<p class="enounter-text inject-txt"></p>
 					</div>
 					<div class="col-md-12 widget-col">
-						<p class="widget-header-txt">Notes</th>
-						 <p class="enounter-text inject-txt"></p>
+						<p class="widget-header-txt">
+							Notes
+							</th>
+						<p class="enounter-text inject-txt"></p>
 					</div>
 				</div>
 				<div class="row more-info-row">
 					<div class="col-md-12 more-info-wrapper">
-						<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#encounterModal">
-						  Past Encounters
-						</button>
+						<button class="btn btn-primary btn-lg" data-toggle="modal"
+							data-target="#encounterModal">Past Encounters</button>
 					</div>
 				</div>
 			</div>
 			<div class="col-md-4 widget-wrapper" id="middle-widget">
 				<div class="widget-header">
-					<p class="widget-header-text"> Problems:</p>
+					<p class="widget-header-text">Problems:</p>
 				</div>
 				<div class="widget-content">
-				
-					<div class="col-md-11 widget-col problem-text">
-						
-					</div>
-					
-										
+
+					<div class="col-md-11 widget-col problem-text"></div>
+
+
 				</div>
 				<div class="row more-info-row">
 					<div class="col-md-12 more-info-wrapper">
-						 <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#procedureModal">
-						  More Information
-						</button>
+						<button class="btn btn-primary btn-lg" data-toggle="modal"
+							data-target="#procedureModal">More Information</button>
 					</div>
 				</div>
 			</div>
-		
+
 			<div class="col-md-4 widget-wrapper" id="right-widget">
-					
+
 				<div class="widget-header right-widget-header">
-					<p class="widget-header-text"> Active Medications:</p>
+					<p class="widget-header-text">Active Medications:</p>
 				</div>
 				<div class="widget-content">
-				
+
 					<div class="col-md-11 widget-col medication-text">
 						<!-- <p class="widget-header-txt">Visit Date</p>
 						 <p class="medication-text inject-txt"></p> 
@@ -221,29 +240,27 @@
 					 	 <p class="widget-header-txt">Instructions</th>
 						 <p class="medication-text inject-txt"></p>	
 					</div> -->
-										
+
 				</div>
 				<div class="row more-info-row">
 					<div class="col-md-12 more-info-wrapper">
-						 <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#medModal">
-						  Medication History
-						</button>
+						<button class="btn btn-primary btn-lg" data-toggle="modal"
+							data-target="#medModal">Medication History</button>
 					</div>
 				</div>
 			</div>
 		</div>
 		<div class='row hidden-info-row'>
-			<button type="button" class="btn btn-danger" data-toggle="collapse" data-target="#sh-collapse">
-			  Social History >
-			  
-			</button>
+			<button type="button" class="btn btn-danger" data-toggle="collapse"
+				data-target="#sh-collapse">Social History ></button>
 			<div id="sh-collapse" class="collapse">
-				
+
 				<div class="row widget-row" id="third-widget-row">
 					<div class="col-md-12 widget-wrapper" id="middle-widget">
 						<div class="widget-content row">
 							<div id="results-div">
-								<table id="social-history-table" width="100%" cellspacing="0" class="table">
+								<table id="social-history-table" width="100%" cellspacing="0"
+									class="table">
 									<thead>
 										<tr>
 											<th>History</th>
@@ -251,7 +268,7 @@
 											<th>To</th>
 										</tr>
 									</thead>
-										<tbody id="social-history-tb">	
+									<tbody id="social-history-tb">
 									</tbody>
 								</table>
 							</div>
@@ -261,9 +278,8 @@
 			</div>
 		</div>
 		<div class='row hidden-info-row'>
-			<button type="button" class="btn btn-danger" data-toggle="collapse" data-target="#lab-collapse">
-				Lab Results >
-			</button>
+			<button type="button" class="btn btn-danger" data-toggle="collapse"
+				data-target="#lab-collapse">Lab Results ></button>
 			<div id="lab-collapse" class="collapse">
 				<div class="row widget-row" id="fifth-widget-row">
 					<div class="col-md-12 widget-wrapper" id="middle-widget">
@@ -291,122 +307,132 @@
 			</div>
 		</div>
 		<div class='row hidden-info-row'>
-			<button type="button" class="btn btn-danger" data-toggle="collapse" data-target="#problems-collapse">
-			  Procedures >
-			</button>
+			<button type="button" class="btn btn-danger" data-toggle="collapse"
+				data-target="#problems-collapse">Procedures ></button>
 			<div id="problems-collapse" class="collapse">
 				<div class="row widget-row" id="sixth-widget-row">
 					<div class="col-md-12 widget-wrapper" id="left-widget">
 						<div class="widget-content">
-						
+
 							<div id="results-div">
-				
-								
+
+
 								<p>No Procedures Found</p>
-								
-								
+
+
 							</div>
-												
+
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<footer>
-			<p class="pull-right"><a href="#">Back to top</a></p>
-			<p>Team 13 &middot; </p>
-			<p>Georgia Tech CS</p>
-		</footer>
-		
-		
-		
+
 		<!-- Modal -->
-		<div class="modal fade" id="medModal" tabindex="-1" role="dialog" aria-labelledby="medModalLabel" aria-hidden="true">
-		  <div class="modal-dialog">
-			<div class="modal-content">
-			  <div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-				<h4 class="modal-title" id="medModalLabel">Detailed Medication Info.</h4>
-			  </div>
-			  <div class="modal-body">
-				<div class="widget-table-wrapper">
-					<table id="medication-table" width="100%" cellspacing="0" class="display">
-						<thead>
-							  <tr>
-								 <th>Visit Date</th>
-								 <th>Drug</th>
-								 <th>NDC</th>
-								 <th>Type</th>
-								 <th>Quantity</th>
-								 <th>Refills</th>
-								 <th>Instructions</th>
-							  </tr>
-						 </thead>
-						  <tbody id="medication-tb">
-						  </tbody>
-					</table>
-			  </div>
-			  <div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-			  </div>
+		<div class="modal fade" id="medModal" tabindex="-1" role="dialog"
+			aria-labelledby="medModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">
+							<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+						</button>
+						<h4 class="modal-title" id="medModalLabel">Detailed
+							Medication Info.</h4>
+					</div>
+					<div class="modal-body">
+						<div class="widget-table-wrapper">
+							<table id="medication-table" width="100%" cellspacing="0"
+								class="display">
+								<thead>
+									<tr>
+										<th>Visit Date</th>
+										<th>Drug</th>
+										<th>NDC</th>
+										<th>Type</th>
+										<th>Quantity</th>
+										<th>Refills</th>
+										<th>Instructions</th>
+									</tr>
+								</thead>
+								<tbody id="medication-tb">
+								</tbody>
+							</table>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default"
+								data-dismiss="modal">Close</button>
+						</div>
+					</div>
+				</div>
 			</div>
-		  </div>
+
+
 		</div>
-		
-		
-	</div>
-	
-	
-	<!-- Modal -->
-		<div class="modal fade" id="encounterModal" tabindex="-1" role="dialog" aria-labelledby="encounterModalLabel" aria-hidden="true">
-		  <div class="modal-dialog">
-			<div class="modal-content">
-			  <div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-				<h4 class="modal-title" id="encounterModalLabel">Detailed Encounter Info.</h4>
-			  </div>
-			  <div class="modal-body">
-				<div class="widget-table-wrapper">
-					<table id="encounter-table" width="100%" cellspacing="0" class="display">
-						<thead>
-							  <tr>
-								 <th>Visit Date</th>
-								 <th>Chief Complaint</th>
-								 <th>Diagnosis</th>
-								 <th>ICD-9</th>
-								 <th>Height</th>
-								 <th>Weight</th>
-								 <th>Pulse</th>
-								 <th>Respiration</th>
-								 <th>Blood Pressure</th>
-								 <th>Notes</th>
-							  </tr>
-						 </thead>
-						  <tbody id="encounter-tb">
-						  </tbody>
-					</table>
-			  </div>
-			  <div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-			  </div>
+
+
+		<!-- Modal -->
+		<div class="modal fade" id="encounterModal" tabindex="-1"
+			role="dialog" aria-labelledby="encounterModalLabel"
+			aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">
+							<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+						</button>
+						<h4 class="modal-title" id="encounterModalLabel">Detailed
+							Encounter Info.</h4>
+					</div>
+					<div class="modal-body">
+						<div class="widget-table-wrapper">
+							<table id="encounter-table" width="100%" cellspacing="0"
+								class="display">
+								<thead>
+									<tr>
+										<th>Visit Date</th>
+										<th>Chief Complaint</th>
+										<th>Diagnosis</th>
+										<th>ICD-9</th>
+										<th>Height</th>
+										<th>Weight</th>
+										<th>Pulse</th>
+										<th>Respiration</th>
+										<th>Blood Pressure</th>
+										<th>Notes</th>
+									</tr>
+								</thead>
+								<tbody id="encounter-tb">
+								</tbody>
+							</table>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default"
+								data-dismiss="modal">Close</button>
+						</div>
+					</div>
+				</div>
 			</div>
-		  </div>
+
+
 		</div>
-		
-		
-	</div>
-	
-	<!-- Modal -->
-	<div class="modal fade" id="procedureModal" tabindex="-1" role="dialog" aria-labelledby="procedureModalLabel" aria-hidden="true">
-		  <div class="modal-dialog">
-			<div class="modal-content">
-			  <div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-				<h4 class="modal-title" id="procedureModalLabel">Detailed Procedure Info.</h4>
-			  </div>
-			  <div class="modal-body">
-				<div class="widget-table-wrapper">
-					<!-- <table id="procedure-table" width="100%" cellspacing="0" class="display">
+
+		<!-- Modal -->
+		<div class="modal fade" id="procedureModal" tabindex="-1"
+			role="dialog" aria-labelledby="procedureModalLabel"
+			aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">
+							<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+						</button>
+						<h4 class="modal-title" id="procedureModalLabel">Detailed
+							Procedure Info.</h4>
+					</div>
+					<div class="modal-body">
+						<div class="widget-table-wrapper">
+							<!-- <table id="procedure-table" width="100%" cellspacing="0" class="display">
 						<thead>
 							  <tr>
 								 <th>Visit Date</th>
@@ -424,90 +450,115 @@
 						  <tbody id="procedure-tb">
 						  </tbody>
 					</table> -->
-					
-					<table id="problems-table" width="100%" cellspacing="0" class="table">
-						<thead>
-							<tr>
-								<th>Problem</th>
-							</tr>
-						</thead>
-							<tbody id="problems-tb">
-						</tbody>
-					</table>
-						
-						
-			  </div>
-			  <div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-			  </div>
+
+							<table id="problems-table" width="100%" cellspacing="0"
+								class="table">
+								<thead>
+									<tr>
+										<th>Problem</th>
+									</tr>
+								</thead>
+								<tbody id="problems-tb">
+								</tbody>
+							</table>
+
+
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default"
+								data-dismiss="modal">Close</button>
+						</div>
+					</div>
+				</div>
 			</div>
-		  </div>
+
+
 		</div>
-		
-		
-	</div>
-	
-	<!-- Modal -->
-	<div class="modal fade" id="allergyModal" tabindex="-1" role="dialog" aria-labelledby="allergyModalLabel" aria-hidden="true">
-		  <div class="modal-dialog">
-			<div class="modal-content">
-			  <div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-				<h4 class="modal-title" id="AllergyModalLabel">Detailed Allergy Info.</h4>
-			  </div>
-			  <div class="modal-body">
-				<div class="widget-table-wrapper">
-					<table id="allergy-table" width="100%" cellspacing="0" class="display">
-						<thead>
-							  <tr>
-							   <th>Substance</th>
-                               <th>Reaction</th>
-                               <th>Severity</th>
-                               <th>Status</th>
-							  </tr>
-						 </thead>
-						  <tbody id="allergy-tb">
-						  </tbody>
-					</table>
-			  </div>
-			  <div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-			  </div>
+
+		<!-- Modal -->
+		<div class="modal fade" id="allergyModal" tabindex="-1" role="dialog"
+			aria-labelledby="allergyModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">
+							<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+						</button>
+						<h4 class="modal-title" id="AllergyModalLabel">Detailed
+							Allergy Info.</h4>
+					</div>
+					<div class="modal-body">
+						<div class="widget-table-wrapper">
+							<table id="allergy-table" width="100%" cellspacing="0"
+								class="display">
+								<thead>
+									<tr>
+										<th>Substance</th>
+										<th>Reaction</th>
+										<th>Severity</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody id="allergy-tb">
+								</tbody>
+							</table>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default"
+								data-dismiss="modal">Close</button>
+						</div>
+					</div>
+				</div>
 			</div>
-		  </div>
 		</div>
-	</div>
-	
-	<div class="modal" id="pleaseWaitDialog" data-backdrop="static" data-keyboard="false">
-	   <div class="modal-dialog">
-		<div class="modal-content">
-		  <div class="modal-header">
-			<h3 class="voice-brand loading-modal-header">Loading Patient CCD.....</h3>
-		   </div>
-		  <div class="modal-body">
-			<div class="progress">
-			  <div class="progress-bar progress-bar-striped active"  role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
-				<span class="sr-only">100% Complete</span>
-			  </div>
+
+		<div class="modal" id="pleaseWaitDialog" data-backdrop="static"
+			data-keyboard="false">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h3 class="voice-brand loading-modal-header">Loading Patient
+							CCD.....</h3>
+					</div>
+					<div class="modal-body">
+						<div class="progress">
+							<div class="progress-bar progress-bar-striped active"
+								role="progressbar" aria-valuenow="100" aria-valuemin="0"
+								aria-valuemax="100" style="width: 100%">
+								<span class="sr-only">100% Complete</span>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer"></div>
+				</div>
 			</div>
-		  </div>
-		  <div class="modal-footer">
-		  </div>
 		</div>
-	  </div>
+
 	</div>
 
-   <!-- The javascript
+
+	<div id="footer">
+
+		<p class="pull-right">
+			<a href="#">Back to top</a>
+		</p>
+		<p>Team 13 &middot;</p>
+		<p>Georgia Tech CS</p>
+
+	</div>
+	<!-- The javascript
     ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster 
+	<!-- Placed at the end of the document so the pages load faster 
 	<script src="js/jquery.js"></script> -->
-	
-<!-- jQuery --> 
-<script type="text/javascript" charset="utf8" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
-  
+
+	<!-- jQuery -->
+	<script type="text/javascript" charset="utf8"
+		src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+
 	<!-- DataTables -->
-	<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.2/js/jquery.dataTables.js"></script>
-    <script src="js/bootstrap/js/bootstrap.js"></script>
+	<script type="text/javascript" charset="utf8"
+		src="//cdn.datatables.net/1.10.2/js/jquery.dataTables.js"></script>
+	<script src="js/bootstrap/js/bootstrap.js"></script>
 	<script src="js/typeahead.jquery.js"></script>
 	<script src="js/custom.js"></script>
-  </body>
+</body>
