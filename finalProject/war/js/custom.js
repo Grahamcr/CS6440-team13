@@ -111,17 +111,17 @@ var highlightAreas = function(role) {
 	if(role == 'pcp') {
 		var allergiesHeader = $('.allergies-header')[0];
 		var allergiesContainer = $('#allergies-container')[0];
-		$(allergiesHeader).css("color", "red");
-		$(allergiesContainer).css("border", "3px solid red");
+		$(allergiesHeader).css("color", "#FFC266");
+		$(allergiesContainer).css("border", "3px solid #FFC266");
 		$(allergiesContainer).css("color", "white !important");
 		$('#bpchart').hide();
 	}else {
 		var medicationWidget = $("#right-widget");
-		medicationWidget.css("border", "3px solid lime");
+		medicationWidget.css("border", "3px solid #FFE0A3");
 		medicationWidget.css("color", "black");
 		var medicationHeader = $('.right-widget-header')[0];
-		$(medicationHeader).css('background-color', "#00CC00");
-		$(medicationHeader).css('border-color', "green");
+		$(medicationHeader).css('background-color', "#FFC266");
+		$(medicationHeader).css('border-color', "#FFE0A3");
 	}
 };
 /********************************************************************
