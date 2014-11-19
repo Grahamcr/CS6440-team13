@@ -400,7 +400,12 @@ var parseSocialHistory = function(results) {
 				var row = new Array();
 				for(var d = 0; d < td.length; d++) {
 					var value = td[d];
-					row.push(value);
+					if (value.content.length == 2) {
+						//get the second value
+						row.push(value.content[1]);
+					} else {
+						row.push(value);
+					}
 				}
 				toReturn.push(row);
 			}
