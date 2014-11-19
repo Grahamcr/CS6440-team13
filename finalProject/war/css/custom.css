@@ -298,20 +298,14 @@
 .footer {
     margin-top: 50px;
     background-color:#5C85AD; 
+    color: black;
+  	font-weight: bold;
     width:100%;
     bottom: 0;
     position: relative;
     margin:0; padding:0;
 }
 
-#footer p{
-	color: white;
-	
-}
-
-#footer a{
-	color: white;
-}
 .website-title {
     width: 500px;
     position: relative;
