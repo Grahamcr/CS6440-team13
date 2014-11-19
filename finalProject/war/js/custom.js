@@ -444,7 +444,7 @@ var injectUsername = function() {
 	if(localStorage.getItem("userrole") == "pcp") {
 		text = "Primary Care Physician";
 	}else if(localStorage.getItem("userrole") == "s1") {
-		text = "Cardiologist";
+		text = "Pulmonologist";
 	}
 	var html = "<p class='voice-brand username-text'> Welcome " + username  + "</p>";
 	html = html + "<p class='voice-brand role-text'>" + text  + "</p>";
