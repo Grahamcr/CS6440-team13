@@ -411,7 +411,6 @@ var parseSocialHistory = function(results) {
 			}
 		}
 	}
-	//injectWidgetInfo('.medication-text', toReturn[0]);
 	injectTableRows('#social-history-tb', toReturn, "#social-history-table");
 };
 
