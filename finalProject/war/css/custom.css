@@ -150,7 +150,7 @@
 .widget-content {
     margin-top: 20px;
     margin-left: 0px;
-    min-height: 270px;
+    min-height: 150px;
     width:105% !important;
     margin-bottom: -30px;
 }
@@ -174,7 +174,7 @@
 }
 #patient-info-wrapper {
     margin-top: -90px;
-    margin-bottom:-120px;
+    background: #FFFFD6;
 }
 #patient-address-2 {
     margin-left: 65px;

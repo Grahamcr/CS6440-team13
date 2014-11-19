@@ -334,7 +334,6 @@ var parseEncounters = function(results) {
  * Parse patient m information and inject it into the widget
  ******************************************************************************/
 var parseMedication = function(results, entries) {
-	var drugs = new Array();
 	var toReturn = new Array();
 	var activeMedications = new Array();
 	for(var i = 0; i < results.length; i++) {
@@ -346,9 +345,6 @@ var parseMedication = function(results, entries) {
 				var row = new Array();
 				for(var d = 0; d < td.length; d++) {
 					var value = td[d];
-					if(d == 1) {
-						drugs.push(value);
-					}
 					row.push(value);
 				}
 				var statusType = entries[toReturn.length].substanceAdministration.statusCode.code;
