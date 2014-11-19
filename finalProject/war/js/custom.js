@@ -114,6 +114,7 @@ var highlightAreas = function(role) {
 		$(allergiesHeader).css("color", "red");
 		$(allergiesContainer).css("border", "3px solid red");
 		$(allergiesContainer).css("color", "white !important");
+		$('#bpchart').hide();
 	}else {
 		var medicationWidget = $("#right-widget");
 		medicationWidget.css("border", "3px solid lime");
