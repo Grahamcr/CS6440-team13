@@ -137,8 +137,15 @@
 
 			</div>
 		</div>
-		<div id="bpchart" style="height: 250px;"></div>
-
+		<div class="row widget-row" id="bp-widget-row1">
+			<button type="button" class="btn btn-danger" data-toggle="collapse"
+				data-target="#bp-collapse">Blood Pressure Chart ></button>
+			<div id="bp-collapse" class="collapse in">
+				<div class="col-md-12 bp-widget">
+					<div id="bpchart1" style="height: 250px;"></div>
+				</div>
+			</div>
+		</div>
 		<div class="row widget-row" id="first-widget-row">
 			<div class="col-md-4 widget-wrapper" id="left-widget">
 				<div class="widget-header">
@@ -250,10 +257,19 @@
 				</div>
 			</div>
 		</div>
+		<div class="row widget-row" id="bp-widget-row2">
+			<button id="bpbutton2" type="button" class="btn btn-danger" data-toggle="collapse"
+				data-target="#bp-collapse2">Blood Pressure Chart ></button>
+			<div id="bp-collapse2" class="collapse in">
+				<div class="col-md-12 bp-widget">
+					<div id="bpchart2" style="height: 250px;"></div>
+				</div>
+			</div>
+		</div>
 		<div class='row hidden-info-row'>
 			<button type="button" class="btn btn-danger" data-toggle="collapse"
 				data-target="#sh-collapse">Social History ></button>
-			<div id="sh-collapse" class="collapse" >
+			<div id="sh-collapse" class="collapse">
 
 				<div class="row widget-row" id="third-widget-row">
 					<div class="col-md-12 widget-wrapper" id="middle-widget">

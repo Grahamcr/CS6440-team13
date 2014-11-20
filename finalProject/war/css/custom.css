@@ -104,7 +104,7 @@
 }
 .btn-danger {
     position: relative;
-    width:200px;
+    width:100%;
     background:none !important;
     border-color: white !important;
     margin-top: 30px;
@@ -189,11 +189,29 @@
     border-width:3px; 
     border-color:#7db9e8;
     padding:0px;
+    
     -webkit-border-radius: 13px;
     -moz-border-radius: 13px;
     border-radius: 16px;
     min-height: 350px !important;
 }
+
+.bp-widget{
+    border:solid;
+    border-width:3px; 
+    border-color:#7db9e8;
+    padding:0px;
+    
+    -webkit-border-radius: 13px;
+    -moz-border-radius: 13px;
+    border-radius: 16px;
+    height:auto;
+}
+
+.widget-row {
+    padding:2px;
+}
+
 #username-div {
     float:right;
     margin-top: 10px;
