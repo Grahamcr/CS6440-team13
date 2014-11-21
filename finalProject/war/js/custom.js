@@ -367,10 +367,27 @@ var parseMedication = function(results, entries) {
 					var value = td[d];
 					row.push(value);
 				}
-				var statusType = entries[toReturn.length].substanceAdministration.statusCode.code;
+				var substanceAdministration = entries[toReturn.length].substanceAdministration;
+				var statusType = substanceAdministration.statusCode.code;
+				var startDate = "--";
+				var endDate = " ";
+
+				for (var entrycon = 0 ; entrycon < substanceAdministration.effectiveTime.content.length; entrycon++){
+					var con = substanceAdministration.effectiveTime.content[entrycon];
+					if (con.lowValue){
+						startDate = ["", con.lowValue.toString()];
+					}
+					else if (con.highValue){
+						endDate = ["", con.highValue.toString()];
+					}
+				}
+				
 				if (statusType == 'active') {
 					activeMedications.push(row[1]);
 				}
+				row.push(statusType);
+				row.push(startDate);
+				row.push(endDate);
 				toReturn.push(row);
 			}
 		}

@@ -38,10 +38,10 @@ import javax.xml.bind.annotation.XmlValue;
 })
 public class LowType {
 
-    @XmlValue
+    @XmlValue 
     protected String value;
-    @XmlAttribute(name = "value1")
-    protected Integer value1;
+    @XmlAttribute(name = "value")
+    protected Integer lowvalue;
 
     /**
      * Gets the value of the value property.
@@ -75,8 +75,8 @@ public class LowType {
      *     {@link Integer }
      *     
      */
-    public Integer getValue1() {
-        return value1;
+    public Integer getLowValue() {
+        return lowvalue;
     }
 
     /**
@@ -87,8 +87,8 @@ public class LowType {
      *     {@link Integer }
      *     
      */
-    public void setValue1(Integer value) {
-        this.value1 = value;
+    public void setLowValue(Integer value) {
+        this.lowvalue = value;
     }
 
 }

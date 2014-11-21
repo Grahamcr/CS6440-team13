@@ -40,8 +40,8 @@ public class HighType {
 
     @XmlValue
     protected String value;
-    @XmlAttribute(name = "value2")
-    protected Integer value2;
+    @XmlAttribute(name = "value")
+    protected Integer highvalue;
 
     /**
      * Gets the value of the value property.
@@ -75,8 +75,8 @@ public class HighType {
      *     {@link Integer }
      *     
      */
-    public Integer getValue2() {
-        return value2;
+    public Integer getHighValue() {
+        return highvalue;
     }
 
     /**
@@ -87,8 +87,8 @@ public class HighType {
      *     {@link Integer }
      *     
      */
-    public void setValue2(Integer value) {
-        this.value2 = value;
+    public void setHighValue(Integer value) {
+        this.highvalue = value;
     }
 
 }
