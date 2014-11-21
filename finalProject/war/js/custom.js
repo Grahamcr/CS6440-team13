@@ -211,7 +211,7 @@ var parseResults = function(results) {
 			parseMedication(section.text.content, section.entry.entries);
 			break;
 		case this.PROBLEMS:
-			parseProblems(section.text.content);
+			parseProblems(section.text.content, section.entry.entries);
 			break;
 		case this.PROCEDURES:
 			parseProcedures(section.text.content);
@@ -384,6 +384,10 @@ var parseMedication = function(results, entries) {
 				
 				if (statusType == 'active') {
 					activeMedications.push(row[1]);
+					statusType = "Active";
+				}
+				else {
+					statusType = "Completed";
 				}
 				row.push(statusType);
 				row.push(startDate);
@@ -451,8 +455,9 @@ var parseSocialHistory = function(results) {
 /*******************************************************************************
  * Parse patient problems information and inject it into the widget
  ******************************************************************************/
-var parseProblems = function(results) {
-	var toReturn = new Array();
+var parseProblems = function(results, entries) {
+	var activeProblems = new Array();
+	var allProblems = new Array();
 	for (var i = 0; i < results.length; i++) {
 		var next = results[i];
 		if (next.item) {
@@ -464,12 +469,41 @@ var parseProblems = function(results) {
 				problemTd.content.push(data[n].content.value);
 				var row = new Array();
 				row.push(problemTd);
-				toReturn.push(row);
+				
+				var act = entries[allProblems.length].act;
+				var statusType = act.statusCode.code;
+				var startDate = "--";
+				var endDate = " ";
+
+				for (var entrycon = 0 ; entrycon < act.effectiveTime.content.length; entrycon++){
+					var con = act.effectiveTime.content[entrycon];
+					if (con.lowValue){
+						startDate = ["", con.lowValue.toString()];
+					}
+					else if (con.highValue){
+						endDate = ["", con.highValue.toString()];
+					}
+				}
+				
+			
+				
+				if (statusType == 'active') {
+					activeProblems.push([row[0]]);
+					statusType = "Active";
+				}
+				else {
+					statusType = "Completed/Inactive";
+				}
+				row.push(statusType);
+				row.push(startDate);
+				row.push(endDate);
+				
+				allProblems.push(row);
 			}
 		}
 	}
-	injectWidgetInfoProblem('.problem-text', toReturn);
-	injectTableRows('#problems-tb', toReturn, "#problems-table");
+	injectWidgetInfoProblem('.problem-text', activeProblems);
+	injectTableRows('#problems-tb', allProblems, "#problems-table");
 };
 
 /*******************************************************************************
