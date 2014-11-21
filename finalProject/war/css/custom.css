@@ -95,6 +95,7 @@
     background-color:#fff;
     color:#1E5799;
 }
+
 #typeahead-div {
     margin-top: -30px;
     width:400px;
@@ -148,6 +149,14 @@
     border-radius: 13px;
 }
 .widget-content {
+    margin-top: 20px;
+    margin-left: 0px;
+    min-height: 250px;
+    width:105% !important;
+    margin-bottom: -10px;
+}
+
+.patient-widget-content {
     margin-top: 20px;
     margin-left: 0px;
     min-height: 150px;

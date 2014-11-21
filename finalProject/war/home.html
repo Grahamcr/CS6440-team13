@@ -66,6 +66,7 @@
 						<a href="../" class="navbar-brand"><img id="top-left-logo"
 							src="img/heart258.png"></img></a>
 						<h2 class="website-title voice-brand">eHIP</h2>
+						
 					</div>
 					<div id="typeahead-div">
 						<p id="typeahead-header">Open CCD</p>
@@ -110,8 +111,9 @@
 					<p id="patient-name" class="patient-text"></p>
 				</div>
 
-				<div class="widget-content row">
+				<div class="patient-widget-content row">
 					<div id="user-pic-wrapper" class="col-md-3 widget-col"></div>
+					
 					<div class="col-md-6 widget-col">
 						<p class="widget-header-txt">
 							Address:
@@ -228,8 +230,7 @@
 					<p class="widget-header-text">Active Medications:</p>
 				</div>
 				<div class="widget-content">
-					<div class="col-md-11 widget-col medication-text">
-					</div>
+					<div class="col-md-11 widget-col medication-text"></div>
 				</div>
 				<div class="row more-info-row">
 					<div class="col-md-12 more-info-wrapper">
@@ -240,8 +241,9 @@
 			</div>
 		</div>
 		<div class="row widget-row" id="bp-widget-row2">
-			<button id="bpbutton2" type="button" class="btn btn-danger" data-toggle="collapse"
-				data-target="#bp-collapse2">Blood Pressure Chart ></button>
+			<button id="bpbutton2" type="button" class="btn btn-danger"
+				data-toggle="collapse" data-target="#bp-collapse2">Blood
+				Pressure Chart ></button>
 			<div id="bp-collapse2" class="collapse in">
 				<div class="col-md-12 bp-widget">
 					<div id="bpchart2" style="height: 250px;"></div>
@@ -537,7 +539,31 @@
 				</div>
 			</div>
 		</div>
-
+		<!-- Modal -->
+		<div class="modal fade" id="authorModal" tabindex="-1" role="dialog"
+			aria-labelledby="authorModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">
+							<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+						</button>
+						<h4 class="modal-title" id="AuthorModalLabel">Author Information</h4>
+					</div>
+					<div class="modal-body">
+						<div class="widget-table-wrapper">
+							<p id="author-name" class="patient-text"></p>
+							<p id="author-address-1" class="patient-text"></p>
+							<p id="author-address-2" class="patient-text"></p>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default"
+								data-dismiss="modal">Close</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 
 

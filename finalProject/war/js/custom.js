@@ -55,41 +55,46 @@ $('#the-basics .typeahead').typeahead({
 /*******************************************************************************
  * On page load, pass a fake user id and then pull the XML data
  ******************************************************************************/
-$(document).ready(function() {
+$(document)
+		.ready(
+				function() {
 
-	// Show the loading bar
-	showHideLoadingWheel(true, "Loading Patient CCD...");
+					// Show the loading bar
+					showHideLoadingWheel(true, "Loading Patient CCD...");
 
-	var userId = localStorage.getItem("userId");
+					var userId = localStorage.getItem("userId");
 
-	// Make a DWR call to the Controller to ask for the user's role
-	DBServiceController.getUserRoleById(userId, {
-		callback : function(returnVal) {
-			var value = returnVal;
-			highlightAreas(value);
-			localStorage.setItem("userrole", value);
-			injectUsername();
-			// displayAlert("You Are Registered as a: " + value,
-			// "alert-success", "Test Show Role Results:");
+					// Make a DWR call to the Controller to ask for the user's
+					// role
+					DBServiceController.getUserRoleById(userId, {
+						callback : function(returnVal) {
+							var value = returnVal;
+							highlightAreas(value);
+							localStorage.setItem("userrole", value);
+							injectUsername();
+							// displayAlert("You Are Registered as a: " + value,
+							// "alert-success", "Test Show Role Results:");
 
-		}
-	});
+						}
+					});
 
-	// Make a DWR call to the Controller to ask for the XML data
-	DBServiceController.getData(userId, 'Marla Dixon', {
-		callback : function(returnVal) {
-			var value = returnVal;
-			parseResults(value);
+					// Make a DWR call to the Controller to ask for the XML data
+					DBServiceController.getData(userId, 'Marla Dixon', {
+						callback : function(returnVal) {
+							var value = returnVal;
+							parseResults(value);
 
-			// displayAlert("Successful Data Pull!! Here is some of the
-			// information pull,
-			// parsed and returned :)", "alert-success", "Victory!")
-			showHideLoadingWheel(false);
-		}
-	});
-	var picDiv = $('#user-pic-wrapper')[0];
-	picDiv.innerHTML = "<img id='userpic' src='/img/Marla.PNG'></img>";
-});
+							// displayAlert("Successful Data Pull!! Here is some
+							// of the
+							// information pull,
+							// parsed and returned :)", "alert-success",
+							// "Victory!")
+							showHideLoadingWheel(false);
+						}
+					});
+					var picDiv = $('#user-pic-wrapper')[0];
+					picDiv.innerHTML = "<img id='userpic' src='/img/Marla.PNG'></img><button class='logout-btn' data-toggle='modal' data-target='#authorModal'>Referring Provider</button>";
+				});
 
 var logout = function() {
 	localStorage.clear();
@@ -227,7 +232,20 @@ var parseResults = function(results) {
 
 	// parse and add the patient information
 	parsePatientInfo(results);
+
+	// parse the referring provider's information (author)
+	parseAuthor(results);
 };
+
+var parseAuthor = function(results) {
+	var parentLvl = results.author.assignedAuthor;
+	var name = parentLvl.assignedPerson.name;
+	var addressParentLvl = parentLvl.addr;
+	$('#author-name')[0].innerHTML = name.prefix + ". " + name.family + ", " + name.given;
+	$('#author-address-1')[0].innerHTML = addressParentLvl.streetAddressLine;
+	$('#author-address-2')[0].innerHTML = addressParentLvl.city + ", "
+			+ addressParentLvl.state + ", " + addressParentLvl.postalCode;
+}
 
 /*******************************************************************************
  * Parse patient information and inject it into the widget
@@ -347,7 +365,8 @@ var parseEncounters = function(results) {
 			return (date.getDate() + '-' + monthNames[date.getMonth()]);
 		}
 	});
-	$('#bpbutton2').click();//terrible trickery. let the chart draw first before it collapses. 
+	$('#bpbutton2').click();// terrible trickery. let the chart draw first
+							// before it collapses.
 
 };
 /*******************************************************************************
@@ -372,21 +391,19 @@ var parseMedication = function(results, entries) {
 				var startDate = "--";
 				var endDate = " ";
 
-				for (var entrycon = 0 ; entrycon < substanceAdministration.effectiveTime.content.length; entrycon++){
+				for (var entrycon = 0; entrycon < substanceAdministration.effectiveTime.content.length; entrycon++) {
 					var con = substanceAdministration.effectiveTime.content[entrycon];
-					if (con.lowValue){
-						startDate = ["", con.lowValue.toString()];
-					}
-					else if (con.highValue){
-						endDate = ["", con.highValue.toString()];
+					if (con.lowValue) {
+						startDate = [ "", con.lowValue.toString() ];
+					} else if (con.highValue) {
+						endDate = [ "", con.highValue.toString() ];
 					}
 				}
-				
+
 				if (statusType == 'active') {
 					activeMedications.push(row[1]);
 					statusType = "Active";
-				}
-				else {
+				} else {
 					statusType = "Completed";
 				}
 				row.push(statusType);
@@ -469,35 +486,31 @@ var parseProblems = function(results, entries) {
 				problemTd.content.push(data[n].content.value);
 				var row = new Array();
 				row.push(problemTd);
-				
+
 				var act = entries[allProblems.length].act;
 				var statusType = act.statusCode.code;
 				var startDate = "--";
 				var endDate = " ";
 
-				for (var entrycon = 0 ; entrycon < act.effectiveTime.content.length; entrycon++){
+				for (var entrycon = 0; entrycon < act.effectiveTime.content.length; entrycon++) {
 					var con = act.effectiveTime.content[entrycon];
-					if (con.lowValue){
-						startDate = ["", con.lowValue.toString()];
-					}
-					else if (con.highValue){
-						endDate = ["", con.highValue.toString()];
+					if (con.lowValue) {
+						startDate = [ "", con.lowValue.toString() ];
+					} else if (con.highValue) {
+						endDate = [ "", con.highValue.toString() ];
 					}
 				}
-				
-			
-				
+
 				if (statusType == 'active') {
-					activeProblems.push([row[0]]);
+					activeProblems.push([ row[0] ]);
 					statusType = "Active";
-				}
-				else {
+				} else {
 					statusType = "Completed/Inactive";
 				}
 				row.push(statusType);
 				row.push(startDate);
 				row.push(endDate);
-				
+
 				allProblems.push(row);
 			}
 		}
